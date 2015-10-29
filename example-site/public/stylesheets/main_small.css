@@ -1,0 +1,109 @@
+@media (max-width: 400px) {
+    html, body, div, span, applet, object, iframe,
+    h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+    a, abbr, acronym, address, big, cite, code,
+    del, dfn, em, img, ins, kbd, q, s, samp,
+    small, strike, strong, sub, sup, tt, var,
+    b, u, i, center,
+    dl, dt, dd, ol, ul, li,
+    fieldset, form, label, legend,
+    table, caption, tbody, tfoot, thead, tr, th, td,
+    article, aside, canvas, details, embed, 
+    figure, figcaption, footer, header, hgroup, 
+    menu, nav, output, ruby, section, summary,
+    time, mark, audio, video {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-size: 100%;
+        font: inherit;
+        vertical-align: baseline;
+    }
+
+    body{
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        background: #FFFAFA;
+    }
+    html {
+        height:100%;
+    }
+
+    .flex-container{
+        display: flex;
+    }
+
+    .wrap {
+        height: 100vh;
+        flex-direction: column;
+    }
+
+    .title-bar{
+        flex-basis: 5%;
+        width: 100vw;
+        margin-top: 5px;
+        padding-bottom: 5px;
+        border-bottom:1px solid #000000;
+    }
+
+    .title{
+        margin-left: 15px;
+        font-size: 30px;
+        font-family: 'Playfair Display', serif;
+        font-weight: 700;
+        font-style: italic;
+    }
+
+    .main {
+        margin: 10px 10px;
+        flex: 2;
+        flex-direction: column;
+        justify-content: space-around;
+        flex-wrap: nowrap;
+        padding:5px
+    }
+
+    .detail-card{
+        margin: 5px;
+        flex: 2;
+        font-family: 'Open Sans', sans-serif;
+    }
+
+    .detail-img{
+        display: block;
+        min-height: 25vh;
+        max-height: 30vh;
+        min-width: 0 !important;
+        margin: 0 auto;
+    }
+
+    .key{
+        font-weight: bold;
+        display: inline;
+        font-size: 20px !important;
+    }
+
+    .detail-text{
+        overflow-y: scroll;
+        max-height: calc(60vh - 40vh - 36px);
+        margin: 5px 0;
+    }
+
+    .project-matrix{
+        display: flex;
+        height: 15vh;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        margin: 5px 0;
+        overflow-x: auto;
+    }
+
+    .project-card{
+        margin: 15px 5px;
+        font-family: 'Open Sans', sans-serif;
+        width: 20vw;
+    }
+
+}
