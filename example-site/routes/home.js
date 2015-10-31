@@ -4,5 +4,6 @@ module.exports = function (){
             console.log("Going to login page")
             res.render('home', {});
         },
+    
     }
 }

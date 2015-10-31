@@ -5,11 +5,12 @@ var cookieParser = require("cookie-parser");
 var bodyParser = require("body-parser");
 var exphbs  = require("express-handlebars");
 
+var index = require("./routes/index");
 var home  = require("./routes/home")();
 
 var app = express();
 
-var PORT = process.env.PORT || 3001
+var PORT = process.env.PORT || 3000
 
 app.engine("handlebars", exphbs({defaultLayout: "main"}));
 app.set("view engine", "handlebars");
@@ -20,7 +21,9 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
-app.get("/", home.getHome);
+app.get("/", index.login);
+app.get("/home", home.getHome);
+
 
 app.listen(PORT, function() {
   console.log("App running on port:", PORT);
