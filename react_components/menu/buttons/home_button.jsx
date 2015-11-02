@@ -2,13 +2,16 @@ var React = require('react');
 
 var HomeButton = React.createClass({
     handleClick: function() {
-        console.log('HomeButton');
+        console.log('HOME');
     },
 
     render: function() {
-        var buttonClass = "noselect homeButton";
         return (
-            <div className={buttonClass} onClick={this.handleClick}>
+            <div 
+                id="homeButton"
+                className="nohighlight menuButton" 
+                onClick={this.handleClick}>
+
                 <span className="menuButtonText">
                     Home
                 </span>

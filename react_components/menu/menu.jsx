@@ -1,12 +1,16 @@
 var React = require('react');
 var FloorButton = require('./buttons/floor_button.jsx');
 var LogoutButton = require('./buttons/logout_button.jsx');
+var HomeButton = require('./buttons/home_button.jsx');
 
 var Menu = React.createClass({
 
     render: function() {
         return (
             <div id="menu">
+                <HomeButton
+                    className="menuButton"
+                />
                 <div id="buttonContainer">
                     <FloorButton
                         floorName="WH1"

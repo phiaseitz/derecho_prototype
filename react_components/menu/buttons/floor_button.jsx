@@ -9,9 +9,9 @@ var FloorButton = React.createClass({
     },
 
     render: function() {
-        var buttonClass = "noselect floorButton";
+        var buttonClass = "nohighlight menuButton";
         if (this.props.floorNumber == this.props.currentFloor) {
-            buttonClass = buttonClass + " floorButtonSelected";
+            buttonClass = buttonClass + " menuButtonSelected";
         }
         return (
             <div className={buttonClass} onClick={this.handleClick}>

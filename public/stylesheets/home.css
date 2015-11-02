@@ -1,4 +1,4 @@
-.noselect {
+.nohighlight {
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -khtml-user-select: none;
@@ -20,32 +20,18 @@
     left: 10%;
 }
 
-.homeButton {
-    cursor: pointer;
-    float: left;
+#homeButton, #logoutButton {
     width: 10%;
-    height: calc(100% - 4px);
 }
 
-.floorButton {
+.menuButton {
     cursor: pointer;
     float: left;
     width: 12.5%;
     height: calc(100% - 4px);
 }
 
-.logoutButton {
-    cursor: pointer;
-    float: left;
-    width: 10%;
-    height: calc(100% - 4px);
-}
-
-.floorButton:hover {
-    border-bottom: 4px solid #000000;
-}
-
-.logoutButton:hover {
+.menuButton:hover {
     border-bottom: 4px solid #000000;
 }
 
@@ -60,7 +46,7 @@
     color: black;
 }
 
-.floorButtonSelected {
+.menuButtonSelected {
     font-weight: bold;
     border-bottom: 4px solid #000000;
 }

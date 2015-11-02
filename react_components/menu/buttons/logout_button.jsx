@@ -6,9 +6,12 @@ var LogoutButton = React.createClass({
     },
 
     render: function() {
-        var buttonClass = "noselect logoutButton";
         return (
-            <div className={buttonClass} onClick={this.handleClick}>
+            <div
+                id="logoutButton"
+                className="nohighlight menuButton" 
+                onClick={this.handleClick}>
+
                 <span className="menuButtonText">
                     Logout
                 </span>
