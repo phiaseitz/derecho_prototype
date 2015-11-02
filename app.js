@@ -4,8 +4,13 @@ var logger = require("morgan");
 var cookieParser = require("cookie-parser");
 var bodyParser = require("body-parser");
 var exphbs  = require("express-handlebars");
+var mongoose = require('mongoose');
+
+var mongoURI = process.env.MONGOURI || "mongodb://127.0.0.1:27017/test";
+mongoose.connect(mongoURI);
 
 var home  = require("./routes/home")();
+var strategy = require("./auth")(mongoose, passport);
 
 var app = express();
 
@@ -21,6 +26,13 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
 app.get("/", home.getHome);
+app.get("/login", login.getLogin);
+
+app.post('/login',
+         passport.authenticate('local', { failureRedirect: '/login' }),
+         function(req, res) {
+           res.redirect('/');
+         });
 
 app.listen(PORT, function() {
   console.log("App running on port:", PORT);
