@@ -13,6 +13,7 @@ var FloorButton = React.createClass({
         if (this.props.floorNumber == this.props.currentFloor) {
             buttonClass = buttonClass + " menuButtonSelected";
         }
+
         return (
             <div className={buttonClass} onClick={this.handleClick}>
                 <span className="menuButtonText">
