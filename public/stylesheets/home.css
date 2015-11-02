@@ -1,3 +1,70 @@
+.noselect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+#menu {
+    width: 100%;
+    height: 40px;
+    border-bottom: 4px solid #000000;
+}
+
+#buttonContainer {
+    width: 80%;
+    height: 100%;
+    float: left;
+    left: 10%;
+}
+
+.homeButton {
+    cursor: pointer;
+    float: left;
+    width: 10%;
+    height: calc(100% - 4px);
+}
+
+.floorButton {
+    cursor: pointer;
+    float: left;
+    width: 12.5%;
+    height: calc(100% - 4px);
+}
+
+.logoutButton {
+    cursor: pointer;
+    float: left;
+    width: 10%;
+    height: calc(100% - 4px);
+}
+
+.floorButton:hover {
+    border-bottom: 4px solid #000000;
+}
+
+.logoutButton:hover {
+    border-bottom: 4px solid #000000;
+}
+
+.menuButtonText {
+    width: 100%;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    font-family: 'Open Sans';
+    color: black;
+}
+
+.floorButtonSelected {
+    font-weight: bold;
+    border-bottom: 4px solid #000000;
+}
+
 .home {
     height:100%;
     width: 100%;
