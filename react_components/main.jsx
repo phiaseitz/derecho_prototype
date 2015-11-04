@@ -1,6 +1,14 @@
 var React = require('react');
 var Menu = require('./menu/menu.jsx');
 
+var BarChart = require('./barchart.jsx');
+
+var sampleData = [
+  {id: '5fbmzmtc', x: 7, y: 41, z: 6},
+  {id: 's4f8phwm', x: 11, y: 45, z: 9},
+  // ...
+];
+
 var Main = React.createClass({
 
     getInitialState: function() {
@@ -26,6 +34,9 @@ var Main = React.createClass({
                     <div className="parent">
                         <Title/>
                     </div>
+                    <div className="App">
+                        <BarChart width={600} height={300} />
+                      </div>
                 </div>
             </body>
         );
