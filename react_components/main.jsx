@@ -1,7 +1,7 @@
 var React = require('react');
 var Menu = require('./menu/menu.jsx');
 
-var BarChart = require('./barchart.jsx');
+var DormMap = require('./dormmap.jsx');
 
 var sampleData = [
   {id: '5fbmzmtc', x: 7, y: 41, z: 6},
@@ -35,7 +35,7 @@ var Main = React.createClass({
                         <Title/>
                     </div>
                     <div className="App">
-                        <BarChart width={600} height={300} />
+                        <DormMap width={600} height={300} />
                       </div>
                 </div>
             </body>
