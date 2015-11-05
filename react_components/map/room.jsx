@@ -32,24 +32,25 @@ var Room = React.createClass({
       .interpolate("linear");
 
     var roomlabel = props.floor + props.roominfo.room;
-    var outlinecolor = "black";
+    var strokeWidth = 2;
     if (this.state.hover) {
-      outlinecolor = "green";
+      strokeWidth = 5;
     }
 
     return (
       <g> 
         <path 
           d = {lineFunction(props.roominfo.pathpoints)} 
-          stroke={outlinecolor} 
-          strokeWidth={5} 
+          stroke="black" 
+          strokeWidth={strokeWidth} 
           fill={props.color} 
           onMouseOver={this.handleMouseOver}
           onMouseOut= {this.handleMouseOut}/>
         <text 
           x= {props.margin + props.scaling*props.roominfo.labelx} 
           y= {props.margin + props.scaling*props.roominfo.labely} 
-          text-anchor="center" 
+          //Help! this does not work... 
+          text-anchor= {"center"}
           fill="black">{roomlabel}</text>
       </g>
         
