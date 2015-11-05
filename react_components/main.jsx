@@ -1,6 +1,14 @@
 var React = require('react');
 var Menu = require('./menu/menu.jsx');
 
+var DormMap = require('./map/dormmap.jsx');
+
+var sampleData = [
+  {id: '5fbmzmtc', x: 7, y: 41, z: 6},
+  {id: 's4f8phwm', x: 11, y: 45, z: 9},
+  // ...
+];
+
 var Main = React.createClass({
 
     getInitialState: function() {
@@ -26,6 +34,15 @@ var Main = React.createClass({
                     <div className="parent">
                         <Title/>
                     </div>
+                    <div className="app">
+                        <DormMap 
+                            width={600} 
+                            height={600} 
+                            // Update this to be west hall when we have that map working
+                            dorm = {this.state.currentFloor >= 4? "EH" : "EH"}
+                            floor = {(this.state.currentFloor % 4) + 1} 
+                            />
+                      </div>
                 </div>
             </body>
         );
