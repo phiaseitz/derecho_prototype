@@ -3,8 +3,8 @@ var React = require('react');
 var _ = require('underscore');
 var d3 = require ('d3');
 
-var DataSeries = require('./dataseries.jsx');
-var Dormoutline = require('./dormoutline.jsx')
+var DormOutline = require('./dormoutline.jsx');
+var DormRooms =  require('./DormRooms.jsx');
 
 var DormMap = React.createClass({
   getDefaultProps: function() {
@@ -17,7 +17,7 @@ var DormMap = React.createClass({
     var props = this.props;
     console.log(this.props);
 
-    var margin = 100;
+    var margin = 50;
     var maxDormWidth = props.width - 2*margin;
     var maxDormHeight = props.height - 2*margin;
     var maxDormX = 1145;
@@ -33,10 +33,13 @@ var DormMap = React.createClass({
 
     return (
       <svg width={this.props.width} height={this.props.height}>{this.props.children}
-        <Dormoutline dorm = {this.props.dorm} floor = {this.props.floor} width = {this.props.width} height = {this.props.height} margin = {margin} scaling = {scaling} />
+        <DormOutline margin = {margin} scaling = {scaling} />
+        <DormRooms dorm = {this.props.dorm} floor = {this.props.floor} margin = {margin} scaling = {scaling}/>
       </svg>
     );
   }
 });
 
 module.exports = DormMap;
+
+// <DormRooms dorm = {this.props.dorm} floor = {this.props.floor} margin = {margin} scaling = {scaling} />

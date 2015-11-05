@@ -7,7 +7,8 @@ var Room = React.createClass({
       floor: "1",
       margin: 100,
       scaling: 1,
-      roominfo: []
+      roominfo: [],
+      fill: "white",
     }
   },
 
@@ -24,7 +25,7 @@ var Room = React.createClass({
 
     return (
       <g> 
-        <path d = {lineFunction(props.roominfo.pathpoints)} stroke={"black"} strokeWidth={5} fill="cornflowerblue"/>
+        <path d = {lineFunction(props.roominfo.pathpoints)} stroke={"black"} strokeWidth={5} fill={props.color}/>
         <text x= {props.margin + props.scaling*props.roominfo.labelx} y= {props.margin + props.scaling*props.roominfo.labely} text-anchor="center" fill="black" >{roomlabel}</text>
       </g>
         

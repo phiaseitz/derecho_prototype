@@ -4,10 +4,6 @@ var React = require('react');
 var DormOutline = React.createClass({
   getDefaultProps: function() {
     return {
-      width: 100,
-      height: 100,
-      dorm: "EH",
-      floor: "1",
       scaling: 1,
       margin: 100
     }
@@ -72,8 +68,6 @@ var DormOutline = React.createClass({
       .x(function(d) {return props.margin + props.scaling*d.x;})
       .y(function(d) {return props.margin + props.scaling*d.y;})
       .interpolate("linear");
-
-    console.log(lineFunction(dormOutlineData));
 
     return (
       <path d = {lineFunction(dormOutlineData)} stroke={"black"} strokeWidth={2} fill="none"/>
