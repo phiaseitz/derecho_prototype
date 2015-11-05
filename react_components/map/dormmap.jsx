@@ -19,7 +19,6 @@ var DormMap = React.createClass({
   },
   render: function() {
     var props = this.props;
-    console.log(this.props);
 
     var margin = 50;
     var maxDormWidth = props.width - 2*margin;

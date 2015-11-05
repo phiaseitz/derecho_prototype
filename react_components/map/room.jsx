@@ -36,8 +36,6 @@ var Room = React.createClass({
     if (this.state.hover) {
       outlinecolor = "green";
     }
-    console.log(props);
-    console.log(props.color);
 
     return (
       <g> 
