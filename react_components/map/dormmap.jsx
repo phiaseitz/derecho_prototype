@@ -10,7 +10,11 @@ var DormMap = React.createClass({
   getDefaultProps: function() {
     return {
       dorm: "EH",
-      floor: "1"
+      floor: "1",
+      width: 100,
+      height: 100,
+      margin: 50,
+      scaling: 1,
     }
   },
   render: function() {

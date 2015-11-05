@@ -35,7 +35,13 @@ var Main = React.createClass({
                         <Title/>
                     </div>
                     <div className="App">
-                        <DormMap width={1000} height={1000} />
+                        <DormMap 
+                            width={1000} 
+                            height={1000} 
+                            // Update this to be west hall when we have that map working
+                            dorm = {this.state.currentFloor >= 4? "EH" : "EH"}
+                            floor = {(this.state.currentFloor % 4) + 1} 
+                            />
                       </div>
                 </div>
             </body>
