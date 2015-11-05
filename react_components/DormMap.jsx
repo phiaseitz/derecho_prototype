@@ -1,6 +1,10 @@
 // map.jsx
 var React = require('react');
-var DataSeries = require('./dataseries.jsx')
+var _ = require('underscore');
+var d3 = require ('d3');
+
+var DataSeries = require('./dataseries.jsx');
+var Dormoutline = require('./dormoutline.jsx')
 
 var DormMap = React.createClass({
   getDefaultProps: function() {
@@ -10,9 +14,26 @@ var DormMap = React.createClass({
     }
   },
   render: function() {
+    var props = this.props;
+    console.log(this.props);
+
+    var margin = 100;
+    var maxDormWidth = props.width - 2*margin;
+    var maxDormHeight = props.height - 2*margin;
+    var maxDormX = 1145;
+    var maxDormY = 1090;
+
+    var scaling = 1;
+
+    if (maxDormX/maxDormY >= maxDormWidth/maxDormHeight){
+      scaling = maxDormWidth/maxDormX;
+    }else {
+      scaling = maxDormHeight/maxDormY;
+    }
+
     return (
       <svg width={this.props.width} height={this.props.height}>{this.props.children}
-        <DataSeries data={[ 30, 10, 5, 8, 15, 10 ]} width={this.props.width} height={this.props.height} color="cornflowerblue" />
+        <Dormoutline dorm = {this.props.dorm} floor = {this.props.floor} width = {this.props.width} height = {this.props.height} margin = {margin} scaling = {scaling} />
       </svg>
     );
   }

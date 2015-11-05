@@ -35,7 +35,7 @@ var Main = React.createClass({
                         <Title/>
                     </div>
                     <div className="App">
-                        <DormMap width={600} height={300} />
+                        <DormMap width={600} height={600} />
                       </div>
                 </div>
             </body>
