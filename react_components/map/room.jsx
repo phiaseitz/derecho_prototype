@@ -1,4 +1,5 @@
 // map.jsx
+//Now Mouseover
 var React = require('react');
 
 var Room = React.createClass({
