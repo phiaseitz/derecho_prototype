@@ -7,10 +7,10 @@ var usersSchema = mongoose.Schema({
         email: String,
         roommate: {
                 name: String,
-                id: ObjectID
-        }
+                id: mongoose.Schema.Types.ObjectId,
+        },
         pin: String,
-        tags: Mixed
+        tags: mongoose.Schema.Types.Mixed
 });
 
 module.exports.usersSchema = usersSchema;

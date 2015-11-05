@@ -1,4 +1,5 @@
 var users = require('./models/users');
+var Strategy = require('passport-local').Strategy;
 
 module.exports = function(mongoose, passport){
     var Users = mongoose.model('Users', users.usersSchema);

@@ -5,11 +5,13 @@ var cookieParser = require("cookie-parser");
 var bodyParser = require("body-parser");
 var exphbs  = require("express-handlebars");
 var mongoose = require('mongoose');
+var passport = require('passport');
 
 var mongoURI = process.env.MONGOURI || "mongodb://127.0.0.1:27017/test";
 mongoose.connect(mongoURI);
 
 var home  = require("./routes/home")();
+var login  = require("./routes/login")();
 var strategy = require("./auth")(mongoose, passport);
 
 var app = express();
