@@ -27,7 +27,6 @@
     "express": "^4.11.2",
     "express-session": "^1.11.1",
     "mongoose-findorcreate": "^0.1.2"
-
   },
   "devDependencies": {},
   "scripts": {
