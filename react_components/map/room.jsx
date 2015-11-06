@@ -1,6 +1,7 @@
 // map.jsx
-//Now Mouseover
 var React = require('react');
+
+var RoomToolTip = require('./roomtooltip.jsx');
 
 var Room = React.createClass({
   getInitialState: function() {
@@ -33,26 +34,38 @@ var Room = React.createClass({
       .interpolate("linear");
 
     var roomlabel = props.floor + props.roominfo.room;
-    var strokeWidth = 2;
+    var swidth = 2;
+    var tooltipvis = false;
     if (this.state.hover) {
-      strokeWidth = 5;
+      swidth = 5;
+      tooltipvis = true;
     }
 
     return (
       <g> 
         <path 
           d = {lineFunction(props.roominfo.pathpoints)} 
-          stroke="black" 
-          strokeWidth={strokeWidth} 
-          fill={props.color} 
-          onMouseOver={this.handleMouseOver}
-          onMouseOut= {this.handleMouseOut}/>
-        <text 
-          x= {props.margin + props.scaling*props.roominfo.labelx} 
-          y= {props.margin + props.scaling*props.roominfo.labely} 
-          //Help! this does not work... 
-          text-anchor= {"center"}
-          fill="black">{roomlabel}</text>
+          stroke = {"black"} 
+          strokeWidth = {swidth} 
+          fill = {props.color} 
+          onMouseOver = {this.handleMouseOver}
+          onMouseOut = {this.handleMouseOut}/>
+        <g className = "roomlabel">
+          <text 
+            x = {props.margin + props.scaling*props.roominfo.labelx} 
+            y = {props.margin + props.scaling*props.roominfo.labely} 
+            //Help! this does not work... 
+            textAnchor = {"center"}
+            fill ="black">{roomlabel}</text>
+        </g>
+        <RoomToolTip 
+          visiblity = {tooltipvis}
+          dorm = "EH"
+          roomnumber = {roomlabel}
+          group = {props.roominfo.group}
+          roommates = {props.roominfo.occupants}
+          xval = {props.margin + props.scaling*props.roominfo.labelx}
+          yval = {props.margin + props.scaling*props.roominfo.labely - 20}/>
       </g>
         
     );

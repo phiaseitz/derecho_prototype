@@ -20,9 +20,8 @@ var DormMap = React.createClass({
   render: function() {
     var props = this.props;
 
-    var margin = 50;
-    var maxDormWidth = props.width - 2*margin;
-    var maxDormHeight = props.height - 2*margin;
+    var maxDormWidth = props.width - 1.3*props.margin;
+    var maxDormHeight = props.height - 1.1*props.margin;
     var maxDormX = 1145;
     var maxDormY = 1090;
 
@@ -36,8 +35,8 @@ var DormMap = React.createClass({
 
     return (
       <svg width={this.props.width} height={this.props.height}>{this.props.children}
-        <DormOutline margin = {margin} scaling = {scaling} />
-        <DormRooms dorm = {this.props.dorm} floor = {this.props.floor} margin = {margin} scaling = {scaling}/>
+        <DormOutline margin = {props.margin} scaling = {scaling} />
+        <DormRooms dorm = {this.props.dorm} floor = {this.props.floor} margin = {props.margin} scaling = {scaling}/>
       </svg>
     );
   }

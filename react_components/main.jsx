@@ -31,9 +31,6 @@ var Main = React.createClass({
                     currentFloor={this.state.currentFloor}
                 />
                 <div className="home">
-                    <div className="parent">
-                        <Title/>
-                    </div>
                     <div className="app">
                         <DormMap 
                             width={600} 
@@ -41,6 +38,7 @@ var Main = React.createClass({
                             // Update this to be west hall when we have that map working
                             dorm = {this.state.currentFloor >= 4? "EH" : "EH"}
                             floor = {(this.state.currentFloor % 4) + 1} 
+                            margin = {100}
                             />
                       </div>
                 </div>
