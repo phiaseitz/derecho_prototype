@@ -50,7 +50,7 @@ var Room = React.createClass({
           x= {props.margin + props.scaling*props.roominfo.labelx} 
           y= {props.margin + props.scaling*props.roominfo.labely} 
           //Help! this does not work... 
-          text-anchor= {"center"}
+          textAnchor= {"center"}
           fill="black">{roomlabel}</text>
       </g>
         

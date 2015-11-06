@@ -1,10 +1,9 @@
 // map.jsx
 var React = require('react');
-var _ = require('underscore');
 var d3 = require ('d3');
 
 var DormOutline = require('./dormoutline.jsx');
-var DormRooms =  require('./DormRooms.jsx');
+var DormRooms =  require('./dormrooms.jsx');
 
 var DormMap = React.createClass({
   getDefaultProps: function() {
