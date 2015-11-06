@@ -1,5 +1,6 @@
 var React = require('react');
 var Menu = require('./menu/menu.jsx');
+var PreviewCard = require('./preview_card/preview_card.jsx')
 
 var DormMap = require('./map/dormmap.jsx');
 
@@ -13,7 +14,29 @@ var Main = React.createClass({
 
     getInitialState: function() {
         return {
-            currentFloor: 0
+            currentFloor: 0,
+            pinPlacement: null,
+            previewRoom: {
+                room: "North Hall 111",
+                group: "A",
+                occupants: [
+                    "Joe Smith",
+                    "John Doe"
+                ],
+                contact: [
+                    {
+                        email: "joe.smith@students.olin.edu",
+                        text: "555-555-5555",
+                        note: "Texting is the best way to reach me."
+                    },
+                    {
+                        email: "john.doe@students.olin.edu",
+                        twitter: "@jdoe",
+                        note: ""
+                    }
+                ]
+            },
+            isComparing: false
         }
     },
 
@@ -21,6 +44,20 @@ var Main = React.createClass({
         this.setState({
           currentFloor: floor
         });
+    },
+
+    setCompare: function() {
+        this.setState({
+          isComparing: !this.state.isComparing
+        });
+    },
+
+    isComparing: function() {
+        return this.state.isComparing;
+    },
+
+    setPin: function() {
+        return;
     },
 
     render: function() {
@@ -44,6 +81,12 @@ var Main = React.createClass({
                             />
                       </div>
                 </div>
+                <PreviewCard
+                    previewRoom={this.state.previewRoom}
+                    setCompare={this.setCompare}
+                    isComparing={this.isComparing}
+                    setPin={this.setPin}
+                />
             </body>
         );
     }
