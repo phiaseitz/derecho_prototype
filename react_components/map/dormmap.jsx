@@ -1,6 +1,5 @@
 // map.jsx
 var React = require('react');
-var _ = require('underscore');
 var d3 = require ('d3');
 
 var DormOutline = require('./dormoutline.jsx');

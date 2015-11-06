@@ -41,6 +41,7 @@ var Main = React.createClass({
     },
 
     setFloor: function(floor) {
+        console.log('A')
         this.setState({
           currentFloor: floor
         });
