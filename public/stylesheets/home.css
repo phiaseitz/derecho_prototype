@@ -75,6 +75,25 @@
     transition-timing-function: ease;
 }
 
+.roomlabel {
+    font-family: sans-serif;
+    text-anchor: middle;
+    pointer-events: none;
+}
+
+.roomtooltip {
+    pointer-events: none;
+}
+
+.roomtooltiproomateslist {
+    font-family: sans-serif;
+    font-size: 12px;
+}
+.roomtooltipheader {
+    font-family: sans-serif;
+    font-size: 15px;
+}
+
 @media (min-width: 401px) {
     .parent {
         align-items: flex-start;
