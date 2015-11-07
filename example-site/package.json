@@ -18,10 +18,16 @@
     "morgan": "^1.6.1",
     "passport": "^0.2.2",
     "passport-facebook": "^1.0.3",
+    "passport-local": "^1.0.0",
     "react": "^0.13.3",
     "react-tap-event-plugin": "^0.1.7",
     "reactify": "^1.1.1",
-    "fbjs": "^0.2.1"
+    "fbjs": "^0.2.1",
+    "mongoose": "3.8",
+    "mongoose-deep-populate": "^1.1.0",
+    "mongoose-findorcreate": "^0.1.2",
+    "morgan": "^1.5.1",
+    "bcrypt-nodejs": "0.0.3"
   },
   "devDependencies": {},
   "scripts": {

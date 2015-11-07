@@ -147,7 +147,41 @@ a:link, a:hover, a:active, a:visited { text-decoration: none }
 }
 
 
+/* ----- SCALE SLIDER ----- */
 
+#scale-slider { margin: calc(.5rem + 15px) 0; }
+
+input[type="range"] {
+    -webkit-appearance: none !important; /*Needed to reset default slider styles */
+    margin: auto;
+    outline: none;
+
+    height: 1px;
+
+    border-radius: 2px;
+
+    border-top: 1px solid #222;
+    border-bottom: 1px solid #999;
+
+    margin-top: 12px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none !important  ;
+    width: 16px;
+    height: 16px;
+
+    background-color: #444;
+    border-top: 1px solid #999;
+    border-bottom: 1px solid #222;
+    border-radius: 8px;
+    box-shadow: 0 5px 10px -5px #444;
+}
+
+#scale-label {
+    flex-grow: 1;
+    text-align: center;
+}
 
 
 /* ----- LOGOUT BUTTON ----- */
@@ -294,7 +328,158 @@ a:link, a:hover, a:active, a:visited { text-decoration: none }
 }
 
 
+/* ----- TIME-BARS & CLOCKS ----- */
 
+.time-bar {
+    height: 100%;
+    width: 0;
+    position: absolute;
+    z-index: 40;
+}
+
+.clock-cont {
+    font-family: fabrica, sans-serif;
+    position: absolute;
+
+    left: 1rem;
+    bottom: 1rem;
+
+    white-space: nowrap;
+    font-size: .75rem;
+}
+
+#selected-time-bar { border-left: 1px solid teal; }
+#selected-time-cont { color: teal; }
+
+#current-time-bar { border-left: 1px solid firebrick; }
+#current-time-cont {
+    color: firebrick;
+    margin-bottom: 3.75rem;
+}
+
+
+/* ----- STREAMS ----- */
+
+.stream-container {
+    position: relative;
+    margin-top: 2rem;
+    display: flex;
+    align-items: center;
+    padding: 1rem 0;
+}
+
+.stream-label {
+    font-size: 1.5rem;
+    font-family: source-sans-pro;
+    text-transform: uppercase;
+}
+
+.stream {
+    flex: 0 1 95%;
+    padding: 1rem 0;
+}
+
+.stream-line {
+    border-top: 1px solid #222;
+    width: 100%;
+}
+
+#left-stream-bar {
+    flex: none;
+    width: 5%;
+}
+
+.stream-toolbox {
+    color: #222;
+    margin: 1rem;
+    flex: 1 0 auto;
+}
+
+#streams-panel {
+    order: 2;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+
+/* ------ NEW STREAM ----- */
+
+#new-stream-button {
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1.75rem;
+}
+
+#new-stream-cont {
+    position: relative;
+    text-align: center;
+    left: 20%;
+}
+
+
+/* ----- ITEMS ------ */
+
+.item {
+    position: absolute;
+    top: 50%;
+    opacity: .8;
+}
+
+.item:hover { background-color: #EEE; }
+.item:active{ background-color: #222; }
+
+.node {
+    width: 20px;
+    height: 20px;
+
+    border: 1px solid #222;
+    border-radius: 20px;
+
+    background-color: white;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+}
+
+.node-label {
+    transform:  translate(-50%, 0);
+    position: absolute;
+    margin-top: .75rem;
+    top: 100%;
+    white-space: nowrap;
+    max-width: 5rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    font-family: source-sans-pro, sans-serif;
+    font-size: .9rem;
+    text-transform: lowercase;
+
+}
+
+.event {
+    transform: translate(0, -50%);
+    height: 50%;
+    border-left: 1px solid #222;
+    border-right: 1px solid #222;
+    background-color: white;
+    z-index: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.event-label {
+    font-family: fabrica, sans-serif;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    text-align: center;
+}
 
 
 /* ----- DISGUISED INPUT ----- */
@@ -312,3 +497,32 @@ a:link, a:hover, a:active, a:visited { text-decoration: none }
     transition: width .5s ease, background-color .5s ease;
 }
 
+/* Target mouseover and focus states */
+.disguised-input:focus:after, .disguised-input:hover:after {
+    width: 100%;
+    background: #222;
+}
+.delete-control:hover { color: darkred; }
+
+.ui-clickable:hover { color: #222; }
+
+
+/* ----- SCROLL ARROWS ----- */
+
+.scroll-arrow {
+    position: absolute;
+    font-size: 1.5rem;
+
+    z-index: 10;
+    top: 0;
+    bottom: 0;
+
+    margin: .5rem;
+}
+
+.scroll-arrow:hover {
+    color: #999;
+}
+
+#left-scroll-arrow { left: 0; }
+#right-scroll-arrow { right: 0; }
