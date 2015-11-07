@@ -9,7 +9,6 @@
     "express": "^4.13.3",
     "express-handlebars": "^1.2.2",
     "express-session": "^1.11.3",
-    "fbjs": "^0.2.1",
     "grunt": "^0.4.5",
     "grunt-browserify": "^4.0.0",
     "grunt-cli": "^0.1.13",
@@ -20,9 +19,7 @@
     "passport": "^0.2.2",
     "passport-facebook": "^1.0.3",
     "passport-local": "^1.0.0",
-    "react": "^0.14.2",
-    "react-dom": "^0.14.2",
-    "react-tap-event-plugin": "^0.1.7",
+    "react": "^0.13.3",
     "reactify": "^1.1.1"
   },
   "devDependencies": {},
