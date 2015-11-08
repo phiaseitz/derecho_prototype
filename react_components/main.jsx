@@ -14,7 +14,10 @@ var currentUserData =  {
   }],
   pin: "EH403",
   roomdrawgroup: "A",
-  tags: [{test: "test"}]
+  tags: {party: 1,
+    loud: 1,
+    study: 5,
+    movies: 5}
 };
 
 var userData = [
@@ -29,7 +32,10 @@ var userData = [
     }],
     pin: "EH403",
     roomdrawgroup: "A",
-    tags: [{test: "test"}]
+    tags: {party: 1,
+    loud: 1,
+    study: 5,
+    movies: 5}
   },
   {
     username: "tchoetso",
@@ -42,7 +48,10 @@ var userData = [
     }],
     pin: "EH403",
     roomdrawgroup: "A",
-    tags: [{test: "test"}]
+    tags: {party: 1,
+    loud: 1,
+    study: 5,
+    movies: 5}
   },
   {
     username: "ihill",
@@ -55,7 +64,10 @@ var userData = [
     }],
     pin: "EH405",
     roomdrawgroup: "B",
-    tags: [{test: "test"}]
+    tags: {party: 5,
+      loud: 5,
+      study: 1,
+      movies: 1}
   },
   {
     username: "jgreene",
@@ -63,12 +75,15 @@ var userData = [
     name: "Austin Greene",
     email: "john.greene@students.olin.edu",
     roommates: [{
-            name: "Ian Hill",
-            id: 1234,
+      name: "Ian Hill",
+      id: 1234,
     }],
     pin: "EH405",
     roomdrawgroup: "B",
-    tags: [{test: "test"}]
+    tags: {party: 5,
+      loud: 5,
+      study: 1,
+      movies: 1}
   },
   {
     username: "aagram",
@@ -81,7 +96,10 @@ var userData = [
     }],
     pin: "EH407",
     roomdrawgroup: "C",
-    tags: [{test: "test"}]
+    tags: {party: 5,
+      loud: 4,
+      study: 3,
+      movies: 2}
   },
   {
     username: "pandropov",
@@ -94,7 +112,10 @@ var userData = [
     }],
     pin: "EH407",
     roomdrawgroup: "C",
-    tags: [{test: "test"}]
+    tags: {party: 5,
+      loud: 4,
+      study: 3,
+      movies: 2}
   },
   {
     username: "abadman",
@@ -107,7 +128,10 @@ var userData = [
     }],
     pin: "EH409",
     roomdrawgroup: "D",
-    tags: [{test: "test"}]
+    tags: {party: 1,
+      loud: 1,
+      study: 1,
+      movies: 1} 
   },
   {
     username: "jking",
@@ -120,7 +144,10 @@ var userData = [
     }],
     pin: "EH409",
     roomdrawgroup: "D",
-    tags: [{test: "test"}]
+    tags: {party: 1,
+    loud: 2,
+    study: 5,
+    movies: 4 }
   },
   {
     username: "ceshobo",
@@ -133,7 +160,9 @@ var userData = [
     }],
     pin: "EH413",
     roomdrawgroup: "E",
-    tags: [{test: "test"}]
+    tags: {party: 1,
+      loud: 1,
+      study: 1}
   },
   {
     username: "swhicheter",
@@ -146,60 +175,10 @@ var userData = [
     }],
     pin: "EH413",
     roomdrawgroup: "E",
-    tags: [{test: "test"}]
-  }, 
-  {
-    username: "anormal",
-    password: "password",
-    name: "Abby Normal",
-    email: "abby.normal@students.olin.edu",
-    roommates: [{
-            name: "Anne Publsom",
-            id: 1234,
-    }],
-    pin: "EH413",
-    roomdrawgroup: "E",
-    tags: [{test: "test"}]
-  },
-  {
-    username: "apublsom",
-    password: "password",
-    name: "Anne Publsom",
-    email: "anne.publsom@students.olin.edu",
-    roommates: [{
-            name: "Abby Normal",
-            id: 1234,
-    }],
-    pin: "EH413",
-    roomdrawgroup: "E",
-    tags: [{test: "test"}]
-  }, 
-  {
-    username: "anormal",
-    password: "password",
-    name: "Abby Normal",
-    email: "abby.normal@students.olin.edu",
-    roommates: [{
-            name: "Anne Publsom",
-            id: 1234,
-    }],
-    pin: "EH413",
-    roomdrawgroup: "E",
-    tags: [{test: "test"}]
-  },
-  {
-    username: "apublsom",
-    password: "password",
-    name: "Anne Publsom",
-    email: "anne.publsom@students.olin.edu",
-    roommates: [{
-            name: "Abby Normal",
-            id: 1234,
-    }],
-    pin: "EH413",
-    roomdrawgroup: "E",
-    tags: [{test: "test"}]
-  }, 
+    tags: {party: 1,
+      loud: 1,
+      study: 1}
+  },  
   {
     username: "adetires",
     password: "password",
@@ -211,8 +190,11 @@ var userData = [
     }],
     pin: "EH415",
     roomdrawgroup: "E",
-    tags: [{test: "test"}]
-  },
+    tags: {party: 3,
+      loud: 3,
+      study: 3,
+      movies: 3}
+    },
   {
     username: "pdetanc",
     password: "password",
@@ -224,7 +206,10 @@ var userData = [
     }],
     pin: "EH415",
     roomdrawgroup: "E",
-    tags: [{test: "test"}]
+    tags: {party: 3,
+      loud: 3,
+      study: 3,
+      movies: 3}
   }, 
   {
     username: "jeration",
@@ -237,7 +222,10 @@ var userData = [
     }],
     pin: "EH417",
     roomdrawgroup: "F",
-    tags: [{test: "test"}]
+    tags: {party: 4,
+      loud: 4,
+      study: 4,
+      movies: 4}
   },
   {
     username: "fkinnitt",
@@ -250,8 +238,45 @@ var userData = [
     }],
     pin: "EH417",
     roomdrawgroup: "F",
-    tags: [{test: "test"}]
+    tags: {party: 4,
+      loud: 4,
+      study: 4,
+      movies: 4}
   }, 
+    {
+    username: "anormal",
+    password: "password",
+    name: "Abby Normal",
+    email: "abby.normal@students.olin.edu",
+    roommates: [{
+            name: "Anne Publsom",
+            id: 1234,
+    }],
+    pin: "EH419",
+    roomdrawgroup: "E",
+    tags: {party: 1,
+      loud: 1,
+      study: 1,
+      movies: 1,
+      food: 5}
+  },
+  {
+    username: "apublsom",
+    password: "password",
+    name: "Anne Publsom",
+    email: "anne.publsom@students.olin.edu",
+    roommates: [{
+            name: "Abby Normal",
+            id: 1234,
+    }],
+    pin: "EH419",
+    roomdrawgroup: "E",
+    tags: {party: 1,
+      loud: 1,
+      study: 1,
+      movies: 1,
+      food: 5}
+  },
   {
     username: "asifartsi",
     password: "password",
@@ -279,7 +304,10 @@ var userData = [
     }],
     pin: "EH416",
     roomdrawgroup: "E",
-    tags: [{test: "test"}]
+    tags: {party: 5,
+      loud: 5,
+      study: 5,
+      movies: 5}
   },
   {
     username: "maroni",
@@ -308,7 +336,10 @@ var userData = [
     }],
     pin: "EH416",
     roomdrawgroup: "E",
-    tags: [{test: "test"}]
+    tags: {party: 5,
+      loud: 5,
+      study: 5,
+      movies: 5}
   },  
   {
     username: "mmizar",
@@ -337,7 +368,10 @@ var userData = [
     }],
     pin: "EH416",
     roomdrawgroup: "E",
-    tags: [{test: "test"}]
+    tags: {party: 5,
+      loud: 5,
+      study: 5,
+      movies: 5}
   },  
   {
     username: "mthonn",
@@ -366,7 +400,10 @@ var userData = [
     }],
     pin: "EH416",
     roomdrawgroup: "E",
-    tags: [{test: "test"}]
+    tags: {party: 5,
+      loud: 5,
+      study: 5,
+      movies: 5}
   },
   {
     username: "svanbedersen",
@@ -395,7 +432,10 @@ var userData = [
     }],
     pin: "EH416",
     roomdrawgroup: "E",
-    tags: [{test: "test"}]
+    tags: {party: 5,
+      loud: 5,
+      study: 5,
+      movies: 5}
   },
   {
     username: "sladd",
@@ -424,7 +464,10 @@ var userData = [
     }],
     pin: "EH416",
     roomdrawgroup: "E",
-    tags: [{test: "test"}]
+    tags: {party: 5,
+      loud: 5,
+      study: 5,
+      movies: 5}
   }
 
 ];
