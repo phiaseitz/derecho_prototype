@@ -1,6 +1,6 @@
 var React = require('react');
 var Menu = require('./menu/menu.jsx');
-
+var PreviewCard = require('./preview_card/preview_card.jsx')
 var DormMap = require('./map/dormmap.jsx');
 
 var sampleData = [
@@ -13,14 +13,56 @@ var Main = React.createClass({
 
     getInitialState: function() {
         return {
-            currentFloor: 0
+            currentFloor: 0,
+            pinPlacement: null,
+            previewPin: {
+                group: "A",
+                occupants: [
+                    {
+                        firstName: "Joe",
+                        lastName: "Student",
+                        contactMethods: ["Email", "Text"],
+                        contactValues: [
+                            "joe.student@students.olin.edu",
+                            "555-555-5555"
+                        ]
+                    },
+                    {
+                        firstName: "John",
+                        lastName: "Doe",
+                        contactMethods: ["Email", "Text"],
+                        contactValues: [
+                            "john.doe@students.olin.edu",
+                            "555-555-5556"
+                        ]
+                    },
+                ],
+                hall: 1,
+                roomNumber: 319,
+            },
+            isComparing: false
         }
     },
 
     setFloor: function(floor) {
+        console.log('A')
         this.setState({
           currentFloor: floor
         });
+    },
+
+    setCompare: function() {
+        this.setState({
+          isComparing: !this.state.isComparing
+        });
+    },
+
+    isComparing: function() {
+        return this.state.isComparing;
+    },
+
+    setPin: function() {
+        return;
     },
 
     render: function() {
@@ -42,6 +84,12 @@ var Main = React.createClass({
                             />
                       </div>
                 </div>
+                <PreviewCard
+                    previewPin={this.state.previewPin}
+                    setCompare={this.setCompare}
+                    isComparing={this.isComparing}
+                    setPin={this.setPin}
+                />
             </body>
         );
     }
