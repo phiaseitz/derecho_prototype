@@ -1,7 +1,6 @@
 var React = require('react');
 var Menu = require('./menu/menu.jsx');
 var PreviewCard = require('./preview_card/preview_card.jsx')
-
 var DormMap = require('./map/dormmap.jsx');
 
 var sampleData = [
@@ -16,7 +15,7 @@ var Main = React.createClass({
         return {
             currentFloor: 0,
             pinPlacement: null,
-            previewRoom: {
+            previewPin: {
                 room: "North Hall 111",
                 group: "A",
                 occupants: [
@@ -81,7 +80,7 @@ var Main = React.createClass({
                       </div>
                 </div>
                 <PreviewCard
-                    previewRoom={this.state.previewRoom}
+                    previewPin={this.state.previewPin}
                     setCompare={this.setCompare}
                     isComparing={this.isComparing}
                     setPin={this.setPin}

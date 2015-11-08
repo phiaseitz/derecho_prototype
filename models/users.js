@@ -6,14 +6,12 @@ var findOrCreate = require('mongoose-findorcreate');
 var usersSchema = mongoose.Schema({
     username: String,
         password: String,
-        name: String,
-        email: String,
-        roommate: {
-                name: String,
-                id: mongoose.Schema.Types.ObjectId,
-        },
-        pin: String,
-        tags: mongoose.Schema.Types.Mixed
+        firstName: String,
+        lastName: String,
+        contactMethods: [String],
+        contactValues: [String],
+        roommate: mongoose.Schema.Types.ObjectId,
+        pin: mongoose.Schema.Types.ObjectId,
 });
 
 usersSchema.plugin(findOrCreate);
