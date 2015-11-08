@@ -25,34 +25,48 @@ var PreviewCard = React.createClass({
   },
 
   render: function() {
+    console.log(this.state.contactInfoShown);
     var contactInfoShown = this.state.contactInfoShown ? "visible" : "hidden";
     var secondaryButtonsShown =
+        this.state.confirmationInProgress ?  "hidden" : "visible";
+    var confirmationTextShown =
         this.state.confirmationInProgress ? "visible" : "hidden";
     var roomNumber = (this.props.previewPin.hall ? 'East Hall' : 'West Hall') +
         ' ' + this.props.previewPin.roomNumber;
-    var occupants = '';
-    var occupantsLength = this.props.previewPin.occupants.length;
-    for (i = 0; i < (occupantsLength - 1); i++) {
-      occupants = occupants + this.props.previewPin.occupants[i].firstName +
-          ' ' + this.props.previewPin.occupants[i].lastName + ', ';
+
+    var occupantInfo = [];
+    for (i = 0; i < this.props.previewPin.occupants.length; i++) {
+      occupantInfo.push(
+          <div className="occupantName preview-info-block"> 
+          {this.props.previewPin.occupants[i].firstName +
+          ' ' + this.props.previewPin.occupants[i].lastName}</div>
+          );
+      if (this.state.contactInfoShown) {
+        for (j = 0; j < this.props.previewPin.occupants[i].contactMethods.length; j++) {
+          occupantInfo.push(
+              <div className="occupantContactMethod preview-info-block"> 
+              {this.props.previewPin.occupants[i].contactMethods[j]}</div>
+              );
+          occupantInfo.push(
+              <div className="occupantContactValue preview-info-block"> 
+              {this.props.previewPin.occupants[i].contactValues[j]}</div>
+              );
+        }
+      }
     }
-    occupants = occupants + '& '
-        this.props.previewPin.occupants[occupantsLength - 1].firstName + ' ' + 
-        this.props.previewPin.occupants[occupantsLength - 1].lastName;
     return (
       <div id="preview-card">
         <div id="preview-info-container">
-          <div className="preview-occupant-info">
+          <div id="preview-room-number">
             {roomNumber}
-            {occupants}
           </div>
-          <div className="preview-group">
+          <div id="preview-group">
             {'Group ' + this.props.previewPin.group}
           </div>
         </div>
-        <div id="preview-contact-info" className={contactInfoShown}>
+        <div id="preview-occupant-info">
+          {occupantInfo}
         </div>
-
         <div id="preview-button-container">
           <div 
             id="secondary-preview-button-container" 
@@ -67,13 +81,13 @@ var PreviewCard = React.createClass({
           </div>
           <div
             id="confirmation-text"
-            className={!secondaryButtonsShown}>
-            [Are you sure?]
+            className={confirmationTextShown}>
+            <span>[Are you sure?]</span>
           </div>
           <PlacePinButton
             setPin={this.props.setPin}
             setConfirm={this.setConfirmationInProgress}
-            inProgress={this.confirmationInProgress}
+            inProgress={this.state.confirmationInProgress}
           />
         </div>
       </div>

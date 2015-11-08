@@ -1,10 +1,121 @@
+.visible {
+}
+
+.hidden {
+  display: none;
+}
+
 #preview-card {
   position: absolute;
   top: 400px;
   left: 75%;
   width: 20%;
-  height: 200px;
-  border: 2px solid #000000;
   font-family: 'Open Sans';
   color: black;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.16);
+}
+
+#preview-info-container, #preview-occupant-info {
+  margin: 2%;
+}
+
+.preview-info-block {
+  padding-top: 1%;
+}
+
+#preview-room-number {
+  font-weight: bold;
+}
+
+#preview-group {
+  font-size: 10pt;
+  font-weight: bold;
+}
+
+#preview-occupant-info {
+  width: 100%;
+}
+
+.occupantContactMethod {
+  font-size: 8pt;
+  font-weight: bold;
+  color: #888888;
+}
+
+.occupantContactValue {
+  font-size: 12pt;
+  color: #888888;
+}
+
+#preview-button-container {
+  width: 48%;
+  margin: auto;
+  height: 0px;
+  padding-bottom: 16%;
+}
+
+#secondary-preview-button-container {
+  float: left;
+  width: 66%;
+  height: 0px;
+  padding-bottom: 33%;
+}
+
+#confirmation-text {
+  width: 66%;
+  float: left;
+  text-align: left;
+  font-size: 9pt;
+  margin-top: 9%;
+}
+
+.previewButton {
+  float: left;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  height: 0px;
+}
+
+#placePinButton {
+  width: 33%;
+  padding-bottom: 33%;
+}
+
+.placePinButtonNormal {
+  background-image: url("../images/PlacePinButton.png");
+}
+
+.placePinButtonNormal:hover {
+  background-image: url("../images/PlacePinButtonHover.png");
+}
+
+.placePinButtonConfirm {
+  background-image: url("../images/PlacePinButtonConfirm.png");
+}
+
+.placePinButtonConfirm:hover {
+  background-image: url("../images/PlacePinButtonConfirmHover.png");
+}
+
+#compareButton {
+  width: 50%;
+  background-image: url("../images/CompareButton.png");
+  padding-bottom: 50%;
+}
+
+#compareButton:hover {
+  background-image: url("../images/CompareButtonHover.png");
+}
+
+#contactButton:before {
+  background-image: url("../images/ContactButtonHover.png");
+}
+#contactButton {
+  width: 50%;
+  background-image: url("../images/ContactButton.png");
+  padding-bottom: 50%;
+}
+
+#contactButton:hover {
+  background-image: url("../images/ContactButtonHover.png");
 }

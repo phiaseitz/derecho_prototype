@@ -16,24 +16,29 @@ var Main = React.createClass({
             currentFloor: 0,
             pinPlacement: null,
             previewPin: {
-                room: "North Hall 111",
                 group: "A",
                 occupants: [
-                    "Joe Smith",
-                    "John Doe"
-                ],
-                contact: [
                     {
-                        email: "joe.smith@students.olin.edu",
-                        text: "555-555-5555",
-                        note: "Texting is the best way to reach me."
+                        firstName: "Joe",
+                        lastName: "Student",
+                        contactMethods: ["Email", "Text"],
+                        contactValues: [
+                            "joe.student@students.olin.edu",
+                            "555-555-5555"
+                        ]
                     },
                     {
-                        email: "john.doe@students.olin.edu",
-                        twitter: "@jdoe",
-                        note: ""
-                    }
-                ]
+                        firstName: "John",
+                        lastName: "Doe",
+                        contactMethods: ["Email", "Text"],
+                        contactValues: [
+                            "john.doe@students.olin.edu",
+                            "555-555-5556"
+                        ]
+                    },
+                ],
+                hall: 1,
+                roomNumber: 319,
             },
             isComparing: false
         }

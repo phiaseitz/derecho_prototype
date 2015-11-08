@@ -2,16 +2,19 @@ var React = require('react');
 
 var PlacePinButton = React.createClass({
   handleClick: function() {
-    if (this.props.confirmationInProgress) {
+    if (this.props.inProgress) {
       this.props.setPin();
     }
-    this.props.setConfirmationInProgress();
+    this.props.setConfirm();
   },
 
   render: function() {
+    var buttonClass = "nohighlight previewButton";
+    buttonClass += this.props.inProgress ? 
+        " placePinButtonConfirm" : " placePinButtonNormal";
     return (
-      <div id="PlacePinButton"
-          className="nohighlight previewButton"
+      <div id="placePinButton"
+          className={buttonClass}
           onClick={this.handleClick}>
       </div>
     );
