@@ -61,7 +61,7 @@ var RoomToolTip = React.createClass({
           <text
             x = {xval - 57} 
             y = {props.yval-pixelspertextline*(props.roommates.length)-15}>{props.dorm+props.roomnumber}
-            </text>
+          </text>
           <text
             x = {xval + 40} 
             y = {props.yval-pixelspertextline*(props.roommates.length)-15}>{props.group}</text>

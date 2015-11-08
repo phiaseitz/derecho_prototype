@@ -86,7 +86,7 @@ var DormRooms = React.createClass({
       { dorm: "EH", 
         room: "29", 
         type: "suite", 
-        pathpoints: [{x: 870 , y: 253}, {x: 910 , y: 380}, {x: 695 , y: 450}, {x: 700 , y: 470}, {x: 580 , y: 510}, {x: 540 , y: 385}, {x: 640 , y: 350}, {x: 640 , y: 350}, {x: 630 , y: 320},{x: 870 , y: 253}], 
+        pathpoints: [{x: 540 , y: 385}, {x: 640 , y: 350}, {x: 640 , y: 350}, {x: 630 , y: 320},{x: 870 , y: 253}, {x: 910 , y: 380}, {x: 695 , y: 450}, {x: 700 , y: 470}, {x: 580 , y: 510},{x: 540 , y: 385}], 
         labelx: 730, 
         labely: 370},
       { dorm: "EH", 
@@ -129,10 +129,11 @@ var DormRooms = React.createClass({
     //These are for coloring -- don't want to have to do them over again
     var negscale = d3.scale.linear()
       .domain([0,0.5])
-      .range(["#FF9933","#FFFFFF"]);
+      .range([props.disagreeColor,props.middleColor]);
     var posscale = d3.scale.linear()
       .domain([0.5,1])
-      .range(["#FFFFFF", "#0099FF"]);
+      .range([props.middleColor, props.agreeColor]);
+
 
     var currentUserTags = props.currentUserData.tags;
 
@@ -148,11 +149,8 @@ var DormRooms = React.createClass({
         var roomcolor = "#FFDB4D";
       }
       else {
-        if (roomUserData[room.room].roommates.length === 0){
-          //We should change this, but this is the empty color for now
-          roomcolor = "#E5FFE9";
-        } else {
-          var differences = [0]
+        if (roomUserData[room.room].roommates.length > 0){
+          var differences = []
           Object.keys(currentUserTags).forEach(function(tag){
             if (tag in roomUserData[room.room].tags){
               differences.push(Math.abs(currentUserTags[tag] - roomUserData[room.room].tags[tag]))
@@ -161,7 +159,7 @@ var DormRooms = React.createClass({
           console.log(differences);
           var sumdiffs = differences.reduce(function(pv, cv) { return pv + cv; }, 0);
           //Get the average difference on categories rated by the user
-          var averagediffs = sumdiffs/(differences.length-1);
+          var averagediffs = sumdiffs/(differences.length);
           console.log(averagediffs);
           //Scale so it's between 0 and 1, and 1 is fully agree
           var score = 1 - averagediffs/4;
