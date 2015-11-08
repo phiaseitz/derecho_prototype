@@ -1,41 +1,64 @@
-var express = require("express");
-var path = require("path");
-var logger = require("morgan");
-var cookieParser = require("cookie-parser");
-var bodyParser = require("body-parser");
-var exphbs  = require("express-handlebars");
+// NPM Modules
+
+var express = require('express');
+var path = require('path');
+var logger = require('morgan');
+var cookieParser = require('cookie-parser');
+var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
+var session = require('express-session');
 var passport = require('passport');
 
-var mongoURI = process.env.MONGOURI || "mongodb://127.0.0.1:27017/test";
-mongoose.connect(mongoURI);
-
-var home  = require("./routes/home")();
-var login  = require("./routes/login")();
-var strategy = require("./auth")(mongoose, passport);
+var home = require('./routes/home')();
+var auth = require('./routes/login');
+var exphbs  = require("express-handlebars");
+// Mongoose, Express, Passport
 
 var app = express();
+var mongoURI = process.env.MONGOURI || "mongodb://localhost/test";
+mongoose.connect(mongoURI);
+var PORT = process.env.PORT || 3000;
 
-var PORT = process.env.PORT || 3001
+app.set('views', __dirname + '/views');
+auth.configure();
 
 app.engine("handlebars", exphbs({defaultLayout: "main"}));
 app.set("view engine", "handlebars");
 
-app.use(logger("dev"));
+// Middleware
+
+app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, 'public')));
 
-app.get("/", home.getHome);
-app.get("/login", login.getLogin);
+app.use(session({
+  secret: 'secret',
+  resave: false,
+  saveUnitialized: true
+}));
 
-app.post('/login',
-         passport.authenticate('local', { failureRedirect: '/login' }),
-         function(req, res) {
-           res.redirect('/');
-         });
+app.use(passport.initialize());
+app.use(passport.session());
 
-app.listen(PORT, function() {
-  console.log("App running on port:", PORT);
+
+// -- Public Routes
+app.post('/login', auth.localLogin());
+app.post('/user', auth.localSignup());
+
+
+// -- Authentication Middleware
+app.use(function (req, res, next) {
+    if (req.isAuthenticated()) next();
+    else res.redirect('/login.html');
 });
+
+
+// -- Private Routes
+// ROUTING
+app.get('/', home.getHome);
+app.get('/logout', auth.logout);
+
+// -- Listen
+app.listen(PORT);
