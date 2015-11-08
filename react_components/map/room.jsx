@@ -48,7 +48,7 @@ var Room = React.createClass({
     }
     var circleOpacity = "1";
     if (props.roommateinfo.roommates.length === 0){
-      circleOpacity = "0"
+      circleOpacity = "0";
     }
 
     return (
@@ -67,7 +67,7 @@ var Room = React.createClass({
             y = {props.margin + props.scaling*props.roominfo.labely + 2} 
             fill ="black">{roomlabel}</text>
           <circle 
-            // fillOpacity = {circleOpacity}
+            fillOpacity = {circleOpacity}
             cx= {props.margin + props.scaling*props.roominfo.labelx - 15} 
             cy={props.margin + props.scaling*props.roominfo.labely - 13}  
             r="2" 
