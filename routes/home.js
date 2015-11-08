@@ -5,31 +5,31 @@ module.exports = function (){
             res.render('home', {});
         },
 
-        // getUser: function(req, res){
-        //     console.log("Getting User Object");
-        //     Users.findById(req.session.passport.user, function (err, user){
-        //         if(err){
-        //             console.log(err);
-        //         } else {
-        //             res.json(user);
-        //         }
-        //     });
-        // },
+        getUser: function(req, res){
+            console.log("Getting User Object");
+            Users.findById(req.session.passport.user, function (err, user){
+                if(err){
+                    console.log(err);
+                } else {
+                    res.json(user);
+                }
+            });
+        },
 
-        // getResidents: function(req, res){
-        //     Users.find({_id: {$not: req.session.passport.user}}, function (err, users){
-        //         if(err){
-        //             console.log(err);
-        //         } else {
-        //             residents = users.map(function(user){
-        //                 delete user.notifications;
-        //                 delete user.userSettings;
-        //                 return user;
-        //             });
-        //             res.json(residents);
-        //         }
-        //     })
-        // },
+        getResidents: function(req, res){
+            Users.find({_id: {$not: req.session.passport.user}}, function (err, users){
+                if(err){
+                    console.log(err);
+                } else {
+                    residents = users.map(function(user){
+                        delete user.notifications;
+                        delete user.userSettings;
+                        return user;
+                    });
+                    res.json(residents);
+                }
+            })
+        },
 
         postUser: function(req, res){
             console.log(req.body)

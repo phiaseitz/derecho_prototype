@@ -8,10 +8,11 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var session = require('express-session');
 var passport = require('passport');
+var exphbs  = require("express-handlebars");
 
 var home = require('./routes/home')();
 var auth = require('./routes/login');
-var exphbs  = require("express-handlebars");
+
 // Mongoose, Express, Passport
 
 var app = express();
