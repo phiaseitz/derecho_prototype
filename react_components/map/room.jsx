@@ -45,7 +45,7 @@ var Room = React.createClass({
     if (this.state.hover) {
       swidth = 3;
       tooltipvis = true;
-      roomcolor = "#FFDB4D";
+      roomcolor = "#FFFF1A";
     }
 
     return (
@@ -70,9 +70,9 @@ var Room = React.createClass({
           visiblity = {tooltipvis}
           dorm = "EH"
           roomnumber = {roomlabel}
-          group = {props.roominfo.group}
+          group = {props.roommateinfo.group}
           //Here, later, we'll want to just add the occupant stuff we've looked up from the DB
-          roommates = {props.roominfo.occupants}
+          roommates = {props.roommateinfo.roommates}
           xval = {props.margin + props.scaling*props.roominfo.labelx}
           yval = {props.margin + props.scaling*props.roominfo.labely - 20}/>
       </g>

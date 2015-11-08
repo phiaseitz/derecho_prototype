@@ -35,8 +35,16 @@ var DormMap = React.createClass({
 
     return (
       <svg width={this.props.width} height={this.props.height}>{this.props.children}
-        <DormOutline margin = {props.margin} scaling = {scaling} />
-        <DormRooms dorm = {this.props.dorm} floor = {this.props.floor} margin = {props.margin} scaling = {scaling}/>
+        <DormOutline 
+          margin = {props.margin} 
+          scaling = {scaling} />
+        <DormRooms 
+          dorm = {props.dorm} 
+          floor = {props.floor} 
+          margin = {props.margin} 
+          scaling = {scaling}
+          userData = {props.userData}
+          currentUserData = {props.currentUserData}/>
       </svg>
     );
   }
