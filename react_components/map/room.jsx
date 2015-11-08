@@ -78,7 +78,6 @@ var Room = React.createClass({
           dorm = "EH"
           roomnumber = {roomlabel}
           group = {props.roommateinfo.group}
-          //Here, later, we'll want to just add the occupant stuff we've looked up from the DB
           roommates = {props.roommateinfo.roommates}
           xval = {props.margin + props.scaling*props.roominfo.labelx}
           yval = {props.margin + props.scaling*props.roominfo.labely - 20}/>
