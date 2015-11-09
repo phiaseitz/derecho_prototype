@@ -193,6 +193,37 @@ input[type="range"]::-webkit-slider-thumb {
 
 #logout-button:hover { color: #222; }
 
+.button {
+   border-top: 1px solid #96d1f8;
+   background: #232f36;
+   background: -webkit-gradient(linear, left top, left bottom, from(#030e14), to(#232f36));
+   background: -webkit-linear-gradient(top, #030e14, #232f36);
+   background: -moz-linear-gradient(top, #030e14, #232f36);
+   background: -ms-linear-gradient(top, #030e14, #232f36);
+   background: -o-linear-gradient(top, #030e14, #232f36);
+   padding: 9.5px 19px;
+   -webkit-border-radius: 0px;
+   -moz-border-radius: 0px;
+   border-radius: 0px;
+   -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+   -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+   box-shadow: rgba(0,0,0,1) 0 1px 0;
+   text-shadow: rgba(0,0,0,.4) 0 1px 0;
+   color: white;
+   font-size: 14px;
+   font-family: Georgia, serif;
+   text-decoration: none;
+   vertical-align: middle;
+   }
+.button:hover {
+   border-top-color: #070f14;
+   background: #070f14;
+   color: #ccc;
+   }
+.button:active {
+   border-top-color: #1b435e;
+   background: #1b435e;
+   }
 
 /* ----- TIMELINE ----- */
 
