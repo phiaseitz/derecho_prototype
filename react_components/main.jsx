@@ -35,35 +35,6 @@ var currentUserPinData =  {
 
 var PinData = [
   {
-    group: "A",
-    occupants: [
-      {
-        firstName: "Sophia",
-        lastName: "Seitz",
-        contactMethods: ["Email", "Text"],
-        contactValues: [
-            "sophia.seitz@students.olin.edu",
-            "555-555-5555"
-        ]
-      },
-      {
-        firstName: "Tenzin",
-        lastName: "Choetso",
-        contactMethods: ["Email", "Text"],
-        contactValues: [
-            "tenzin.choetso@students.olin.edu",
-            "555-555-5556"
-        ]
-      }   
-    ],
-    hall: 1,
-    room: 403,
-    tags: {party: 1,
-      loud: 1,
-      study: 5,
-      movies: 5}
-  },
-  {
     group: "B",
     occupants: [
       {
@@ -338,7 +309,7 @@ var Main = React.createClass({
     getInitialState: function() {
         return {
             currentFloor: 0,
-            pinPlacement: null,
+            userPin: currentUserPinData,
             previewPin: currentUserPinData,
             isComparing: false
         }
@@ -368,8 +339,12 @@ var Main = React.createClass({
         return this.state.isComparing;
     },
 
-    setPin: function() {
-        return;
+    setPin: function(pin) {
+        console.log('Preview Pin Set');
+        console.log("pin");
+        this.setState({
+          userPin: pin
+        });
     },
 
     render: function() {
@@ -388,7 +363,7 @@ var Main = React.createClass({
                       floor = {(this.state.currentFloor % 4) + 1} 
                       margin = {100}
                       pinData = {PinData}
-                      currentUserPinData = {currentUserPinData}
+                      currentUserPinData = {this.state.userPin}
                       setPreviewPin = {this.setPreviewPin}
                   />
                 </div>
@@ -397,6 +372,7 @@ var Main = React.createClass({
                     setCompare={this.setCompare}
                     isComparing={this.isComparing}
                     setPin={this.setPin}
+                    userPin = {this.state.userPin}
                 />
             </body>
         );

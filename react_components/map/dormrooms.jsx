@@ -113,7 +113,7 @@ var DormRooms = React.createClass({
 
     var currentUserTags = props.currentUserPinData.tags;
 
-    var userPins;
+    var userPins = [];
 
     var rooms = _.map(eastfloordata, function(room, i) {
       var roomcolor = "#FFFFFF";
@@ -151,6 +151,16 @@ var DormRooms = React.createClass({
           } else {
             roomcolor = posscale(score);
           }
+        //Just add a blank pin object ot userPins so that nothing breaks. 
+        } else {
+          var blankPin = {
+            group: "",
+            occupants: [],
+            hall: 1,
+            room: props.floor + room.room,
+            tags: {}
+          };
+          userPins.push(blankPin);
         }
       }
       
