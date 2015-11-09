@@ -58,10 +58,10 @@ var PinData = [
     ],
     hall: 1,
     room: 405,
-    tags: {party: 5,
-      loud: 5,
-      study: 1,
-      movies: 1}
+    tags: {party: 1,
+      loud: 1,
+      study: 4,
+      movies: 3}
   },
   {
     group: "C",
@@ -87,10 +87,10 @@ var PinData = [
     ],
     hall: 1,
     room: 407,
-    tags: {party: 5,
-      loud: 4,
-      study: 3,
-      movies: 2}
+    tags: {party: 1,
+      loud: 2,
+      study: 5,
+      movies: 4}
   },
   {
     group: "D",
@@ -118,7 +118,7 @@ var PinData = [
     room: 409,
     tags: {party: 1,
       loud: 1,
-      study: 1,
+      study: 3,
       movies: 1}
   },
   {
@@ -145,8 +145,8 @@ var PinData = [
     ],
     hall: 1,
     room: 413,
-    tags: {party: 1,
-      loud: 1,
+    tags: {party: 5,
+      loud: 5,
       study: 1}
   },
   {
@@ -173,9 +173,9 @@ var PinData = [
     ],
     hall: 1,
     room: 415,
-    tags: {party: 3,
-      loud: 3,
-      study: 3,
+    tags: {party: 4,
+      loud: 5,
+      study: 1,
       movies: 3}
   }, 
   {
@@ -204,7 +204,7 @@ var PinData = [
     room: 417,
     tags: {party: 4,
       loud: 4,
-      study: 4,
+      study: 2,
       movies: 4}
   },
   {
@@ -230,10 +230,10 @@ var PinData = [
       }   
     ],
     hall: 1,
-    room: 419,
+    room: 422,
     tags: {party: 1,
       loud: 1,
-      study: 1,
+      study: 4,
       movies: 1,
       food: 5}
   }, 
@@ -299,7 +299,7 @@ var PinData = [
     room: 416,
     tags: {party: 5,
       loud: 5,
-      study: 5,
+      study: 2,
       movies: 5}
   }
 ];  

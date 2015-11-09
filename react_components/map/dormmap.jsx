@@ -56,6 +56,8 @@ var DormMap = React.createClass({
         <rect 
           x= {0} 
           y= {0} 
+          fillOpacity = {0}
+          strokeOpacity = {0}
           width = {this.props.width}
           height = {this.props.height} 
           style = {{fill: "white", stroke: "white"}}
