@@ -49,6 +49,11 @@
     font-family: sans-serif;
     font-size: 15px;
 }
+.legendtext {
+    font-family: sans-serif;
+    text-anchor: end;
+    font-size: 15px;
+}
 
 @media (min-width: 401px) {
     .parent {
