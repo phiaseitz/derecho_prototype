@@ -50,7 +50,7 @@ var Room = React.createClass({
     var circleOpacity = "1";
     var roommates = [];
     //No one has placed a pin here
-    if (props.roomPinData.length === 0){
+    if (props.roomPinData[0].occupants.length === 0){
       circleOpacity = "0";
     } else{
       roommates = _.map(props.roomPinData[0].occupants, function(occupant,i) {
