@@ -26,7 +26,7 @@ var currentUserPinData =  {
     }
   ],
   hall: 1,
-  room: 403,
+  room: "",
   tags: {party: 1,
     loud: 1,
     study: 5,
@@ -308,10 +308,11 @@ var Main = React.createClass({
 
     getInitialState: function() {
         return {
-            currentFloor: 7,
+            currentFloor: 4,
             userPin: currentUserPinData,
             previewPin: currentUserPinData,
-            isComparing: false
+            isComparing: false,
+            isPreviewing: false,
         }
     },
 
@@ -348,6 +349,13 @@ var Main = React.createClass({
         });
     },
 
+    setPreview: function(isPreviewing) {
+      console.log('Setting Preview:' + isPreviewing);
+      this.setState({
+        isPreviewing: isPreviewing
+      });
+    },
+
     render: function() {
         return (
             <body>
@@ -366,6 +374,7 @@ var Main = React.createClass({
                       pinData = {PinData}
                       currentUserPinData = {this.state.userPin}
                       setPreviewPin = {this.setPreviewPin}
+                      setPreview = {this.setPreview}
                   />
                 </div>
                 <PreviewCard
@@ -374,6 +383,7 @@ var Main = React.createClass({
                     isComparing={this.isComparing}
                     setPin={this.setPin}
                     userPin = {this.state.userPin}
+                    isPreviewing = {this.state.isPreviewing}
                 />
             </body>
         );

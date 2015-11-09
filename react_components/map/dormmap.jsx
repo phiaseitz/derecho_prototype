@@ -17,6 +17,12 @@ var DormMap = React.createClass({
       scaling: 1,
     }
   },
+
+  handleClick: function() {
+    console.log("mapclick");
+    this.props.setPreview(false);
+  },
+
   render: function() {
     var props = this.props;
     console.log(this.props);
@@ -47,6 +53,13 @@ var DormMap = React.createClass({
             <stop offset="100%" stopColor= {disagreeColor}/>
           </linearGradient>
         </defs>
+        <rect 
+          x= {0} 
+          y= {0} 
+          width = {this.props.width}
+          height = {this.props.height} 
+          style = {{fill: "white", stroke: "white"}}
+          onClick = {this.handleClick} />
         <HeatMapLegend
           xpos = {props.width - 0.1*props.margin}
           ypos = {0.5*props.margin}
@@ -66,7 +79,8 @@ var DormMap = React.createClass({
           agreeColor = {agreeColor} 
           middleColor = {middleColor}
           disagreeColor = {disagreeColor}
-          setPreviewPin = {props.setPreviewPin}/>
+          setPreviewPin = {props.setPreviewPin}
+          setPreview = {props.setPreview}/>
       </svg>
     );
   

@@ -173,7 +173,8 @@ var DormRooms = React.createClass({
           roominfo = {room} 
           color = {roomcolor}
           roomPinData = {userPins}
-          setPreviewPin = {props.setPreviewPin}/>
+          setPreviewPin = {props.setPreviewPin}
+          setPreview = {props.setPreview}/>
       )
     });
 
