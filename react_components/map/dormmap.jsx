@@ -60,13 +60,15 @@ var DormMap = React.createClass({
           floor = {props.floor} 
           margin = {props.margin} 
           scaling = {scaling}
-          userData = {props.userData}
-          currentUserData = {props.currentUserData}
+          pinData = {props.pinData}
+          currentUserPinData = {props.currentUserPinData}
           agreeColor = {agreeColor} 
           middleColor = {middleColor}
-          disagreeColor = {disagreeColor}/>
+          disagreeColor = {disagreeColor}
+          setPreviewPin = {props.setPreviewPin}/>
       </svg>
     );
+  
   }
 });
 

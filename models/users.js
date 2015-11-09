@@ -10,7 +10,6 @@ var usersSchema = mongoose.Schema({
   lastName: String,
   contactMethods: [String],
   contactValues: [String],
-  roommates: [mongoose.Schema.Types.ObjectId],
   pin: mongoose.Schema.Types.ObjectId,
 });
 

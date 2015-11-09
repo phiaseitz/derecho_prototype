@@ -102,30 +102,6 @@ var DormRooms = React.createClass({
         pathpoints: [{x: 541 , y: 610}, {x :585, y: 750}, {x :655, y: 723}, {x: 610, y: 587}, {x: 541 , y: 610}], 
         labelx: 595, 
         labely: 670}];
-    // Loop through all the user data and get it into room -> user format instead
-    var roomUserData = {
-      "06": {roommates: [], group: "", tags: []},
-      "03": {roommates: [], group: "", tags: []},
-      "05": {roommates: [], group: "", tags: []},
-      "07": {roommates: [], group: "", tags: []},
-      "09": {roommates: [], group: "", tags: []},
-      "16": {roommates: [], group: "", tags: []},
-      "13": {roommates: [], group: "", tags: []},
-      "15": {roommates: [], group: "", tags: []},
-      "17": {roommates: [], group: "", tags: []},
-      "19": {roommates: [], group: "", tags: []},
-      "29": {roommates: [], group: "", tags: []},
-      "28": {roommates: [], group: "", tags: []},
-      "26": {roommates: [], group: "", tags: []},
-      "22": {roommates: [], group: "", tags: []},
-    };
-
-    props.userData.forEach(function(user) {
-      roomUserData[user.pin.substring(3,5)].roommates.push(user.name);
-      roomUserData[user.pin.substring(3,5)].group = user.roomdrawgroup;
-      roomUserData[user.pin.substring(3,5)].tags = user.tags;
-
-    });
 
     //These are for coloring -- don't want to have to do them over again
     var negscale = d3.scale.linear()
@@ -135,33 +111,36 @@ var DormRooms = React.createClass({
       .domain([0.5,1])
       .range([props.middleColor, props.agreeColor]);
 
+    var currentUserTags = props.currentUserPinData.tags;
 
-    var currentUserTags = props.currentUserData.tags;
+    var userPins;
 
     var rooms = _.map(eastfloordata, function(room, i) {
-      //TODO do some coloring stuff here that's smarter than what's here
-      //TODO add some scoring logic here!
-
       var roomcolor = "#FFFFFF";
-      //This will need to change when we actually have different
-      //people living on every floor
-      if (room.room === props.currentUserData.pin.substring(3,5)){
+      // This will need to change when we actually have different
+      // people living on every floor
+      //The current user is living on this floor.
+      if (room.room === props.currentUserPinData.room.toString().substring(1,3)){
         //The color for the room the user has selected
         var roomcolor = "#FFDB4D";
+        userPins = [props.currentUserPinData];
       }
       else {
-        if (roomUserData[room.room].roommates.length > 0){
+        //Get the pin data for this room.
+        userPins = props.pinData.filter(function(pin) {
+          return (pin.room.toString().substring(1,3) === room.room); 
+        });
+        //Here we do the heatmapping
+        if (userPins.length > 0){
           var differences = []
           Object.keys(currentUserTags).forEach(function(tag){
-            if (tag in roomUserData[room.room].tags){
-              differences.push(Math.abs(currentUserTags[tag] - roomUserData[room.room].tags[tag]))
+            if (tag in userPins[0].tags){
+              differences.push(Math.abs(currentUserTags[tag] - userPins[0].tags[tag]))
             }
           })
-          console.log(differences);
           var sumdiffs = differences.reduce(function(pv, cv) { return pv + cv; }, 0);
           //Get the average difference on categories rated by the user
           var averagediffs = sumdiffs/(differences.length);
-          console.log(averagediffs);
           //Scale so it's between 0 and 1, and 1 is fully agree
           var score = 1 - averagediffs/4;
           var roomcolor = "#FFFFFF";
@@ -173,7 +152,7 @@ var DormRooms = React.createClass({
             roomcolor = posscale(score);
           }
         }
-    }
+      }
       
       return (
         <Room 
@@ -183,7 +162,8 @@ var DormRooms = React.createClass({
           scaling = {props.scaling} 
           roominfo = {room} 
           color = {roomcolor}
-          roommateinfo = {roomUserData[room.room]}/>
+          roomPinData = {userPins}
+          setPreviewPin = {props.setPreviewPin}/>
       )
     });
 

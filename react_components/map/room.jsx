@@ -1,5 +1,6 @@
 // map.jsx
 var React = require('react');
+var _ = require('underscore');
 
 var RoomToolTip = require('./roomtooltip.jsx');
 
@@ -28,7 +29,7 @@ var Room = React.createClass({
 
   handleClick: function() {
     console.log(this.props.roominfo.room);
-    //Add the bringing up the card here!
+    this.props.setPreviewPin(this.props.roomPinData[0]);
   },
 
   render: function() {
@@ -47,8 +48,14 @@ var Room = React.createClass({
       tooltipvis = true;
     }
     var circleOpacity = "1";
-    if (props.roommateinfo.roommates.length === 0){
+    var roommates = [];
+    //No one has placed a pin here
+    if (props.roomPinData.length === 0){
       circleOpacity = "0";
+    } else{
+      roommates = _.map(props.roomPinData[0].occupants, function(occupant,i) {
+        return occupant.firstName + " " + occupant.lastName;
+      });
     }
 
     return (
@@ -77,8 +84,8 @@ var Room = React.createClass({
           visiblity = {tooltipvis}
           dorm = "EH"
           roomnumber = {roomlabel}
-          group = {props.roommateinfo.group}
-          roommates = {props.roommateinfo.roommates}
+          group = {props.roomPinData.group}
+          roommates = {roommates}
           xval = {props.margin + props.scaling*props.roominfo.labelx}
           yval = {props.margin + props.scaling*props.roominfo.labely - 20}/>
       </g>
