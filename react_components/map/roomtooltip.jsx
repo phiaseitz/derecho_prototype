@@ -8,7 +8,7 @@ var RoomToolTip = React.createClass({
       visiblity: false,
       dorm: "EH",
       roomnumber: 109,
-      group: "A",
+      group: "",
       roommates: ["Austin Greene", "Ian Hill"],
       xval: 0,
       yval: 0
