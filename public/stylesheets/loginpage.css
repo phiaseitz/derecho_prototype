@@ -114,6 +114,16 @@ a:link, a:hover, a:active, a:visited { text-decoration: none }
     color: #999;
 }
 
+.login-block {
+    width: 420px;
+    padding: 20px;
+    background: #fff;
+    /*border-radius: 5px;*/
+    /*border-top: 5px solid #000000;*/
+    margin: 0 auto;
+    border-style:outset
+}
+
 
 /* ----- MAIN PAGE ----- */
 
@@ -224,6 +234,7 @@ input[type="range"]::-webkit-slider-thumb {
    border-top-color: #1b435e;
    background: #1b435e;
    }
+
 
 /* ----- TIMELINE ----- */
 

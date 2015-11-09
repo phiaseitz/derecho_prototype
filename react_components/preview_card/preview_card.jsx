@@ -32,7 +32,7 @@ var PreviewCard = React.createClass({
     var confirmationTextShown =
         this.state.confirmationInProgress ? "visible" : "hidden";
     var roomNumber = (this.props.previewPin.hall ? 'East Hall' : 'West Hall') +
-        ' ' + this.props.previewPin.roomNumber;
+        ' ' + this.props.previewPin.room;
 
     var occupantInfo = [];
     for (i = 0; i < this.props.previewPin.occupants.length; i++) {
@@ -88,6 +88,9 @@ var PreviewCard = React.createClass({
             setPin={this.props.setPin}
             setConfirm={this.setConfirmationInProgress}
             inProgress={this.state.confirmationInProgress}
+            userPin = {this.props.userPin}
+            cardHall = {this.props.previewPin.hall}
+            cardRoom = {this.props.previewPin.room}
           />
         </div>
       </div>
