@@ -343,7 +343,8 @@ var Main = React.createClass({
         console.log('Preview Pin Set');
         console.log("pin");
         this.setState({
-          userPin: pin
+          userPin: pin,
+          previewPin: pin
         });
     },
 
@@ -390,4 +391,3 @@ if (window.addEventListener) {
 } else {
     window.attachEvent('onload', run);
 }
-
