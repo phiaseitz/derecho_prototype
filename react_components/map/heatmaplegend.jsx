@@ -38,11 +38,11 @@ var HeatMapLegend = React.createClass({
         <g className = "legendtext">
           <text
             x = {props.xpos - 15} 
-            y = {props.ypos}>High Agreement
+            y = {props.ypos}>High Tag Agreement
           </text>
           <text
             x = {props.xpos - 15} 
-            y = {props.ypos + lengendLen}>Low Agreement
+            y = {props.ypos + lengendLen}>Low Tag Agreement
           </text>
         </g>
       </g>
