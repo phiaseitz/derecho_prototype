@@ -308,7 +308,7 @@ var Main = React.createClass({
 
     getInitialState: function() {
         return {
-            currentFloor: 0,
+            currentFloor: 7,
             userPin: currentUserPinData,
             previewPin: currentUserPinData,
             isComparing: false
