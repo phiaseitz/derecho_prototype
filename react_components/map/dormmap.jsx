@@ -19,6 +19,7 @@ var DormMap = React.createClass({
   },
   render: function() {
     var props = this.props;
+    console.log(this.props);
 
     var disagreeColor = "#FF9933";
     var middleColor = "#FFFFFF";
