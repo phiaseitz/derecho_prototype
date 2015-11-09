@@ -120,7 +120,7 @@ var DormRooms = React.createClass({
       // This will need to change when we actually have different
       // people living on every floor
       //The current user is living on this floor.
-      if (room.room === props.currentUserPinData.room.toString().substring(1,3)){
+      if ((props.floor + room.room) === props.currentUserPinData.room.toString()){
         //The color for the room the user has selected
         var roomcolor = "#FFDB4D";
         userPins = [props.currentUserPinData];
