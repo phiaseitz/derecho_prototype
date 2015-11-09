@@ -74,5 +74,3 @@ var DormMap = React.createClass({
 });
 
 module.exports = DormMap;
-
-// <DormRooms dorm = {this.props.dorm} floor = {this.props.floor} margin = {margin} scaling = {scaling} />

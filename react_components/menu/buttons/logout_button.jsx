@@ -2,22 +2,20 @@ var React = require('react');
 
 var LogoutButton = React.createClass({
     handleClick: function() {
-        console.log('LOGOUT');
+        console.log('hello');
     },
 
     render: function() {
-        return (
-            <div
-                id="logoutButton"
-                className="nohighlight menuButton" 
-                onClick={this.handleClick}>
+  return <a id="logoutButton"
+                className="nohighlight menuButton" href="/logout"
+            onClick={this.handleClick}>
 
-                <span className="menuButtonText">
-                    Logout
-                </span>
-            </div>
-        );
-    }
+                    <span className="menuButtonText">
+                            Logout
+                    </span>
+        </a>;
+}
+
 });
 
 module.exports = LogoutButton
