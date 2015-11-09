@@ -9,7 +9,8 @@ var ContactButton = React.createClass({
     return (
       <div id="compareButton"
           className="nohighlight previewButton"
-          onClick={this.handleClick}>
+          onClick={this.handleClick}
+          title="Compare tags">
       </div>
     );
   }

@@ -23,7 +23,8 @@ var PlacePinButton = React.createClass({
     return (
       <div id="placePinButton"
           className={buttonClass}
-          onClick={this.handleClick}>
+          onClick={this.handleClick}
+          title="Place pin">
       </div>
     );
   }
