@@ -27,7 +27,7 @@ var Room = React.createClass({
   },
 
   handleClick: function() {
-    console.log("roomclick");
+    console.log(this.props.roominfo.room);
     //Add the bringing up the card here!
   },
 
