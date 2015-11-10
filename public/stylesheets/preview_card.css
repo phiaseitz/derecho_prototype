@@ -13,6 +13,7 @@
   font-family: 'Open Sans';
   color: black;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.16);
+  background: #FFFFFF;
 }
 
 #preview-info-container, #preview-occupant-info {
