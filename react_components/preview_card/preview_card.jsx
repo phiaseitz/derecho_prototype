@@ -58,14 +58,14 @@ var PreviewCard = React.createClass({
       <div id="preview-card">
         <div id="preview-info-container">
           <div id="preview-room-number">
-            {roomNumber}
+            {this.props.isPreviewing ? roomNumber : '[No Room Selected]'}
           </div>
           <div id="preview-group">
-            {'Group ' + this.props.previewPin.group}
+            {this.props.isPreviewing ? 'Group ' + this.props.previewPin.group : ''}
           </div>
         </div>
         <div id="preview-occupant-info">
-          {occupantInfo}
+          {this.props.isPreviewing ? occupantInfo : ''}
         </div>
         <div id="preview-button-container">
           <div 

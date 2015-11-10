@@ -7,24 +7,26 @@ var DormMap = require('./map/dormmap.jsx');
 
 //Mocked data
 var currentUserPinData = require('./mocks/pin.jsx');
-var pinData = require('./mocks/pinData.jsx');
+var allUserPinData = require('./mocks/pinData.jsx');
 var sampleUser = require('./mocks/user.jsx');
 var sampleTags = require('./mocks/tags.jsx');
 var messages = require('./mocks/messages.jsx');
 
-sampleUser.pin = pinData;
+sampleUser.pin = currentUserPinData;
 sampleUser.messages = messages;
+
 
 var Main = React.createClass({
 
     getInitialState: function() {
         return {
-            currentFloor: 0,
-            userPin: currentUserPinData,
+            currentFloor: 4,
+            userPin: sampleUser.pin,
             previewPin: currentUserPinData,
             isComparing: false,
             user: sampleUser,
-            tags: sampleTags
+            tags: sampleTags,
+            isPreviewing: false,
         }
     },
 
@@ -53,14 +55,11 @@ var Main = React.createClass({
     },
 
     setPin: function(pin) {
-        console.log('Preview Pin Set');
-        console.log("pin");
         this.setState({
           userPin: pin,
           previewPin: pin
         });
     },
-
     onPinUpdate: function(pin){
         this.setState({
             pin:pin
@@ -72,6 +71,12 @@ var Main = React.createClass({
         this.setState({
             tags:this.state.tags
         })
+    },
+
+    setPreview: function(isPreviewing) {
+      this.setState({
+        isPreviewing: isPreviewing
+      });
     },
 
     render: function() {
@@ -96,9 +101,10 @@ var Main = React.createClass({
                       dorm = {this.state.currentFloor >= 4? "EH" : "EH"}
                       floor = {(this.state.currentFloor % 4) + 1}
                       margin = {100}
-                      pinData = {pinData}
+                      pinData = {allUserPinData}
                       currentUserPinData = {this.state.userPin}
                       setPreviewPin = {this.setPreviewPin}
+                      setPreview = {this.setPreview}
                     />
                     <PreviewCard
                         previewPin={this.state.previewPin}
@@ -106,6 +112,7 @@ var Main = React.createClass({
                         isComparing={this.isComparing}
                         setPin={this.setPin}
                         userPin = {this.state.userPin}
+                        isPreviewing = {this.state.isPreviewing}
                     />
                 </div>
             </div>

@@ -25,25 +25,25 @@ var DormRooms = React.createClass({
         labelx: 335, 
         labely: 240},
       { dorm: "EH", 
-        room: "03", 
+        room: "09", 
         type: "double", 
         pathpoints: [{x :20, y: 100}, {x: 20, y: 180}, {x: 150, y: 180}, {x: 150, y:100}, {x :20, y: 100}], 
         labelx: 85, 
         labely: 150},
       { dorm: "EH", 
-        room: "05", 
+        room: "07", 
         type: "double", 
         pathpoints: [{x :20, y: 180}, {x: 20, y: 260}, {x: 150, y: 260}, {x: 150, y:180}, {x :20, y: 180}], 
         labelx: 85, 
         labely: 230},
       { dorm: "EH", 
-        room: "07", 
+        room: "05", 
         type: "double", 
         pathpoints: [{x :20, y: 260}, {x: 20, y: 340}, {x: 150, y: 340}, {x: 150, y:260}, {x :20, y: 260}], 
         labelx: 85, 
         labely: 310},
       { dorm: "EH", 
-        room: "09", 
+        room: "03", 
         type: "double",  
         pathpoints: [{x :20, y: 340}, {x: 20, y: 400},  {x: 0, y: 400}, {x: 0, y: 450}, {x: 50 , y: 450}, {x: 50 , y: 430}, {x: 75 , y: 430}, {x: 150, y:430}, {x: 150, y: 340}, {x: 20, y:340}], 
         labelx: 85, 
@@ -120,7 +120,7 @@ var DormRooms = React.createClass({
       // This will need to change when we actually have different
       // people living on every floor
       //The current user is living on this floor.
-      if (room.room === props.currentUserPinData.room.toString().substring(1,3)){
+      if ((props.floor + room.room) === props.currentUserPinData.room.toString()){
         //The color for the room the user has selected
         var roomcolor = "#FFDB4D";
         userPins = [props.currentUserPinData];
@@ -133,11 +133,21 @@ var DormRooms = React.createClass({
         //Here we do the heatmapping
         if (userPins.length > 0){
           var differences = []
-          Object.keys(currentUserTags).forEach(function(tag){
-            if (tag in userPins[0].tags){
-              differences.push(Math.abs(currentUserTags[tag] - userPins[0].tags[tag]))
+          //loop through all the users tags.
+          currentUserTags.forEach(function(tag){
+            //get the matching tag or another user. 
+            matchingTags = userPins[0].tags.filter(function(otherUserTag){
+              return otherUserTag.label === tag.label;
+            });
+            if (matchingTags.length > 0){
+              differences.push(Math.abs(tag.value - matchingTags[0].value));
             }
           })
+          ///This is a hack-y way to set 0 tags in common (two users have rated completely seperate
+          /// tags) as getting a neutral score.
+          if (differences.length === 0){
+            differences.push(2);
+          }
           var sumdiffs = differences.reduce(function(pv, cv) { return pv + cv; }, 0);
           //Get the average difference on categories rated by the user
           var averagediffs = sumdiffs/(differences.length);
@@ -173,7 +183,9 @@ var DormRooms = React.createClass({
           roominfo = {room} 
           color = {roomcolor}
           roomPinData = {userPins}
-          setPreviewPin = {props.setPreviewPin}/>
+          setPreviewPin = {props.setPreviewPin}
+          setPreview = {props.setPreview}
+          />
       )
     });
 

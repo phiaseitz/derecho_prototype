@@ -30,9 +30,11 @@ var Room = React.createClass({
   handleClick: function() {
     console.log(this.props.roominfo.room);
     this.props.setPreviewPin(this.props.roomPinData[0]);
+    this.props.setPreview(true);
   },
 
   render: function() {
+    console.log(this.props);
     var props = this.props;
     var lineFunction = d3.svg.line()
       .x(function(d) {return props.margin + props.scaling*d.x;})
@@ -84,7 +86,7 @@ var Room = React.createClass({
           visiblity = {tooltipvis}
           dorm = "EH"
           roomnumber = {roomlabel}
-          group = {props.roomPinData.group}
+          group = {props.roomPinData[0].group}
           roommates = {roommates}
           xval = {props.margin + props.scaling*props.roominfo.labelx}
           yval = {props.margin + props.scaling*props.roominfo.labely - 20}/>
