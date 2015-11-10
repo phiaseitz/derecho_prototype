@@ -27,10 +27,10 @@ var currentUserPinData =  {
   ],
   hall: 1,
   room: "",
-  tags: {party: 1,
-    loud: 1,
-    study: 5,
-    movies: 5}
+  tags: {label: "party", value: 1,
+    label: "loud", value: 1,
+    label: "study", value: 5,
+    label: "movies", value: 5}
 };
 
 var PinData = [
@@ -58,10 +58,10 @@ var PinData = [
     ],
     hall: 1,
     room: 405,
-    tags: {party: 1,
-      loud: 1,
-      study: 4,
-      movies: 3}
+    tags: {label: "party", value: 1,
+      label: "loud", value: 1,
+      label: "study", value: 4,
+      label: "movies", value: 3}
   },
   {
     group: "C",
@@ -87,10 +87,10 @@ var PinData = [
     ],
     hall: 1,
     room: 407,
-    tags: {party: 1,
-      loud: 2,
-      study: 5,
-      movies: 4}
+    tags: {label: "party", value: 1,
+      label: "loud", value: 2,
+      label: "study", value: 5,
+      label: "movies", value: 4}
   },
   {
     group: "D",
@@ -116,10 +116,10 @@ var PinData = [
     ],
     hall: 1,
     room: 409,
-    tags: {party: 1,
-      loud: 1,
-      study: 3,
-      movies: 1}
+    tags: {label: "party", value: 1,
+      label: "loud", value: 1,
+      label: "study", value: 3,
+      label: "movies", value: 1}
   },
   {
     group: "E",
@@ -145,9 +145,9 @@ var PinData = [
     ],
     hall: 1,
     room: 413,
-    tags: {party: 5,
-      loud: 5,
-      study: 1}
+    tags: {label: "party", value: 5,
+      label: "loud", value: 5,
+      label: "study", value: 1}
   },
   {
     group: "F",
@@ -173,10 +173,10 @@ var PinData = [
     ],
     hall: 1,
     room: 415,
-    tags: {party: 4,
-      loud: 5,
-      study: 1,
-      movies: 3}
+    tags: {label: "party", value: 4,
+      label: "loud", value: 5,
+      label: "study", value: 1,
+      label: "movies", value: 3}
   }, 
   {
     group: "G",
@@ -202,10 +202,10 @@ var PinData = [
     ],
     hall: 1,
     room: 417,
-    tags: {party: 4,
-      loud: 4,
-      study: 2,
-      movies: 4}
+    tags: {label: "party", value: 4,
+      label: "loud", value: 4,
+      label: "study", value: 2,
+      label: "movies", value: 4}
   },
   {
     group: "G",
@@ -231,11 +231,11 @@ var PinData = [
     ],
     hall: 1,
     room: 422,
-    tags: {party: 1,
-      loud: 1,
-      study: 4,
-      movies: 1,
-      food: 5}
+    tags: {label: "party", value: 1,
+      label: "loud", value: 1,
+      label: "study", value: 4,
+      label: "movies", value: 1,
+      label: "food", value: 5}
   }, 
   {
     group: "H",
@@ -297,10 +297,10 @@ var PinData = [
     ],
     hall: 1,
     room: 416,
-    tags: {party: 5,
-      loud: 5,
-      study: 2,
-      movies: 5}
+    tags: {label: "party", value: 5,
+      label: "loud", value: 5,
+      label: "study", value: 2,
+      label: "movies", value: 5}
   }
 ];  
 
