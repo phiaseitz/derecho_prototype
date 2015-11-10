@@ -50,26 +50,26 @@ var DormMap = React.createClass({
         <HeatMapLegend
           xpos = {props.width - 0.1*props.margin}
           ypos = {0.5*props.margin}
-          agreeColor = {agreeColor} 
+          agreeColor = {agreeColor}
           middleColor = {middleColor}
           disagreeColor = {disagreeColor}/>
-        <DormOutline 
-          margin = {props.margin} 
+        <DormOutline
+          margin = {props.margin}
           scaling = {scaling} />
-        <DormRooms 
-          dorm = {props.dorm} 
-          floor = {props.floor} 
-          margin = {props.margin} 
+        <DormRooms
+          dorm = {props.dorm}
+          floor = {props.floor}
+          margin = {props.margin}
           scaling = {scaling}
           pinData = {props.pinData}
           currentUserPinData = {props.currentUserPinData}
-          agreeColor = {agreeColor} 
+          agreeColor = {agreeColor}
           middleColor = {middleColor}
           disagreeColor = {disagreeColor}
           setPreviewPin = {props.setPreviewPin}/>
       </svg>
     );
-  
+
   }
 });
 

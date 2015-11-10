@@ -5,7 +5,7 @@ var pinsSchema = mongoose.Schema({
         group: String,
         hall: Number,
         roomNumber: Number,
-        tags: mongoose.Schema.Types.Mixed
+        tags: [mongoose.Schema.Types.Mixed]
 });
 
 module.exports.pinsSchema = pinsSchema;

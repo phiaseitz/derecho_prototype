@@ -10,6 +10,7 @@ var usersSchema = mongoose.Schema({
   lastName: String,
   contactMethods: [String],
   contactValues: [String],
+  messages: [mongoose.Schema.Types.ObjectId],
   pin: mongoose.Schema.Types.ObjectId,
 });
 
