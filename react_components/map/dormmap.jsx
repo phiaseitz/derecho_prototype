@@ -70,7 +70,8 @@ var DormMap = React.createClass({
           disagreeColor = {disagreeColor}/>
         <DormOutline
           margin = {props.margin}
-          scaling = {scaling} />
+          scaling = {scaling} 
+          dorm = {props.dorm}/>
         <DormRooms
           dorm = {props.dorm}
           floor = {props.floor}
