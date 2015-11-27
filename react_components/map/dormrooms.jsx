@@ -284,7 +284,7 @@ var DormRooms = React.createClass({
       else {
         //Get the pin data for this room.
         userPins = props.pinData.filter(function(pin) {
-          return (pin.room.toString().substring(1,3) === room.room); 
+          return (pin.room.toString() === props.floor + room.room); 
         });
         //Here we do the heatmapping
         if (userPins.length > 0){
