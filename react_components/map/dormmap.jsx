@@ -27,9 +27,9 @@ var DormMap = React.createClass({
     var props = this.props;
     console.log(this.props);
 
-    var disagreeColor = "#FF9933";
-    var middleColor = "#FFFFFF";
-    var agreeColor = "#0099FF";
+    var disagreeColor = "#ff3333";
+    var middleColor = "#ddccff";
+    var agreeColor = "#0066ff";
 
     var maxDormWidth = props.width - 1.3*props.margin;
     var maxDormHeight = props.height - 1.1*props.margin;
