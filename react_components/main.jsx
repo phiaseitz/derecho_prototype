@@ -83,6 +83,7 @@ var Main = React.createClass({
         return (
             <div className="Main">
                 <Menu
+                    userPin = {this.state.userPin}
                     setFloor={this.setFloor}
                     currentFloor={this.state.currentFloor}
                 />

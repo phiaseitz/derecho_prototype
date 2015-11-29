@@ -9,6 +9,8 @@ var Menu = React.createClass({
         return (
             <div id="menu">
                 <HomeButton
+                    userPin = {this.props.userPin}
+                    setFloor={this.props.setFloor}
                     className="menuButton"
                 />
                 <div id="buttonContainer">
