@@ -189,43 +189,6 @@ var DormRooms = React.createClass({
         labelx: 285, 
         labely: 830},
       { dorm: "WH", 
-        room: "18", 
-        type: "double", 
-        //-30 + 50
-        pathpoints: [{x: 440 , y: 565}, {x: 460 , y: 695}, {x: 555 , y: 682.5}, {x: 533 , y: 552.5}, {x: 440 , y: 565}],
-        labelx: 500, 
-        labely: 630},
-      { dorm: "WH", 
-        room: "20", 
-        type: "double", 
-        pathpoints: [{x: 533 , y: 552.5}, {x: 555 , y: 682.5}, {x: 650 , y: 670}, {x: 628 , y: 540}, {x: 533 , y: 552.5}],
-        labelx: 590, 
-        labely: 620},
-      { dorm: "WH", 
-        room: "24", 
-        type: "double", 
-        pathpoints: [{x: 659 , y: 535}, {x: 720 , y: 650}, {x: 796 , y: 606}, {x: 735 , y: 491}, {x: 659 , y: 535}],
-        labelx: 725, 
-        labely: 575},
-      { dorm: "WH", 
-        room: "26", 
-        type: "double", 
-        pathpoints: [{x: 735 , y: 491}, {x: 796 , y: 606}, {x: 872 , y: 562}, {x: 811 , y: 447}, {x: 735 , y: 491}],
-        labelx: 800, 
-        labely: 530},
-      { dorm: "WH", 
-        room: "28", 
-        type: "double", 
-        pathpoints: [{x: 811 , y: 447}, {x: 872 , y: 562}, {x: 948 , y: 518}, {x: 887 , y: 403}, {x: 811 , y: 447}],
-        labelx: 880, 
-        labely: 495},
-      { dorm: "WH", 
-        room: "30", 
-        type: "double", 
-        pathpoints: [{x: 887 , y: 403}, {x: 948 , y: 518}, {x: 1024 , y: 474}, {x: 963 , y: 359}, {x: 887 , y: 403}],
-        labelx: 960, 
-        labely: 450},
-      { dorm: "WH", 
         room: "31", 
         type: "double", 
         pathpoints: [{x: 866 , y: 198}, {x: 945 , y: 160}, {x: 1014 , y: 280}, {x: 935 , y: 318}, {x: 866 , y: 198}],
@@ -255,6 +218,42 @@ var DormRooms = React.createClass({
         pathpoints: [{x: 550 , y: 350}, {x: 629 , y: 312}, {x: 698 , y: 432}, {x: 619 , y: 470}, {x: 550 , y: 350}],
         labelx: 620, 
         labely: 400},
+      { dorm: "WH", 
+        room: "30", 
+        type: "double", 
+        pathpoints: [{x: 887 , y: 403}, {x: 948 , y: 518}, {x: 1024 , y: 474}, {x: 963 , y: 359}, {x: 887 , y: 403}],
+        labelx: 960, 
+        labely: 450},
+      { dorm: "WH", 
+        room: "28", 
+        type: "double", 
+        pathpoints: [{x: 811 , y: 447}, {x: 872 , y: 562}, {x: 948 , y: 518}, {x: 887 , y: 403}, {x: 811 , y: 447}],
+        labelx: 880, 
+        labely: 495},
+      { dorm: "WH", 
+        room: "26", 
+        type: "double", 
+        pathpoints: [{x: 735 , y: 491}, {x: 796 , y: 606}, {x: 872 , y: 562}, {x: 811 , y: 447}, {x: 735 , y: 491}],
+        labelx: 800, 
+        labely: 530},
+      { dorm: "WH", 
+        room: "24", 
+        type: "double", 
+        pathpoints: [{x: 659 , y: 535}, {x: 720 , y: 650}, {x: 796 , y: 606}, {x: 735 , y: 491}, {x: 659 , y: 535}],
+        labelx: 725, 
+        labely: 575},
+      { dorm: "WH", 
+        room: "20", 
+        type: "double", 
+        pathpoints: [{x: 533 , y: 552.5}, {x: 555 , y: 682.5}, {x: 650 , y: 670}, {x: 628 , y: 540}, {x: 533 , y: 552.5}],
+        labelx: 590, 
+        labely: 620},
+      { dorm: "WH", 
+        room: "18", 
+        type: "double", 
+        pathpoints: [{x: 440 , y: 565}, {x: 460 , y: 695}, {x: 555 , y: 682.5}, {x: 533 , y: 552.5}, {x: 440 , y: 565}],
+        labelx: 500, 
+        labely: 630},
       ];
 
     //These are for coloring -- don't want to have to do them over again
@@ -273,10 +272,11 @@ var DormRooms = React.createClass({
 
     var rooms = _.map(currentdormdata, function(room, i) {
       var roomcolor = "#FFFFFF";
-      // This will need to change when we actually have different
       // people living on every floor
-      //The current user is living on this floor.
-      if ((props.floor + room.room) === props.currentUserPinData.room.toString()){
+      //The current user is living on this floor in this dorm.
+      var userDorm = props.currentUserPinData.hall === 1 ? "EH" : "WH";
+      // console.log()
+      if ((props.dorm + props.floor + room.room) === (userDorm + props.currentUserPinData.room.toString())){
         //The color for the room the user has selected
         var roomcolor = "#FFDB4D";
         userPins = [props.currentUserPinData];
@@ -284,7 +284,8 @@ var DormRooms = React.createClass({
       else {
         //Get the pin data for this room.
         userPins = props.pinData.filter(function(pin) {
-          return (pin.room.toString() === props.floor + room.room); 
+          var pinDorm = pin.hall === 1 ? "EH" : "WH";
+          return ((pinDorm + pin.room.toString()) === (props.dorm + props.floor + room.room)); 
         });
         //Here we do the heatmapping
         if (userPins.length > 0){

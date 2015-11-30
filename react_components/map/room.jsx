@@ -84,7 +84,7 @@ var Room = React.createClass({
         </g>
         <RoomToolTip 
           visiblity = {tooltipvis}
-          dorm = "EH"
+          dorm = {props.roominfo.dorm}
           roomnumber = {roomlabel}
           group = {props.roomPinData[0].group}
           roommates = {roommates}
