@@ -4,7 +4,7 @@ var pinsSchema = mongoose.Schema({
         occupants: [mongoose.Schema.Types.ObjectId],
         group: String,
         hall: Number,
-        room: Number,
+        roomNumber: Number,
         tags: [mongoose.Schema.Types.Mixed]
 });
 
