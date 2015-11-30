@@ -21,7 +21,7 @@ var currentUserPinData =  {
   }
   ],
   hall: 1,
-  room: "",
+  room: 319,
   tags: [{label:"Partying", value: 0},
          {label: "Movies", value: 3}]
 };
