@@ -187,7 +187,7 @@ var DormRooms = React.createClass({
         type: "double", 
         pathpoints: [{x :220, y: 770}, {x: 220, y: 850}, {x: 350, y: 850}, {x: 350, y:770}, {x :220, y: 770}],
         labelx: 285, 
-        labely: 830},
+        labely: 820},
       { dorm: "WH", 
         room: "31", 
         type: "double", 
