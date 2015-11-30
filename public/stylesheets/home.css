@@ -47,6 +47,8 @@ html {
     font-family: sans-serif;
     text-anchor: middle;
     pointer-events: none;
+    font-size: 14px;
+    background-color: yellow;
 }
 
 .roomtooltip {
