@@ -13,7 +13,17 @@ TagsList = React.createClass({
     }, this);
   },
 
-   render: function() {
+  onTagRemove: function(tagLabel){
+    updatedPin = this.props.pin;
+    updatedPin.tags.forEach(function(pinTag, index){
+      if (pinTag.label === tagLabel){
+        delete updatedPin.tags[index]
+        this.props.onPinUpdate(updatedPin);
+      }
+    }, this);
+  },
+
+  render: function() {
     var tagNodes = this.props.pin.tags.map(function(tag){
       var comparing = this.props.comparing;
       if(comparing){
@@ -28,6 +38,7 @@ TagsList = React.createClass({
         tag={tag}
         comparing={comparing}
         onTagSlide={this.onTagSlide}
+        onTagRemove={this.onTagRemove}
         key={tag.label}
       />)
     }.bind(this));
@@ -36,13 +47,13 @@ TagsList = React.createClass({
         <h2 className="tagsListLabel"><strong>Tags</strong></h2>
         <div className="tagScale">
           <svg id="tagLabelSVG" width="100" height="30">
-            <line x1 ={"5%"} x2 ={"5%"} y1 = {"50%"} y2 = {"100%"} stroke = "black" strokeWidth = {2}/>
+            <line x1 ={"6%"} x2 ={"6%"} y1 = {"50%"} y2 = {"100%"} stroke = "black" strokeWidth = {2}/>
             <line x1 ={"27.5%"} x2 ={"27.5%"} y1 = {"75%"} y2 = {"100%"} stroke = "black" strokeWidth = {1}/>
             <line x1 ={"50%"} x2 ={"50%"} y1 = {"85%"} y2 = {"100%"} stroke = "black" strokeWidth = {1}/>
             <line x1 ={"72.5%"} x2 ={"72.5%"} y1 = {"75%"} y2 = {"100%"} stroke = "black" strokeWidth = {1}/>
-            <line x1 ={"95%"} x2 ={"95%"} y1 = {"50%"} y2 = {"100%"} stroke = "black" strokeWidth = {2}/>
-            <text x = {"4%"} y = {10}>{"Must Avoid"}</text>
-            <text x = {"96%"} y = {10} textAnchor="end">{"Must Have"}</text>   
+            <line x1 ={"94%"} x2 ={"94%"} y1 = {"50%"} y2 = {"100%"} stroke = "black" strokeWidth = {2}/>
+            <text x = {"5%"} y = {10}>{"Must Avoid"}</text>
+            <text x = {"95%"} y = {10} textAnchor="end">{"Must Have"}</text>
           </svg>
         </div>
         {tagNodes}
@@ -52,8 +63,13 @@ TagsList = React.createClass({
 })
 
 TagCard = React.createClass({
-  handleChange: function(value){
+  handleSlide: function(value){
     this.props.onTagSlide(this.props.tag.label, value);
+  },
+
+  handleRemove: function(){
+    console.log("removed!");
+    this.props.onTagRemove(this.props.tag.label);
   },
 
   render: function () {
@@ -81,11 +97,16 @@ TagCard = React.createClass({
           max={4}
           step={1}
           defaultValue={parseFloat(this.props.tag.value)}
-          onChange={this.handleChange}
+          onChange={this.handleSlide}
           handleClassName="moveableHandle"
           withBars
         />
         {comparisonSlider}
+        <div className="tagRemoveBtn"
+          onClick={this.handleRemove}
+        >
+          <i className="material-icons">remove_circle_outline</i>
+        </div>
       </div>
     )
   }
