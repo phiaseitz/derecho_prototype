@@ -1,5 +1,6 @@
 var React = require('react');
 var Select = require('react-select');
+var ReactSlider = require('react-slider');
 
 TagsList = React.createClass({
   onTagSlide: function(tagLabel, tagValue){
@@ -13,40 +14,68 @@ TagsList = React.createClass({
   },
 
   render: function() {
-    var tagNodes = this.props.pin.tags.map(function (tag) {
+    var tagNodes = this.props.pin.tags.map(function(tag){
+      var comparing = this.props.comparing;
+      if(comparing){
+        console.log(comparing)
+        comparing.tags.forEach(function (testTag){
+          if(testTag.label === tag.label){
+            comparing = testTag;
+          }
+        }, this);
+      }
       return (<TagCard
         tag={tag}
+        comparing={comparing}
         onTagSlide={this.onTagSlide}
         key={tag.label}
       />)
     }.bind(this));
     return (
       <div className="tags-list">
+        <h2 className="tagsListLabel"><strong>Tags</strong></h2>
+        <div className="tagScale"/>
         {tagNodes}
       </div>
     );
   }
-
 })
 
 TagCard = React.createClass({
-  handleChange: function(event){
-    this.props.onTagSlide(this.props.tag.label, event.target.value)
+  handleChange: function(value){
+    this.props.onTagSlide(this.props.tag.label, value);
   },
 
   render: function () {
+    if(this.props.comparing){
+      var comparisonSlider =
+        <ReactSlider
+          className="comparisonSlider"
+          min={0}
+          max={4}
+          step={1}
+          value={parseFloat(this.props.comparing.value)}
+          disabled={true}
+          handleClassName="staticHandle"
+        />
+    } else{
+      var comparisonSlider = null;
+      value = parseFloat(this.props.tag.value);
+    }
     return (
       <div className="tag">
         <div className="tagText"> {this.props.tag.label} </div>
-        <input className="tagSlider"
-          type="range"
-          name={this.props.tag.label}
+        <ReactSlider
+          className="tagSlider"
+          min={0}
+          max={4}
+          step={1}
+          defaultValue={parseFloat(this.props.tag.value)}
           onChange={this.handleChange}
-          value={this.props.tag.value}
-          min="0"
-          max="4"
-          step="1"
+          handleClassName="moveableHandle"
+          withBars
         />
+        {comparisonSlider}
       </div>
     )
   }
@@ -104,6 +133,7 @@ PinTab = React.createClass({
         <TagsList
           pin={this.props.pin}
           onPinUpdate={this.props.onPinUpdate}
+          comparing={this.props.comparing}
         />
       </div>
     )

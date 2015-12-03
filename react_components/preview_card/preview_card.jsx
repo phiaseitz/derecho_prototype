@@ -25,7 +25,6 @@ var PreviewCard = React.createClass({
   },
 
   render: function() {
-    console.log(this.state.contactInfoShown);
     var contactInfoShown = this.state.contactInfoShown ? "visible" : "hidden";
     var secondaryButtonsShown =
         this.state.confirmationInProgress ?  "hidden" : "visible";
@@ -37,18 +36,18 @@ var PreviewCard = React.createClass({
     var occupantInfo = [];
     for (i = 0; i < this.props.previewPin.occupants.length; i++) {
       occupantInfo.push(
-          <div className="occupantName preview-info-block"> 
+          <div className="occupantName preview-info-block">
           {this.props.previewPin.occupants[i].firstName +
           ' ' + this.props.previewPin.occupants[i].lastName}</div>
           );
       if (this.state.contactInfoShown) {
         for (j = 0; j < this.props.previewPin.occupants[i].contactMethods.length; j++) {
           occupantInfo.push(
-              <div className="occupantContactMethod preview-info-block"> 
+              <div className="occupantContactMethod preview-info-block">
               {this.props.previewPin.occupants[i].contactMethods[j]}</div>
               );
           occupantInfo.push(
-              <div className="occupantContactValue preview-info-block"> 
+              <div className="occupantContactValue preview-info-block">
               {this.props.previewPin.occupants[i].contactValues[j]}</div>
               );
         }
@@ -68,12 +67,13 @@ var PreviewCard = React.createClass({
           {this.props.isPreviewing ? occupantInfo : ''}
         </div>
         <div id="preview-button-container">
-          <div 
-            id="secondary-preview-button-container" 
+          <div
+            id="secondary-preview-button-container"
             className={secondaryButtonsShown}>
             <CompareButton
               setCompare={this.props.setCompare}
-              isComparing={this.props.isComparing}
+              previewPin={this.props.previewPin}
+              isPreviewing={this.props.isPreviewing}
             />
             <ContactButton
               setContactInfoShown={this.setContactInfoShown}

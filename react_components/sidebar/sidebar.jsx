@@ -24,6 +24,7 @@ Sidebar = React.createClass({
                                 onPinUpdate={this.props.onPinUpdate}
                                 tags={this.props.tags}
                                 onTagAdd={this.props.onTagAdd}
+                                comparing={this.props.comparing}
                              />
         } else if(this.state.selectedTab === "notifications"){
             var currentTab = <NotificationsTab
