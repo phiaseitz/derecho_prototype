@@ -39,7 +39,6 @@ var PreviewCard = React.createClass({
 
 
   render: function() {
-    console.log(this.state.contactInfoShown);
     var contactInfoShown = this.state.contactInfoShown ? "visible" : "hidden";
     var secondaryButtonsShown =
         this.state.confirmationInProgress ?  "hidden" : "visible";
@@ -48,6 +47,7 @@ var PreviewCard = React.createClass({
     var roomNumber = (this.props.previewPin.hall ? 'East Hall' : 'West Hall') +
         ' ' + this.props.previewPin.room;
 
+<<<<<<< 655f5e23e818286c2c187693e7d5651dfcfb5d89
     var displayRoommateContainer = this.props.isPreviewing && this.props.previewPin.group != "";
     var roommateContainer;
     if (displayRoommateContainer) {
@@ -69,6 +69,25 @@ var PreviewCard = React.createClass({
                 {this.props.previewPin.occupants[i].contactValues[j]}</div>
                 );
           }
+=======
+    var occupantInfo = [];
+    for (i = 0; i < this.props.previewPin.occupants.length; i++) {
+      occupantInfo.push(
+          <div className="occupantName preview-info-block">
+          {this.props.previewPin.occupants[i].firstName +
+          ' ' + this.props.previewPin.occupants[i].lastName}</div>
+          );
+      if (this.state.contactInfoShown) {
+        for (j = 0; j < this.props.previewPin.occupants[i].contactMethods.length; j++) {
+          occupantInfo.push(
+              <div className="occupantContactMethod preview-info-block">
+              {this.props.previewPin.occupants[i].contactMethods[j]}</div>
+              );
+          occupantInfo.push(
+              <div className="occupantContactValue preview-info-block">
+              {this.props.previewPin.occupants[i].contactValues[j]}</div>
+              );
+>>>>>>> ADD: Tag Compare
         }
       }
       roommateContainer = <div className="roommate-container">
@@ -89,11 +108,26 @@ var PreviewCard = React.createClass({
           <div id="preview-room-number">
               {this.props.isPreviewing ? roomNumber : '[No Room Selected]'}
           </div>
+<<<<<<< 655f5e23e818286c2c187693e7d5651dfcfb5d89
           <div id="preview-button-container">
             <PreviewCardButton
               title="Show contact info"
               icon="contact_mail"
               clickFunction={this.setContactInfoShown}
+=======
+        </div>
+        <div id="preview-occupant-info">
+          {this.props.isPreviewing ? occupantInfo : ''}
+        </div>
+        <div id="preview-button-container">
+          <div
+            id="secondary-preview-button-container"
+            className={secondaryButtonsShown}>
+            <CompareButton
+              setCompare={this.props.setCompare}
+              previewPin={this.props.previewPin}
+              isPreviewing={this.props.isPreviewing}
+>>>>>>> ADD: Tag Compare
             />
             <PreviewCardButton
               title="Place pin"
