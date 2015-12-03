@@ -53,8 +53,9 @@
   margin-top: 25px;
   width: calc(100% - 5px - 100px);
   height: 30px;
-  background: url(../images/TagScale2.svg);
+  background: url(../images/TagScale2.png);
   background-size: calc(100%) 30px;
+  /*background-size: cover;*/
   background-repeat: no-repeat;
 }
 
