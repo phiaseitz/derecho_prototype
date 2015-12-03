@@ -83,6 +83,7 @@ var Main = React.createClass({
         return (
             <div className="Main">
                 <Menu
+                    userPin = {this.state.userPin}
                     setFloor={this.setFloor}
                     currentFloor={this.state.currentFloor}
                 />
@@ -97,8 +98,7 @@ var Main = React.createClass({
                     <DormMap
                       width={700}
                       height={700}
-                      // Update this to be west hall when we have that map working
-                      dorm = {this.state.currentFloor >= 4? "EH" : "EH"}
+                      dorm = {this.state.currentFloor >= 4? "EH" : "WH"}
                       floor = {(this.state.currentFloor % 4) + 1}
                       margin = {100}
                       pinData = {allUserPinData}
