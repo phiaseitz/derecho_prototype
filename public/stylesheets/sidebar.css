@@ -54,12 +54,12 @@
   width: calc(100% - 5px - 100px);
   height: 30px;
 }
+
 #tagLabelSVG{
   width: calc(100%);
   height: 30px;
   font-family: 'Open Sans';
-  font-size: 10px;
-}
+  font-size: 10px;}
 
 .tag{
   display: inline-block;

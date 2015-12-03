@@ -16,9 +16,9 @@
 	<polygon points="333,42 330,60 327,42 	"/>
 </g>
 <rect x="288" y="6" fill="none" width="84" height="30"/>
-<text transform="matrix(1 0 0 1 288.8818 28.7998)" font-family="'Open Sans'" font-size="30" font-weight="700">enjoy</text>
+<text transform="matrix(1 0 0 1 288.8818 28.7998)" font-family="'OpenSans-Bold'" font-size="30">enjoy</text>
 <rect y="6" fill="none" width="84" height="30"/>
-<text transform="matrix(1 0 0 1 1.0503 28.7998)" font-family="'Open Sans'" font-size="30" font-weight="700">avoid</text>
+<text transform="matrix(1 0 0 1 1.0503 28.7998)" font-family="'OpenSans-Bold'" font-size="30">avoid</text>
 <g>
 	<polygon points="189,54 186,60 183,54 	"/>
 </g>
