@@ -1,5 +1,5 @@
 .sidebar {
-  width: 25%;
+  width: 25vw;
   float: left;
   min-height: 80vh;
   margin-top: 20px;
@@ -28,20 +28,48 @@
 }
 
 .tab{
+  margin: 15px 7.5px 7.5px;
+}
+
+.message{
   margin: 7.5px;
+  padding: 5px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.16);
 }
 
 .Select{
-  margin-top: 5px;
+  margin-top: 15px;
+}
+
+.tagsListLabel{
+  display: inline-block;
+  width: 100px;
+  height: 30px;
+  margin-right: 5px;
+  text-align: center;
+  vertical-align: middle;
+  transform: translateY(-15px);
+  font-family: 'Open Sans';
+}
+
+.tagScale{
+  display: inline-block;
+  margin-top: 25px;
+  width: calc(100% - 5px - 100px);
+  height: 30px;
+  background: url(../images/TagScale2.svg);
+  background-size: calc(100%) 30px;
+  background-repeat: no-repeat;
 }
 
 .tag{
-  margin: 2.5px;
-  width: calc(100% - 5px);
+  display: inline-block;
+  margin: 0px 5px 20px;
+  width: calc(100% - 10px);
 }
 
 .tagText{
-  float: left;
+  display: inline-block;
   width: 100px;
   margin-right: 5px;
   vertical-align: middle;
@@ -50,13 +78,57 @@
 }
 
 .tagSlider{
-  float:right;
-  width: calc(100% - 100px);
-  position: relative;
+  display: inline-block;
+  width: calc(100% - 5px - 100px);
 }
 
-.message{
-  margin: 7.5px;
-  padding: 5px;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.16);
+.comparisonSlider{
+  display: relative;
+  width: calc(100% - 5px - 100px);
+  top: -7.5px;
+  left: 105px;
+}
+
+.staticHandle {
+  background-color: #9E9E9E;
+  width: 12.5px;
+  height: 12.5px;
+  border-radius: 10px;
+  z-index:2 !important;
+  transform: translate(0, -3.75px)
+}
+
+.moveableHandle{
+  background-color: #303F9F;
+  width: 12.5px;
+  height: 12.5px;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+  z-index: 3 !important;
+  transform: translateY(-3.75px)
+}
+
+.moveableHandle:hover {
+  background-color: #303F9F;
+  width: 15px;
+  height: 15px;
+  transform: translate(-1.25px, -5px);
+  border-radius: 10px;
+}
+
+.moveableHandle.active{
+  background-color: #303F9F;
+  width: 15px;
+  height: 15px;
+  transform: translate(-1.25px, -5px);
+  border-radius: 10px;
+}
+
+.bar {
+  background: #E0E0E0;
+  height: 5px;
+  border-radius: 5px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+  z-index:1;
 }
