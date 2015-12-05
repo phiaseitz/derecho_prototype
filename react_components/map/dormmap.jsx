@@ -17,13 +17,19 @@ var DormMap = React.createClass({
       scaling: 1,
     }
   },
+
+  handleClick: function() {
+    console.log("mapclick");
+    this.props.setPreview(false);
+  },
+
   render: function() {
     var props = this.props;
     console.log(this.props);
 
-    var disagreeColor = "#FF9933";
-    var middleColor = "#FFFFFF";
-    var agreeColor = "#0099FF";
+    var disagreeColor = "#ff8080";
+    var middleColor = "#ddccff";
+    var agreeColor = "#66c2ff";
 
     var maxDormWidth = props.width - 1.3*props.margin;
     var maxDormHeight = props.height - 1.1*props.margin;
@@ -47,29 +53,40 @@ var DormMap = React.createClass({
             <stop offset="100%" stopColor= {disagreeColor}/>
           </linearGradient>
         </defs>
+        <rect 
+          x= {0} 
+          y= {0} 
+          fillOpacity = {0}
+          strokeOpacity = {0}
+          width = {this.props.width}
+          height = {this.props.height} 
+          style = {{fill: "white", stroke: "white"}}
+          onClick = {this.handleClick} />
         <HeatMapLegend
           xpos = {props.width - 0.1*props.margin}
           ypos = {0.5*props.margin}
-          agreeColor = {agreeColor} 
+          agreeColor = {agreeColor}
           middleColor = {middleColor}
           disagreeColor = {disagreeColor}/>
-        <DormOutline 
-          margin = {props.margin} 
-          scaling = {scaling} />
-        <DormRooms 
-          dorm = {props.dorm} 
-          floor = {props.floor} 
-          margin = {props.margin} 
+        <DormOutline
+          margin = {props.margin}
+          scaling = {scaling} 
+          dorm = {props.dorm}/>
+        <DormRooms
+          dorm = {props.dorm}
+          floor = {props.floor}
+          margin = {props.margin}
           scaling = {scaling}
           pinData = {props.pinData}
           currentUserPinData = {props.currentUserPinData}
-          agreeColor = {agreeColor} 
+          agreeColor = {agreeColor}
           middleColor = {middleColor}
           disagreeColor = {disagreeColor}
-          setPreviewPin = {props.setPreviewPin}/>
+          setPreviewPin = {props.setPreviewPin}
+          setPreview = {props.setPreview}/>
       </svg>
     );
-  
+
   }
 });
 

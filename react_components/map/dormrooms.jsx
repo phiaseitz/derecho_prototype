@@ -25,25 +25,25 @@ var DormRooms = React.createClass({
         labelx: 335, 
         labely: 240},
       { dorm: "EH", 
-        room: "03", 
+        room: "09", 
         type: "double", 
         pathpoints: [{x :20, y: 100}, {x: 20, y: 180}, {x: 150, y: 180}, {x: 150, y:100}, {x :20, y: 100}], 
         labelx: 85, 
         labely: 150},
       { dorm: "EH", 
-        room: "05", 
+        room: "07", 
         type: "double", 
         pathpoints: [{x :20, y: 180}, {x: 20, y: 260}, {x: 150, y: 260}, {x: 150, y:180}, {x :20, y: 180}], 
         labelx: 85, 
         labely: 230},
       { dorm: "EH", 
-        room: "07", 
+        room: "05", 
         type: "double", 
         pathpoints: [{x :20, y: 260}, {x: 20, y: 340}, {x: 150, y: 340}, {x: 150, y:260}, {x :20, y: 260}], 
         labelx: 85, 
         labely: 310},
       { dorm: "EH", 
-        room: "09", 
+        room: "03", 
         type: "double",  
         pathpoints: [{x :20, y: 340}, {x: 20, y: 400},  {x: 0, y: 400}, {x: 0, y: 450}, {x: 50 , y: 450}, {x: 50 , y: 430}, {x: 75 , y: 430}, {x: 150, y:430}, {x: 150, y: 340}, {x: 20, y:340}], 
         labelx: 85, 
@@ -103,6 +103,159 @@ var DormRooms = React.createClass({
         labelx: 595, 
         labely: 670}];
 
+    var westfloordata = [
+      { dorm: "WH", 
+        room: "07", 
+        type: "double", 
+        pathpoints: [{x :20, y: 0}, {x: 20, y: 80}, {x: 150, y: 80}, {x: 150, y:0}, {x :20, y: 0}], 
+        labelx: 85, 
+        labely: 50},
+      { dorm: "WH", 
+        room: "05", 
+        type: "double", 
+        pathpoints: [{x :20, y: 80}, {x: 20, y: 160}, {x: 150, y: 160}, {x: 150, y:80}, {x :20, y: 80}], 
+        labelx: 85, 
+        labely: 130},
+      { dorm: "WH", 
+        room: "03", 
+        type: "double", 
+        pathpoints: [{x :20, y: 160}, {x: 20, y: 240}, {x: 150, y: 240}, {x: 150, y:160}, {x :20, y: 160}], 
+        labelx: 85, 
+        labely: 210},
+      { dorm: "WH", 
+        room: "01", 
+        type: "double",  
+        pathpoints: [{x :20, y: 240}, {x: 20, y: 300},  {x: 0, y: 300}, {x: 0, y: 350}, {x: 50 , y: 350}, {x: 50 , y: 330}, {x: 75 , y: 330}, {x: 150, y:330}, {x: 150, y: 240}, {x: 20, y:240}], 
+        labelx: 85, 
+        labely: 295},
+      { dorm: "WH", 
+        room: "06", 
+        type: "double", 
+        pathpoints: [{x :220, y: 80}, {x: 220, y: 160}, {x: 350, y: 160}, {x: 350, y:80}, {x :220, y: 80}], 
+        labelx: 285, 
+        labely: 130},
+      { dorm: "WH", 
+        room: "04", 
+        type: "double", 
+        pathpoints: [{x :220, y: 160}, {x: 220, y: 240}, {x: 350, y: 240}, {x: 350, y:160}, {x :220, y: 160}], 
+        labelx: 285, 
+        labely: 210},
+      { dorm: "WH", 
+        room: "02", 
+        type: "double",  
+        pathpoints: [{x :220, y: 240}, {x: 220, y: 330},  {x: 350, y:330}, {x: 350, y: 240}, {x: 220, y:240}], 
+        labelx: 285, 
+        labely: 295},
+      { dorm: "WH", 
+        room: "09", 
+        type: "double", 
+        pathpoints: [{x :20, y: 610}, {x: 20, y: 690}, {x: 150, y: 690}, {x: 150, y:610}, {x :20, y: 610}], 
+        labelx: 85, 
+        labely: 660},
+      { dorm: "WH", 
+        room: "11", 
+        type: "double", 
+        pathpoints: [{x :20, y: 690}, {x: 20, y: 770}, {x: 150, y: 770}, {x: 150, y:690}, {x :20, y: 690}], 
+        labelx: 85, 
+        labely: 740},
+      { dorm: "WH", 
+        room: "13", 
+        type: "double", 
+        pathpoints: [{x :20, y: 770}, {x: 20, y: 850}, {x: 150, y: 850}, {x: 150, y:770}, {x :20, y: 770}],
+        labelx: 85, 
+        labely: 820},
+      { dorm: "WH", 
+        room: "15", 
+        type: "double", 
+        pathpoints: [{x :20, y: 850}, {x: 20, y: 910},  {x: 0, y: 910}, {x: 0, y: 960}, {x: 50 , y: 960}, {x: 50 , y: 940}, {x: 150 , y: 940}, {x: 150, y:850}, {x: 20, y: 850}], 
+        labelx: 85, 
+        labely: 905},
+      { dorm: "WH", 
+        room: "10", 
+        type: "double", 
+        pathpoints: [{x :250, y: 550}, {x: 250, y: 690}, {x: 350, y: 690}, {x: 350, y:550}, {x :250, y: 550}], 
+        labelx: 300, 
+        labely: 630},
+      { dorm: "WH", 
+        room: "12", 
+        type: "double", 
+        pathpoints: [{x :220, y: 690}, {x: 220, y: 770}, {x: 350, y: 770}, {x: 350, y:690}, {x :220, y: 690}], 
+        labelx: 285, 
+        labely: 740},
+      { dorm: "WH", 
+        room: "14", 
+        type: "double", 
+        pathpoints: [{x :220, y: 770}, {x: 220, y: 850}, {x: 350, y: 850}, {x: 350, y:770}, {x :220, y: 770}],
+        labelx: 285, 
+        labely: 820},
+      { dorm: "WH", 
+        room: "31", 
+        type: "double", 
+        pathpoints: [{x: 866 , y: 198}, {x: 945 , y: 160}, {x: 1014 , y: 280}, {x: 935 , y: 318}, {x: 866 , y: 198}],
+        labelx: 940, 
+        labely: 240},
+      { dorm: "WH", 
+        room: "29", 
+        type: "double", 
+        pathpoints: [{x: 787 , y: 236}, {x: 866 , y: 198}, {x: 935 , y: 318}, {x: 856 , y: 356}, {x: 787 , y: 236}],
+        labelx: 860, 
+        labely: 280},
+      { dorm: "WH", 
+        room: "27", 
+        type: "double", 
+        pathpoints: [{x: 708 , y: 274}, {x: 787 , y: 236}, {x: 856 , y: 356}, {x: 777 , y: 394}, {x: 708 , y: 274}],
+        labelx: 780, 
+        labely: 320},
+      { dorm: "WH", 
+        room: "25", 
+        type: "double", 
+        pathpoints: [{x: 629 , y: 312}, {x: 708 , y: 274}, {x: 777 , y: 394}, {x: 698 , y: 432}, {x: 629 , y: 312}],
+        labelx: 700, 
+        labely: 360},
+      { dorm: "WH", 
+        room: "23", 
+        type: "double", 
+        pathpoints: [{x: 550 , y: 350}, {x: 629 , y: 312}, {x: 698 , y: 432}, {x: 619 , y: 470}, {x: 550 , y: 350}],
+        labelx: 620, 
+        labely: 400},
+      { dorm: "WH", 
+        room: "30", 
+        type: "double", 
+        pathpoints: [{x: 887 , y: 403}, {x: 948 , y: 518}, {x: 1024 , y: 474}, {x: 963 , y: 359}, {x: 887 , y: 403}],
+        labelx: 960, 
+        labely: 450},
+      { dorm: "WH", 
+        room: "28", 
+        type: "double", 
+        pathpoints: [{x: 811 , y: 447}, {x: 872 , y: 562}, {x: 948 , y: 518}, {x: 887 , y: 403}, {x: 811 , y: 447}],
+        labelx: 880, 
+        labely: 495},
+      { dorm: "WH", 
+        room: "26", 
+        type: "double", 
+        pathpoints: [{x: 735 , y: 491}, {x: 796 , y: 606}, {x: 872 , y: 562}, {x: 811 , y: 447}, {x: 735 , y: 491}],
+        labelx: 800, 
+        labely: 530},
+      { dorm: "WH", 
+        room: "24", 
+        type: "double", 
+        pathpoints: [{x: 659 , y: 535}, {x: 720 , y: 650}, {x: 796 , y: 606}, {x: 735 , y: 491}, {x: 659 , y: 535}],
+        labelx: 725, 
+        labely: 575},
+      { dorm: "WH", 
+        room: "20", 
+        type: "double", 
+        pathpoints: [{x: 533 , y: 552.5}, {x: 555 , y: 682.5}, {x: 650 , y: 670}, {x: 628 , y: 540}, {x: 533 , y: 552.5}],
+        labelx: 590, 
+        labely: 620},
+      { dorm: "WH", 
+        room: "18", 
+        type: "double", 
+        pathpoints: [{x: 440 , y: 565}, {x: 460 , y: 695}, {x: 555 , y: 682.5}, {x: 533 , y: 552.5}, {x: 440 , y: 565}],
+        labelx: 500, 
+        labely: 630},
+      ];
+
     //These are for coloring -- don't want to have to do them over again
     var negscale = d3.scale.linear()
       .domain([0,0.5])
@@ -115,12 +268,15 @@ var DormRooms = React.createClass({
 
     var userPins = [];
 
-    var rooms = _.map(eastfloordata, function(room, i) {
+    var currentdormdata = props.dorm === 'EH' ? eastfloordata : westfloordata;
+
+    var rooms = _.map(currentdormdata, function(room, i) {
       var roomcolor = "#FFFFFF";
-      // This will need to change when we actually have different
       // people living on every floor
-      //The current user is living on this floor.
-      if (room.room === props.currentUserPinData.room.toString().substring(1,3)){
+      //The current user is living on this floor in this dorm.
+      var userDorm = props.currentUserPinData.hall === 1 ? "EH" : "WH";
+      // console.log()
+      if ((props.dorm + props.floor + room.room) === (userDorm + props.currentUserPinData.room.toString())){
         //The color for the room the user has selected
         var roomcolor = "#FFDB4D";
         userPins = [props.currentUserPinData];
@@ -128,16 +284,27 @@ var DormRooms = React.createClass({
       else {
         //Get the pin data for this room.
         userPins = props.pinData.filter(function(pin) {
-          return (pin.room.toString().substring(1,3) === room.room); 
+          var pinDorm = pin.hall === 1 ? "EH" : "WH";
+          return ((pinDorm + pin.room.toString()) === (props.dorm + props.floor + room.room)); 
         });
         //Here we do the heatmapping
         if (userPins.length > 0){
           var differences = []
-          Object.keys(currentUserTags).forEach(function(tag){
-            if (tag in userPins[0].tags){
-              differences.push(Math.abs(currentUserTags[tag] - userPins[0].tags[tag]))
+          //loop through all the users tags.
+          currentUserTags.forEach(function(tag){
+            //get the matching tag or another user. 
+            matchingTags = userPins[0].tags.filter(function(otherUserTag){
+              return otherUserTag.label === tag.label;
+            });
+            if (matchingTags.length > 0){
+              differences.push(Math.abs(tag.value - matchingTags[0].value));
             }
           })
+          ///This is a hack-y way to set 0 tags in common (two users have rated completely seperate
+          /// tags) as getting a neutral score.
+          if (differences.length === 0){
+            differences.push(2);
+          }
           var sumdiffs = differences.reduce(function(pv, cv) { return pv + cv; }, 0);
           //Get the average difference on categories rated by the user
           var averagediffs = sumdiffs/(differences.length);
@@ -173,7 +340,9 @@ var DormRooms = React.createClass({
           roominfo = {room} 
           color = {roomcolor}
           roomPinData = {userPins}
-          setPreviewPin = {props.setPreviewPin}/>
+          setPreviewPin = {props.setPreviewPin}
+          setPreview = {props.setPreview}
+          />
       )
     });
 

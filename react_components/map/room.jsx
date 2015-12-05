@@ -30,9 +30,11 @@ var Room = React.createClass({
   handleClick: function() {
     console.log(this.props.roominfo.room);
     this.props.setPreviewPin(this.props.roomPinData[0]);
+    this.props.setPreview(true);
   },
 
   render: function() {
+    console.log(this.props);
     var props = this.props;
     var lineFunction = d3.svg.line()
       .x(function(d) {return props.margin + props.scaling*d.x;})
@@ -69,22 +71,23 @@ var Room = React.createClass({
           onMouseOut = {this.handleMouseOut}
           onClick = {this.handleClick}/>
         <g className = "roomlabel">
+          
           <text 
             x = {props.margin + props.scaling*props.roominfo.labelx} 
             y = {props.margin + props.scaling*props.roominfo.labely + 2} 
             fill ="black">{roomlabel}</text>
           <circle 
             fillOpacity = {circleOpacity}
-            cx= {props.margin + props.scaling*props.roominfo.labelx - 15} 
-            cy={props.margin + props.scaling*props.roominfo.labely - 13}  
+            cx= {props.margin + props.scaling*props.roominfo.labelx - 12} 
+            cy={props.margin + props.scaling*props.roominfo.labely - 15}  
             r="2" 
-            fill="black" />
+            fill="#404040"/>
         </g>
         <RoomToolTip 
           visiblity = {tooltipvis}
-          dorm = "EH"
+          dorm = {props.roominfo.dorm}
           roomnumber = {roomlabel}
-          group = {props.roomPinData.group}
+          group = {props.roomPinData[0].group}
           roommates = {roommates}
           xval = {props.margin + props.scaling*props.roominfo.labelx}
           yval = {props.margin + props.scaling*props.roominfo.labely - 20}/>
@@ -93,5 +96,15 @@ var Room = React.createClass({
     );
   }
 });
+
+/*<rect 
+            x = {props.margin + props.scaling*props.roominfo.labelx - 14} 
+            y = {props.margin + props.scaling*props.roominfo.labely - 12} 
+            width = {30}
+            height = {18}
+            rx = {5}
+            ry = {5}
+            // opacity = {0.5}
+            fill ="#404040">{roomlabel}</rect>*/
 
 module.exports = Room;
