@@ -53,8 +53,10 @@ var Room = React.createClass({
     if (props.roomPinData[0].occupants.length === 0){
       circleOpacity = "0";
     } else{
-      roommates = _.map(props.roomPinData[0].occupants, function(occupant,i) {
-        return occupant.firstName + " " + occupant.lastName;
+      roommates = _.map(props.roomPinData, function(pinData,i){
+        return _.map(pinData.occupants, function(occupant,i) {
+          return occupant.firstName + " " + occupant.lastName;
+        })
       });
     }
 
@@ -82,6 +84,7 @@ var Room = React.createClass({
             fill="#404040"/>
         </g>
         <RoomToolTip
+          type = {props.roominfo.type}
           visiblity = {tooltipvis}
           dorm = {props.roominfo.dorm}
           roomnumber = {roomlabel}
