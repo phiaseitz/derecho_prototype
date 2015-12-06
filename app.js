@@ -34,26 +34,26 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(session({
-  secret: 'secret',
-  resave: false,
-  saveUninitialized: true
-}));
+// app.use(session({
+//   secret: 'secret',
+//   resave: false,
+//   saveUninitialized: true
+// }));
 
-app.use(passport.initialize());
-app.use(passport.session());
-
-
-// -- Public Routes
-app.post('/login', auth.localLogin());
-app.post('/user', auth.localSignup());
+// app.use(passport.initialize());
+// app.use(passport.session());
 
 
-// -- Authentication Middleware
-app.use(function (req, res, next) {
-    if (req.isAuthenticated()) next();
-    else res.redirect('/login.html');
-});
+// // -- Public Routes
+// app.post('/login', auth.localLogin());
+// app.post('/user', auth.localSignup());
+
+
+// // -- Authentication Middleware
+// app.use(function (req, res, next) {
+//     if (req.isAuthenticated()) next();
+//     else res.redirect('/login.html');
+// });
 
 
 // -- Private Routes

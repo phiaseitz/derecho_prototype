@@ -1,4 +1,4 @@
-messages = [
+emails = [
   {
     subjectleft: "Pin Conflict",
     subjectright: "30min ago",
@@ -16,5 +16,4 @@ messages = [
   },
 ]
 
-module.exports = messages;
-
+module.exports = emails;

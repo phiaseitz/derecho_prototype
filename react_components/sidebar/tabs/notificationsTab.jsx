@@ -36,7 +36,7 @@ NotificationsTab = React.createClass({
   render: function(){
     return (
       <div className="tab">
-        <div><strong> Notifications</strong></div>
+        <div><h2><strong> NOTIFICATIONS</strong></h2></div>
         <br></br>
         <MessageList
           messages={this.props.messages}

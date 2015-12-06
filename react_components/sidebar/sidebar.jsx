@@ -31,6 +31,7 @@ Sidebar = React.createClass({
                              />
         } else {
             var currentTab = <SettingsTab
+                                
                              />
         }
 

@@ -71,3 +71,41 @@
   font-style: italic;
 
 }
+
+.emails{margin: 7.5px;
+  padding: 5px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.16);
+   vertical-align: middle;
+}
+
+.checkboxes {
+    width: 300px;
+    border: 0px;
+    margin: 10px;
+    font-family: 'Open Sans';
+}
+
+.box1{
+   position: relative;
+    top: 25px;
+  margin-right: 15px;
+  float: right;
+  vertical-align:bottom;
+  width: 15px; /*Desired width*/
+  height: 15px; /*Desired height*/
+}
+
+.box2{
+   position: relative;
+    top: 30px;
+  margin-right: 15px;
+  float: right;
+  vertical-align:bottom;
+  width: 15px; /*Desired width*/
+  height: 15px; /*Desired height*/
+}
+
+
+.settings{
+  font-style: italic;
+}
