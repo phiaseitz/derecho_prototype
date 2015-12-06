@@ -34,7 +34,17 @@ TagsList = React.createClass({
     return (
       <div className="tags-list">
         <h2 className="tagsListLabel"><strong>Tags</strong></h2>
-        <div className="tagScale"/>
+        <div className="tagScale"
+          <svg id="tagLabelSVG" width="100" height="30">
+            <line x1 ={"5%"} x2 ={"5%"} y1 = {"50%"} y2 = {"100%"} stroke = "black" strokeWidth = {2}/>
+            <line x1 ={"27.5%"} x2 ={"27.5%"} y1 = {"75%"} y2 = {"100%"} stroke = "black" strokeWidth = {1}/>
+            <line x1 ={"50%"} x2 ={"50%"} y1 = {"85%"} y2 = {"100%"} stroke = "black" strokeWidth = {1}/>
+            <line x1 ={"72.5%"} x2 ={"72.5%"} y1 = {"75%"} y2 = {"100%"} stroke = "black" strokeWidth = {1}/>
+            <line x1 ={"95%"} x2 ={"95%"} y1 = {"50%"} y2 = {"100%"} stroke = "black" strokeWidth = {2}/>
+            <text x = {"4%"} y = {10}>{"Must Avoid"}</text>
+            <text x = {"96%"} y = {10} textAnchor="end">{"Must Have"}</text>   
+          </svg>
+        />
         {tagNodes}
       </div>
     );
