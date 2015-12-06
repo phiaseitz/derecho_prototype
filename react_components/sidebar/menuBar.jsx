@@ -6,7 +6,7 @@ MenuBar = React.createClass({
         return (
             <div className="menuBar">
                 <MenuButton
-                    name= "pin"
+                    name= "dashboard"
                     selectedTab= {this.props.selectedTab}
                     onMenuClick= {this.props.onMenuClick}
                 />
