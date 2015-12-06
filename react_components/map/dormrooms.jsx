@@ -276,17 +276,19 @@ var DormRooms = React.createClass({
       //The current user is living on this floor in this dorm.
       var userDorm = props.currentUserPinData.hall === 1 ? "EH" : "WH";
       // console.log()
+      
+      //Get the pin data for this room.
+      userPins = props.pinData.filter(function(pin) {
+        var pinDorm = pin.hall === 1 ? "EH" : "WH";
+        return ((pinDorm + pin.room.toString()) === (props.dorm + props.floor + room.room)); 
+      });
       if ((props.dorm + props.floor + room.room) === (userDorm + props.currentUserPinData.room.toString())){
         //The color for the room the user has selected
         var roomcolor = "#FFDB4D";
-        userPins = [props.currentUserPinData];
+        //Also add the pins!
+        userPins.push(props.currentUserPinData);
       }
       else {
-        //Get the pin data for this room.
-        userPins = props.pinData.filter(function(pin) {
-          var pinDorm = pin.hall === 1 ? "EH" : "WH";
-          return ((pinDorm + pin.room.toString()) === (props.dorm + props.floor + room.room)); 
-        });
         //Here we do the heatmapping
         if (userPins.length > 0){
           var differences = []
