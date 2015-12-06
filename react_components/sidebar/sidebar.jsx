@@ -7,7 +7,7 @@ var MenuBar = require('./menuBar.jsx')
 Sidebar = React.createClass({
     getInitialState: function() {
         return {
-            selectedTab: "pin",
+            selectedTab: "dashboard",
         };
     },
 
@@ -18,7 +18,7 @@ Sidebar = React.createClass({
     },
 
     render: function(){
-        if(this.state.selectedTab === "pin"){
+        if(this.state.selectedTab === "dashboard"){
             var currentTab = <PinTab
                                 pin={this.props.pin}
                                 onPinUpdate={this.props.onPinUpdate}
