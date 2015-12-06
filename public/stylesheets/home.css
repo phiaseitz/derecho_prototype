@@ -23,7 +23,7 @@ body{
     height: 100%;
     width: 100%;
     margin: 0;
-    background: #FCFCFC;
+    background: #EEEEEE;
 }
 html {
     height: 100%;
@@ -47,6 +47,8 @@ html {
     font-family: sans-serif;
     text-anchor: middle;
     pointer-events: none;
+    font-size: 14px;
+    background-color: yellow;
 }
 
 .roomtooltip {

@@ -11,7 +11,7 @@ var DormOutline = React.createClass({
 
   render: function() {
     var props = this.props;
-    var dormOutlineData = [
+    var eastOutlineData = [
       //South Wall
       {x: 20, y: 100},
       {x: 20, y: 400},
@@ -64,6 +64,51 @@ var DormOutline = React.createClass({
       {x: 120, y: 100},
       {x: 20, y: 100},
     ];
+
+    var westOutlineData = [
+      //South Wall
+      {x: 20, y: 0},
+      {x: 20, y: 300},
+      //The awkward corner in the West Hallway
+      {x: 0, y: 300},
+      {x: 0, y: 350},
+      {x: 50 , y: 350},
+      {x: 50 , y: 330},
+      {x: 75 , y: 330},
+      //The stuff by the stairs
+      {x: 130 , y: 575},
+      {x: 100 , y: 590},
+      {x: 110 , y: 610},
+      //The East Hallway
+      {x: 20 , y: 610},
+      {x: 20 , y: 910},
+      //The awkward corner in the East Hallway
+      {x: 0, y: 910},
+      {x: 0, y: 960},
+      {x: 50 , y: 960},
+      {x: 50 , y: 940},
+      {x: 350 , y: 940},
+      //The East hallway continues
+      {x: 350 , y: 640},
+      {x: 450 , y: 630},
+      //The North Hallway
+      {x: 460 , y: 695},
+      {x: 650 , y: 670},
+      {x: 640 , y: 605},
+      {x: 690 , y: 595},
+      {x: 720 , y: 650},
+      {x: 1100 , y: 430},
+      {x: 945 , y: 160},
+      {x: 550 , y: 350},
+      {x: 480 , y: 355},
+      {x: 350 , y: 300},
+      //The North wall of the West Hallway
+      {x: 350 , y: 0},
+      {x: 20, y: 0}
+    ];
+
+    dormOutlineData = props.dorm === 'EH' ? eastOutlineData : westOutlineData;
+
     var lineFunction = d3.svg.line()
       .x(function(d) {return props.margin + props.scaling*d.x;})
       .y(function(d) {return props.margin + props.scaling*d.y;})

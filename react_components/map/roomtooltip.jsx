@@ -32,14 +32,14 @@ var RoomToolTip = React.createClass({
     var pixelspertextline = 20;
 
     var tooltippath = [ 
-      {x:-60 , y: -pixelspertextline*(props.roommates.length + 1)- 15}, 
-      {x: -60, y: -10},
-      {x: -5 , y: -10},
+      {x:-60 , y: -pixelspertextline*(props.roommates.length + 1)- 25}, 
+      {x: -60, y: -20},
+      {x: -5 , y: -20},
       {x: 0 , y: 0},
-      {x: 5 , y: -10},
-      {x: 60 , y: -10},
-      {x: 60 , y: -pixelspertextline*(props.roommates.length + 1)- 15},
-      {x: -60 , y: -pixelspertextline*(props.roommates.length + 1)- 15}
+      {x: 5 , y: -20},
+      {x: 60 , y: -20},
+      {x: 60 , y: -pixelspertextline*(props.roommates.length + 1)- 25},
+      {x: -60 , y: -pixelspertextline*(props.roommates.length + 1)- 25}
     ];
 
     var roommatestext = _.map(props.roommates, function(roommate, i) {
@@ -47,7 +47,7 @@ var RoomToolTip = React.createClass({
         <text 
           key = {roommate + i} 
           x = {xval - 57} 
-          y = {i*pixelspertextline + props.yval-pixelspertextline*(props.roommates.length)+7}>{roommate}</text>
+          y = {i*pixelspertextline + props.yval-pixelspertextline*(props.roommates.length)-3}>{roommate}</text>
       )
     });
 
@@ -60,11 +60,11 @@ var RoomToolTip = React.createClass({
         <g className = "roomtooltipheader">
           <text
             x = {xval - 57} 
-            y = {props.yval-pixelspertextline*(props.roommates.length)-15}>{props.dorm+props.roomnumber}
+            y = {props.yval-pixelspertextline*(props.roommates.length)-25}>{props.dorm+props.roomnumber}
           </text>
           <text
-            x = {xval + 40} 
-            y = {props.yval-pixelspertextline*(props.roommates.length)-15}>{props.group}</text>
+            x = {xval} 
+            y = {props.yval-pixelspertextline*(props.roommates.length)-25}>{props.roommates.length > 0 ? "Group " + props.group : ""}</text>
         </g>
         <g className = "roomtooltiproomateslist">{roommatestext}</g>
       </g>
