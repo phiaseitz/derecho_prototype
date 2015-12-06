@@ -1,15 +1,18 @@
 messages = [
   {
-    from: "Austin Greene",
-    to: ["Sophia Seitz", "Tenzin Choetso"],
-    subject: "Hallway",
-    body: "Hey! \n I saw you guys align with Ian and I pretty well, we should try and form a hallway"
+    subjectleft: "Pin Conflict",
+    subjectright: "30min ago",
+    body: "Ian and Austin placed their pin in the same room as you! (EH319)"
   },
   {
-    from: "Joe King",
-    to: ["Sophia Seitz", "Tenzin Choetso"],
-    subject: "BUMP!",
-    body: "We want your room and wanted to let you know before we bump you. No hard feelings!"
+    subjectleft: "Neighbor moved!",
+    subjectright: "1hr ago",
+    body: "Michael and Tom moved their pin into an adjacent room. (EH317)"
+  },
+    {
+    subjectleft: "Neighbor moved!",
+    subjectright: "2hrs ago",
+    body: "Joe and Bob moved out of your hallway!"
   },
 ]
 

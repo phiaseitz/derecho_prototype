@@ -24,6 +24,7 @@
 
 .tab{
   margin: 7.5px;
+  font-family: 'Open Sans';
 }
 
 .Select{
@@ -55,4 +56,18 @@
   margin: 7.5px;
   padding: 5px;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.16);
+  font-family: 'Open Sans';
+}
+
+.messageSubjectright {
+  float: right;
+  font-family: 'Open Sans';
+  font-style: italic;
+ }
+
+.messageSubjectleft {
+  float: left;
+  font-family: 'Open Sans';  
+  font-style: italic;
+
 }
