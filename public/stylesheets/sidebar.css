@@ -109,3 +109,35 @@
 .settings{
   font-style: italic;
 }
+
+.email{
+  width: 350px;
+    height: 30px;
+      font-family: 'Open Sans';
+}
+
+.phone{
+ font-family: 'Open Sans'
+      
+}
+
+.phone1{
+  width: 50px;
+    height: 30px;
+    text-align: center; 
+      
+}
+
+.phone2{
+  width: 70px;
+    height: 30px;
+    text-align: center; 
+      
+}
+
+.contact{
+  width: 350px;
+    height: 100px;
+      
+}
+

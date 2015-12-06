@@ -19,15 +19,20 @@ SettingsTab = React.createClass({
 
 		 </form>
 
-        
-        <div><h2><strong> CONTACT SETTINGS</strong></h2></div>
+       
+        <div> <br></br><h2><strong> CONTACT SETTINGS</strong></h2></div>
         <br></br>
         <p className= "settings"> Email </p> 
-        <input type="text" name="firstname"></input>
-		<p className= "settings"> Phone </p>
-		<input type="text" name="firstname"></input>
-		<p className= "settings"> Best way to contact </p>
-		<input type="text" name="firstname"></input>
+        <input className= "email" type="text"></input>
+		<p className= "settings">  <br></br>Phone </p>
+		<div className = "phone">
+		   (<input type="text" className="phone1" maxlength="3"></input>)
+		   <input type="text" className="phone1" maxlength="3"></input>-
+		   <input type="text" className="phone2" maxlength="4"></input>
+		</div> <br></br>
+   <p className= "settings"> Best way to contact </p>
+    <textarea className= "contact" rows="4" cols="50"></textarea>
+     
 
   
       </div>
