@@ -13,7 +13,7 @@ TagsList = React.createClass({
     }, this);
   },
 
-  render: function() {
+   render: function() {
     var tagNodes = this.props.pin.tags.map(function(tag){
       var comparing = this.props.comparing;
       if(comparing){
@@ -34,7 +34,7 @@ TagsList = React.createClass({
     return (
       <div className="tags-list">
         <h2 className="tagsListLabel"><strong>Tags</strong></h2>
-        <div className="tagScale"
+        <div className="tagScale">
           <svg id="tagLabelSVG" width="100" height="30">
             <line x1 ={"5%"} x2 ={"5%"} y1 = {"50%"} y2 = {"100%"} stroke = "black" strokeWidth = {2}/>
             <line x1 ={"27.5%"} x2 ={"27.5%"} y1 = {"75%"} y2 = {"100%"} stroke = "black" strokeWidth = {1}/>
