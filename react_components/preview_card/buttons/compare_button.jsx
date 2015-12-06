@@ -1,23 +1,19 @@
 var React = require('react');
 
-var CompareButton = React.createClass({
+var ContactButton = React.createClass({
   handleClick: function() {
-    if(this.props.isPreviewing){
-      this.props.setCompare(this.props.previewPin);
-    } else {
-      this.props.setCompare(null);
-    }
+    this.props.setContactInfoShown();
   },
 
   render: function() {
     return (
       <div id="compareButton"
-        className="nohighlight previewButton"
-        onClick={this.handleClick}
-        title="Compare tags"
-      />
+          className="nohighlight previewButton"
+          onClick={this.handleClick}
+          title="Compare tags">
+      </div>
     );
   }
 });
 
-module.exports = CompareButton
+module.exports = ContactButton
