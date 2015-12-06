@@ -44,7 +44,7 @@ TagsList = React.createClass({
             <text x = {"4%"} y = {10}>{"Must Avoid"}</text>
             <text x = {"96%"} y = {10} textAnchor="end">{"Must Have"}</text>   
           </svg>
-        />
+        </div>
         {tagNodes}
       </div>
     );
