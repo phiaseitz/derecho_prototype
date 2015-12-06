@@ -28,8 +28,9 @@ var Room = React.createClass({
   },
 
   handleClick: function() {
-    this.props.setPreviewPin(this.props.roomPinData[0]);
+    this.props.setPreviewPin(this.props.roomPinData);
     this.props.setPreview(true);
+    console.log(this.props.roomPinData);
   },
 
   render: function() {
