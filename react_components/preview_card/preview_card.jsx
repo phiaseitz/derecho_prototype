@@ -39,6 +39,7 @@ var PreviewCard = React.createClass({
 
 
   render: function() {
+    console.log(this.state.contactInfoShown);
     var contactInfoShown = this.state.contactInfoShown ? "visible" : "hidden";
     var secondaryButtonsShown =
         this.state.confirmationInProgress ?  "hidden" : "visible";
