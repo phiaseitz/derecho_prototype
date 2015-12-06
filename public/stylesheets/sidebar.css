@@ -1,19 +1,23 @@
 .sidebar {
-  width: 25vw;
+  width: 25%;
   float: left;
   min-height: 80vh;
-  margin-top: 25px;
-  margin-left: 25px;
-  margin-bottom: 25px;
-  padding: 5px 10px 40px;
+  margin-top: 20px;
+  margin-left: 20px;
+  padding-bottom: 40px;
   background: #FFFFFF;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.16);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.26);
+  border-buttom-left-radius: 2px;
+  border-buttom-right-radius: 2px;
+  font-family: 'Open Sans';
 }
 
 .menuBar{
-  height: 40px;
+  background-color: #333333;
+  height: 44px;
   width: 100%;
-  border-bottom: 2px solid #000000;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
 }
 
 .tabButton {
@@ -24,17 +28,11 @@
 }
 
 .tab{
-  margin: 15px 7.5px 7.5px;
-}
-
-.message{
   margin: 7.5px;
-  padding: 5px;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.16);
 }
 
 .Select{
-  margin-top: 15px;
+  margin-top: 5px;
 }
 
 .tagsListLabel{
@@ -63,25 +61,30 @@
 }
 
 .tag{
-  display: inline-block;
-  margin: 0px 5px 20px;
-  width: calc(100% - 10px);
+  margin: 2.5px;
+  width: calc(100% - 5px);
 }
 
 .tagText{
-  display: inline-block;
+  float: left;
   width: 100px;
   margin-right: 5px;
   vertical-align: middle;
-  text-align: center;
-  transform: translateY(10%);
+  transform: translateY(75%);
   font-family: 'Open Sans';
   color: black;
 }
 
 .tagSlider{
-  display: inline-block;
-  width: calc(100% - 5px - 100px);
+  float:right;
+  width: calc(100% - 100px);
+  position: relative;
+}
+
+.message{
+  margin: 7.5px;
+  padding: 5px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.16);
 }
 
 .comparisonSlider{
