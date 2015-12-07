@@ -13,6 +13,11 @@
     font-family: 'Open Sans';
     src: url(/fonts/sourcesanspro.otf);
 }
+body{
+
+    background: #EEEEEE;
+}
+
 
 .lane { font-family: 'Open Sans'; }
 .fabrica { font-family: 'Open Sans'; }

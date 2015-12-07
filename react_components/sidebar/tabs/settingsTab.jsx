@@ -32,8 +32,9 @@ SettingsTab = React.createClass({
 		</div> <br></br>
    <p className= "settings"> Best way to contact </p>
     <textarea className= "contact" rows="4" cols="50"></textarea>
-     
-
+    <div><br></br>
+         <button type="submit" className="save-button" class="button">SAVE</button>
+    </div>
   
       </div>
     )

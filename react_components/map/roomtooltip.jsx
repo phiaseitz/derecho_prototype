@@ -29,26 +29,42 @@ var RoomToolTip = React.createClass({
       .y(function(d) {return props.yval + d.y;})
       .interpolate("linear");
 
-    var pixelspertextline = 20;
+    var pixelsPerTextLine = 20;
+
+    var roommatesPerRoom = props.type === 'double' ? 2 : 6;
 
     var tooltippath = [ 
-      {x:-60 , y: -pixelspertextline*(props.roommates.length + 1)- 25}, 
+      {x:-60 , y: -pixelsPerTextLine*(roommatesPerRoom * props.roommates.length + 1)- 25}, 
       {x: -60, y: -20},
       {x: -5 , y: -20},
       {x: 0 , y: 0},
       {x: 5 , y: -20},
       {x: 60 , y: -20},
-      {x: 60 , y: -pixelspertextline*(props.roommates.length + 1)- 25},
-      {x: -60 , y: -pixelspertextline*(props.roommates.length + 1)- 25}
+      {x: 60 , y: -pixelsPerTextLine*(roommatesPerRoom *props.roommates.length + 1)- 25},
+      {x: -60 , y: -pixelsPerTextLine*(roommatesPerRoom *props.roommates.length + 1)- 25}
     ];
-
-    var roommatestext = _.map(props.roommates, function(roommate, i) {
-      return (
-        <text 
-          key = {roommate + i} 
-          x = {xval - 57} 
-          y = {i*pixelspertextline + props.yval-pixelspertextline*(props.roommates.length)-3}>{roommate}</text>
-      )
+    var roommatesPinsDisplay = _.map(props.roommates, function(roommatePin, i){
+      var roommatesDisplay = _.map(roommatePin, function(roommate, j){
+        return (
+          <text 
+            key = {roommate + i} 
+            x = {xval - 57} 
+            y = {i * roommatesPerRoom * pixelsPerTextLine +  j*pixelsPerTextLine + props.yval-pixelsPerTextLine*roommatesPerRoom*(props.roommates.length)-3}>{roommate}
+          </text>
+        )
+      });
+      if (i >= 0){
+        roommatesDisplay.push(
+        <line
+          x1 = {xval - 57}
+          x2 = {xval + 57}
+          y1 = {(i) * roommatesPerRoom * pixelsPerTextLine +  props.yval-pixelsPerTextLine*roommatesPerRoom*(props.roommates.length) - 5*pixelsPerTextLine/6}
+          y2 = {(i) * roommatesPerRoom * pixelsPerTextLine +  props.yval-pixelsPerTextLine*roommatesPerRoom*(props.roommates.length) - 5*pixelsPerTextLine/6}
+          stroke = "black"
+          strokeWidth = {1}
+        />);
+      }
+      return roommatesDisplay;
     });
 
     return (
@@ -60,17 +76,20 @@ var RoomToolTip = React.createClass({
         <g className = "roomtooltipheader">
           <text
             x = {xval - 57} 
-            y = {props.yval-pixelspertextline*(props.roommates.length)-25}>{props.dorm+props.roomnumber}
+            y = {props.yval-roommatesPerRoom*pixelsPerTextLine*(props.roommates.length)-25}>{props.dorm+props.roomnumber}
           </text>
-          <text
-            x = {xval} 
-            y = {props.yval-pixelspertextline*(props.roommates.length)-25}>{props.roommates.length > 0 ? "Group " + props.group : ""}</text>
         </g>
-        <g className = "roomtooltiproomateslist">{roommatestext}</g>
+        <g className = "roomtooltiproomateslist">{roommatesPinsDisplay}</g>
       </g>
         
     );
   }
 });
+
+/*<text
+            x = {xval} 
+            y = {props.yval-pixelsPerTextLine*(props.roommates.length)-25}>{props.roommates.length > 0 ? "Group " + props.group : ""}</text>
+
+            <g className = "roomtooltiproomateslist">{roommatesPinText}</g>*/
 
 module.exports = RoomToolTip;

@@ -28,13 +28,12 @@ var Room = React.createClass({
   },
 
   handleClick: function() {
-    console.log(this.props.roominfo.room);
-    this.props.setPreviewPin(this.props.roomPinData[0]);
+    this.props.setPreviewPin(this.props.roomPinData);
     this.props.setPreview(true);
+    console.log(this.props.roomPinData);
   },
 
   render: function() {
-    console.log(this.props);
     var props = this.props;
     var lineFunction = d3.svg.line()
       .x(function(d) {return props.margin + props.scaling*d.x;})
@@ -49,41 +48,48 @@ var Room = React.createClass({
       swidth = 3;
       tooltipvis = true;
     }
-    var circleOpacity = "1";
     var roommates = [];
     //No one has placed a pin here
-    if (props.roomPinData[0].occupants.length === 0){
-      circleOpacity = "0";
-    } else{
-      roommates = _.map(props.roomPinData[0].occupants, function(occupant,i) {
-        return occupant.firstName + " " + occupant.lastName;
+    if (props.roomPinData[0].occupants.length > 0){
+      roommates = _.map(props.roomPinData, function(pinData,i){
+        return _.map(pinData.occupants, function(occupant,i) {
+          return occupant.firstName + " " + occupant.lastName;
+        })
       });
     }
 
+    var occupancyCircles = _.map(props.roomPinData, function (pinData,i){
+      if(pinData.occupants.length > 0){
+        return (
+        <circle
+            cx= {props.margin + props.scaling*props.roominfo.labelx - 12 + i*5}
+            cy={props.margin + props.scaling*props.roominfo.labely - 12}
+            r="2"
+            fill="#404040"/>
+        )
+      }
+    });
+
     return (
-      <g> 
-        <path 
-          d = {lineFunction(props.roominfo.pathpoints)} 
-          stroke = {"black"} 
-          strokeWidth = {swidth} 
-          fill = {roomcolor} 
+      <g>
+        <path
+          d = {lineFunction(props.roominfo.pathpoints)}
+          stroke = {"black"}
+          strokeWidth = {swidth}
+          fill = {roomcolor}
           onMouseOver = {this.handleMouseOver}
           onMouseOut = {this.handleMouseOut}
           onClick = {this.handleClick}/>
         <g className = "roomlabel">
-          
-          <text 
-            x = {props.margin + props.scaling*props.roominfo.labelx} 
-            y = {props.margin + props.scaling*props.roominfo.labely + 2} 
+
+          <text
+            x = {props.margin + props.scaling*props.roominfo.labelx}
+            y = {props.margin + props.scaling*props.roominfo.labely + 2}
             fill ="black">{roomlabel}</text>
-          <circle 
-            fillOpacity = {circleOpacity}
-            cx= {props.margin + props.scaling*props.roominfo.labelx - 12} 
-            cy={props.margin + props.scaling*props.roominfo.labely - 15}  
-            r="2" 
-            fill="#404040"/>
+          <g className = "occupancyCircles">{occupancyCircles}</g>
         </g>
-        <RoomToolTip 
+        <RoomToolTip
+          type = {props.roominfo.type}
           visiblity = {tooltipvis}
           dorm = {props.roominfo.dorm}
           roomnumber = {roomlabel}
@@ -92,19 +98,8 @@ var Room = React.createClass({
           xval = {props.margin + props.scaling*props.roominfo.labelx}
           yval = {props.margin + props.scaling*props.roominfo.labely - 20}/>
       </g>
-        
     );
   }
 });
-
-/*<rect 
-            x = {props.margin + props.scaling*props.roominfo.labelx - 14} 
-            y = {props.margin + props.scaling*props.roominfo.labely - 12} 
-            width = {30}
-            height = {18}
-            rx = {5}
-            ry = {5}
-            // opacity = {0.5}
-            fill ="#404040">{roomlabel}</rect>*/
 
 module.exports = Room;

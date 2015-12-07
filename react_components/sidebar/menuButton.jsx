@@ -15,8 +15,8 @@ MenuButton = React.createClass({
 
         return (
             <div className={buttonClass} onClick={this.handleClick}>
-                <span className="menuButtonText">
-                    {this.props.name}
+                <span className="menuButtonText tabButtonText">
+                    <i className="material-icons">{this.props.name}</i>
                 </span>
             </div>
         )

@@ -149,3 +149,22 @@
       
 }
 
+.save-button {
+  float: center;
+  width: 102px;
+  padding: 6px;
+  font-weight: bold;;
+  /*color: #333333;*/
+  background-color: #E0E0E0;
+  border-radius: 2px;
+  cursor: pointer;
+  text-align: center;
+  font-family: 'Open Sans';
+  position:relative;
+   position: relative;
+   left: 130px;
+}
+
+button:hover {
+    background-color: #B8B8B8   ;
+}

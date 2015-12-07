@@ -48,7 +48,7 @@ auth.configure = function() {
 	        // Checks if the user exists
 	        if (!user) return done(null, false);
 	        // Checks if the password is valid
-	        if(!user.validPassword(password)) return(null, false);
+	        if(!user.validPassword(password)) return done(null, false);
 	        else return done(null, user);
 	      });
 	  }
