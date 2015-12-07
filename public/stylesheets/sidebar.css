@@ -70,7 +70,16 @@
   display: relative;
   width: calc(100% - 5px - 100px);
   top: -7.5px;
-  left: 105px;}
+  left: 105px;
+}
+
+.moveableHandle:hover {
+  background-color: #303F9F;
+  width: 15px;
+  height: 15px;
+  transform: translate(-1.25px, -5px);
+  border-radius: 10px;
+}
 
 .tagText{
   float: left;
