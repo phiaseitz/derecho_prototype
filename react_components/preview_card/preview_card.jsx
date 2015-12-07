@@ -23,65 +23,75 @@ var PreviewCard = React.createClass({
   },
 
   setPin: function() {
+    this.setConfirmationInProgress();
+  },
+
+  confirmPin: function() {
     if (this.state.confirmationInProgress) {
       newUserPin = {
         group: this.props.userPin.group,
         occupants: this.props.userPin.occupants,
-        hall: this.props.previewPin.hall,
-        room: this.props.previewPin.room,
+        hall: this.props.previewPin[0].hall,
+        room: this.props.previewPin[0].room,
         tags: this.props.userPin.tags
       };
-      console.log(newUserPin);
       this.props.setPin(newUserPin);
     }
     this.setConfirmationInProgress();
   },
 
+  abortPin: function() {
+    this.setConfirmationInProgress();
+  },
 
   render: function() {
     console.log(this.state.contactInfoShown);
+    if (!this.props.isPreviewing) {
+      this.state.confirmationInProgress = false;
+    }
     var contactInfoShown = this.state.contactInfoShown ? "visible" : "hidden";
     var secondaryButtonsShown =
         this.state.confirmationInProgress ?  "hidden" : "visible";
     var confirmationTextShown =
         this.state.confirmationInProgress ? "visible" : "hidden";
-    var roomNumber = (this.props.previewPin.hall ? 'East Hall' : 'West Hall') +
-        ' ' + this.props.previewPin.room;
-
-    var displayRoommateContainer = this.props.isPreviewing && this.props.previewPin.group != "";
-    var roommateContainer;
+    var roomNumber = (this.props.previewPin[0].hall ? 'East Hall' : 'West Hall') +
+        ' ' + this.props.previewPin[0].room;
+    var displayRoommateContainer = this.props.isPreviewing && this.props.previewPin[0].occupants.length > 0;
+    var roommateContainer = [];
     if (displayRoommateContainer) {
-      var occupantInfo = [];
-      for (i = 0; i < this.props.previewPin.occupants.length; i++) {
-        occupantInfo.push(
-            <div className="occupantName"> 
-            {this.props.previewPin.occupants[i].firstName +
-            ' ' + this.props.previewPin.occupants[i].lastName}</div>
-            );
-        if (this.state.contactInfoShown) {
-          for (j = 0; j < this.props.previewPin.occupants[i].contactMethods.length; j++) {
-            occupantInfo.push(
-                <div className="occupantContactMethod preview-contact-block"> 
-                {this.props.previewPin.occupants[i].contactMethods[j]}</div>
-                );
-            occupantInfo.push(
-                <div className="occupantContactValue preview-contact-block"> 
-                {this.props.previewPin.occupants[i].contactValues[j]}</div>
-                );
+      for (i = 0; i < this.props.previewPin.length; i++) {
+        var occupantInfo = [];
+        for (j = 0; j < this.props.previewPin[i].occupants.length; j++) {
+          occupantInfo.push(
+              <div className="occupantName"> 
+              {this.props.previewPin[i].occupants[j].firstName +
+              ' ' + this.props.previewPin[i].occupants[j].lastName}</div>
+              );
+          if (this.state.contactInfoShown) {
+            for (k = 0; k < this.props.previewPin[i].occupants[j].contactMethods.length; k++) {
+              occupantInfo.push(
+                  <div className="occupantContactMethod preview-contact-block"> 
+                  {this.props.previewPin[i].occupants[j].contactMethods[k]}</div>
+                  );
+              occupantInfo.push(
+                  <div className="occupantContactValue preview-contact-block"> 
+                  {this.props.previewPin[i].occupants[j].contactValues[k]}</div>
+                  );
+            }
           }
         }
-      }
-      roommateContainer = <div className="roommate-container">
-            <PreviewCardButton
-                title="Compare tags"
-                icon="thumbs_up_down"
-                clickFunction={this.props.setCompare}
-            />
-            <div id="preview-group">
-              {'Group ' + this.props.previewPin.group}
-            </div>
-            {occupantInfo}
-          </div>;
+        roommateContainer.push(<div className="roommate-container">
+              <PreviewCardButton
+                  title="Compare tags"
+                  icon="thumbs_up_down"
+                  clickFunction={this.props.setCompare}
+              />
+              <div id="preview-group">
+                {'Group ' + this.props.previewPin[i].group}
+              </div>
+              {occupantInfo}
+            </div>);
+      }      
     }
     return (
       <div id="preview-card">
@@ -102,13 +112,26 @@ var PreviewCard = React.createClass({
             />
           </div>
         </div>
+        <div id="preview-confirm-container"
+            className={this.state.confirmationInProgress ? "" : "hidden"}>
+          <div id="confirmation-text">
+            Are you sure?
+          </div>
+          <PreviewCardButton
+              title="Abort pin placement"
+              icon="cancel"
+              clickFunction={this.abortPin}
+          />
+          <PreviewCardButton
+              title="Confirm pin placement"
+              icon="check_circle"
+              clickFunction={this.confirmPin}
+          />
+        </div>
         {displayRoommateContainer ? roommateContainer : ''}
         <div id="preview-info-comments" className="preview-info-container">
-          {this.props.isPreviewing && this.props.previewPin.group == "" ? '[empty room]' : ''}
+          {this.props.isPreviewing && this.props.previewPin[0].occupants.length == 0 ? '[empty room]' : ''}
           {this.props.isPreviewing ? '' : '[click a room to preview]'}
-        </div>
-        <div id="preview-confirm-container">
-
         </div>
       </div>
     );
