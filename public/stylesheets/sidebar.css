@@ -2,17 +2,22 @@
   width: 25%;
   float: left;
   min-height: 80vh;
-  margin-top: 10px;
-  margin-left: 10px;
+ margin-top: 20px;
+  margin-left: 20px;
   padding-bottom: 40px;
   background: #FFFFFF;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.16);
+ box-shadow: 0 2px 5px rgba(0,0,0,0.26);
+  border-buttom-left-radius: 2px;
+  border-buttom-right-radius: 2px;
+  font-family: 'Open Sans';
 }
 
-.menuBar{
-  height: 40px;
+.menuBar {
+  background-color: #333333;
+  height: 44px;
   width: 100%;
-  border-bottom: 2px solid #000000;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
 }
 
 .tabButton {

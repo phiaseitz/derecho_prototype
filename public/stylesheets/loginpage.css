@@ -1,18 +1,4 @@
-/* ----- Font Classes ----- */
-@font-face {
-    font-family: 'Open Sans';
-    src: url(/fonts/lane.ttf);
-}
 
-@font-face {
-    font-family: 'Open Sans';
-    src: url(/fonts/fabrica.otf);
-}
-
-@font-face {
-    font-family: 'Open Sans';
-    src: url(/fonts/sourcesanspro.otf);
-}
 body{
 
     background: #EEEEEE;
