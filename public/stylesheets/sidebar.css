@@ -1,9 +1,10 @@
 .sidebar {
-  width: 25%;
+  width: 25vw;
   float: left;
   min-height: 80vh;
- margin-top: 20px;
-  margin-left: 20px;
+  margin-top: 25px;
+  margin-left: 25px;
+  margin-bottom: 25px;
   padding-bottom: 40px;
   background: #FFFFFF;
  box-shadow: 0 2px 5px rgba(0,0,0,0.26);
@@ -28,12 +29,18 @@
 }
 
 .tab{
+  margin: 15px 7.5px 7.5px;
+}
+
+.message{
   margin: 7.5px;
   font-family: 'Open Sans';
+  padding: 5px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.16);
 }
 
 .Select{
-  margin-top: 5px;
+  margin-top: 15px;
 }
 
 .tagsListLabel{
@@ -50,9 +57,10 @@
 .tagScale{
   display: inline-block;
   margin-top: 25px;
-  width: calc(100% - 5px - 100px);
+  width: calc(100% - 10px - 24px - 100px);
   height: 30px;
 }
+
 
 #tagLabelSVG{
   width: calc(100%);
@@ -62,15 +70,9 @@
 }
 
 .tag{
-  margin: 2.5px;
-  width: calc(100% - 5px);
-}
-
-.comparisonSlider{
-  display: relative;
-  width: calc(100% - 5px - 100px);
-  top: -7.5px;
-  left: 105px;
+  display: inline-block;
+  margin: 0px 5px 20px;
+  width: calc(100% - 10px);
 }
 
 .moveableHandle:hover {
@@ -82,26 +84,82 @@
 }
 
 .tagText{
-  float: left;
+  display: inline-block;
   width: 100px;
   margin-right: 5px;
   vertical-align: middle;
-  transform: translateY(75%);
-  font-family: 'Open Sans';
+  text-align: center;
+  transform: translateY(10%);
+ :font-family: 'Open Sans';
   color: black;
 }
 
 .tagSlider{
-  float:right;
-  width: calc(100% - 100px);
-  position: relative;
+  display: inline-block;
+  width: calc(100% - 10px - 24px - 100px);
+  vertical-align: middle;
 }
 
-.message{
-  margin: 7.5px;
-  padding: 5px;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.16);
-  font-family: 'Open Sans';
+.comparisonSlider{
+  float:left;
+  clear:left;
+  width: calc(100% - 10px - 24px - 100px);
+  top: -12.5px;
+  left: 105px;
+}
+
+.staticHandle {
+  background-color: #9E9E9E;
+  width: 12.5px;
+  height: 12.5px;
+  border-radius: 10px;
+  z-index:2 !important;
+  transform: translate(0, -3.75px);
+}
+
+.moveableHandle{
+  background-color: #303F9F;
+  width: 12.5px;
+  height: 12.5px;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+  z-index: 3 !important;
+  transform: translateY(-3.75px);
+}
+
+.moveableHandle:hover {
+  background-color: #303F9F;
+  width: 15px;
+  height: 15px;
+  transform: translate(-1.25px, -5px);
+  border-radius: 10px;
+}
+
+.moveableHandle.active{
+  background-color: #303F9F;
+  width: 15px;
+  height: 15px;
+  transform: translate(-1.25px, -5px);
+  border-radius: 10px;
+}
+
+.bar {
+  background: #E0E0E0;
+  height: 5px;
+  border-radius: 5px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+  z-index:1;
+}
+
+.tagRemoveBtn {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  margin-left: 5px;
+  cursor: pointer;
+  vertical-align: middle;
+  transform: translateY(2.5px);
 }
 
 .messageSubjectright {
@@ -115,15 +173,6 @@
   font-family: 'Open Sans';  
   font-style: italic;
 
-}
-
-.staticHandle {
-  background-color: #9E9E9E;
-  width: 12.5px;
-  height: 12.5px;
-  border-radius: 10px;
-  z-index:2 !important;
-  transform: translate(0, -3.75px)
 }
 
 .emails{margin: 7.5px;
@@ -192,8 +241,7 @@
 }
 
 .phone{
- font-family: 'Open Sans'
-      
+ font-family: 'Open Sans'  
 }
 
 .phone1{

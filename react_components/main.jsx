@@ -14,7 +14,6 @@ var messages = require('./mocks/messages.jsx');
 
 sampleUser.messages = messages;
 
-
 var Main = React.createClass({
 
     getInitialState: function() {
@@ -22,7 +21,7 @@ var Main = React.createClass({
             currentFloor: 4,
             userPin: sampleUser.pin,
             previewPin: currentUserPinData,
-            isComparing: false,
+            comparing: null,
             user: sampleUser,
             tags: sampleTags,
             isPreviewing: false,
@@ -43,14 +42,14 @@ var Main = React.createClass({
       });
     },
 
-    setCompare: function() {
-        this.setState({
-          isComparing: !this.state.isComparing
-        });
-    },
+    updateCompare: function(comparePin) {
+        if(comparePin == this.state.comparing){
+            comparePin = null;
+        }
 
-    isComparing: function() {
-        return this.state.isComparing;
+        this.setState({
+          comparing: comparePin
+        });
     },
 
     setPin: function(pin) {
@@ -91,6 +90,7 @@ var Main = React.createClass({
                         pin={this.state.userPin}
                         user={this.state.user}
                         tags={this.state.tags}
+                        comparing={this.state.comparing}
                         onPinUpdate={this.onPinUpdate}
                         onTagAdd= {this.onTagAdd}
                     />
@@ -107,8 +107,7 @@ var Main = React.createClass({
                     />
                     <PreviewCard
                         previewPin={this.state.previewPin}
-                        setCompare={this.setCompare}
-                        isComparing={this.isComparing}
+                        updateCompare={this.updateCompare}
                         setPin={this.setPin}
                         userPin = {this.state.userPin}
                         isPreviewing = {this.state.isPreviewing}

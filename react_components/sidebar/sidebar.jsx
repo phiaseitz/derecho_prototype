@@ -37,7 +37,7 @@ Sidebar = React.createClass({
         }
 
         return (
-            <div className="sidebar">
+            <div className="sidebar nohighlight">
                 <MenuBar
                     onMenuClick={this.onMenuClick}
                     selectedTab={this.state.selectedTab}
