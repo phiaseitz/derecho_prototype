@@ -36,10 +36,41 @@
   margin-top: 5px;
 }
 
+.tagsListLabel{
+  display: inline-block;
+  width: 100px;
+  height: 30px;
+  margin-right: 5px;
+  text-align: center;
+  vertical-align: middle;
+  transform: translateY(-15px);
+  font-family: 'Open Sans';
+}
+
+.tagScale{
+  display: inline-block;
+  margin-top: 25px;
+  width: calc(100% - 5px - 100px);
+  height: 30px;
+}
+
+#tagLabelSVG{
+  width: calc(100%);
+  height: 30px;
+  font-family: 'Open Sans';
+  font-size: 10px;
+}
+
 .tag{
   margin: 2.5px;
   width: calc(100% - 5px);
 }
+
+.comparisonSlider{
+  display: relative;
+  width: calc(100% - 5px - 100px);
+  top: -7.5px;
+  left: 105px;}
 
 .tagText{
   float: left;
@@ -75,6 +106,15 @@
   font-family: 'Open Sans';  
   font-style: italic;
 
+}
+
+.staticHandle {
+  background-color: #9E9E9E;
+  width: 12.5px;
+  height: 12.5px;
+  border-radius: 10px;
+  z-index:2 !important;
+  transform: translate(0, -3.75px)
 }
 
 .emails{margin: 7.5px;
@@ -115,12 +155,31 @@
   font-style: italic;
 }
 
+.moveableHandle{
+  background-color: #303F9F;
+  width: 12.5px;
+  height: 12.5px;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+  z-index: 3 !important;
+  transform: translateY(-3.75px)
+}
+
 .email{
   width: 350px;
   height: 30px;
     font-family: 'Open Sans';
     font-size: 100%;
       
+}
+
+.moveableHandle.active{
+  background-color: #303F9F;
+  width: 15px;
+  height: 15px;
+  transform: translate(-1.25px, -5px);
+  border-radius: 10px;
 }
 
 .phone{
@@ -135,6 +194,14 @@
   font-size: 100%;
   font-family: 'Open Sans'
 
+}
+
+.bar {
+  background: #E0E0E0;
+  height: 5px;
+  border-radius: 5px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+  z-index:1;
 }
 
 .phone2{
