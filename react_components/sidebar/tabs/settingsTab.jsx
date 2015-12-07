@@ -23,12 +23,12 @@ SettingsTab = React.createClass({
         <div> <br></br><h2><strong> CONTACT SETTINGS</strong></h2></div>
         <br></br>
         <p className= "settings"> Email </p> 
-        <input className= "email" type="text"></input>
+        <input className= "email" type="text" value= "sophia.seitz@students.olin.edu"></input>
 		<p className= "settings">  <br></br>Phone </p>
 		<div className = "phone">
-		   (<input type="text" className="phone1" maxlength="3"></input>)
-		   <input type="text" className="phone1" maxlength="3"></input>-
-		   <input type="text" className="phone2" maxlength="4"></input>
+		   (<input type="text" value= "555" className="phone1" maxlength="3"></input>)
+		   <input type="text" value= "555" className="phone1" maxlength="3"></input>-
+		   <input type="text" value= "5555" className="phone2" maxlength="4"></input>
 		</div> <br></br>
    <p className= "settings"> Best way to contact </p>
     <textarea className= "contact" rows="4" cols="50"></textarea>
