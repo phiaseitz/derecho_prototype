@@ -12,7 +12,6 @@ var sampleUser = require('./mocks/user.jsx');
 var sampleTags = require('./mocks/tags.jsx');
 var messages = require('./mocks/messages.jsx');
 
-sampleUser.pin = currentUserPinData;
 sampleUser.messages = messages;
 
 
@@ -57,7 +56,7 @@ var Main = React.createClass({
     setPin: function(pin) {
         this.setState({
           userPin: pin,
-          previewPin: pin
+          previewPin: [pin]
         });
     },
     onPinUpdate: function(pin){

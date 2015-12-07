@@ -19,13 +19,11 @@ var DormMap = React.createClass({
   },
 
   handleClick: function() {
-    console.log("mapclick");
     this.props.setPreview(false);
   },
 
   render: function() {
     var props = this.props;
-    console.log(this.props);
 
     var disagreeColor = "#ff8080";
     var middleColor = "#ddccff";
@@ -53,13 +51,13 @@ var DormMap = React.createClass({
             <stop offset="100%" stopColor= {disagreeColor}/>
           </linearGradient>
         </defs>
-        <rect 
-          x= {0} 
-          y= {0} 
+        <rect
+          x= {0}
+          y= {0}
           fillOpacity = {0}
           strokeOpacity = {0}
           width = {this.props.width}
-          height = {this.props.height} 
+          height = {this.props.height}
           style = {{fill: "white", stroke: "white"}}
           onClick = {this.handleClick} />
         <HeatMapLegend
@@ -70,7 +68,7 @@ var DormMap = React.createClass({
           disagreeColor = {disagreeColor}/>
         <DormOutline
           margin = {props.margin}
-          scaling = {scaling} 
+          scaling = {scaling}
           dorm = {props.dorm}/>
         <DormRooms
           dorm = {props.dorm}

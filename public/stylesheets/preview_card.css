@@ -25,6 +25,15 @@
   border-top-right-radius: 2px;
 }
 
+#preview-confirm-container {
+  height: 44px;
+  width: 100%;
+  color: white;
+  background-color: #555555;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+}
+
 #preview-room-number {
   float: left;
   font-weight: bold;
@@ -93,11 +102,10 @@
 }
 
 #confirmation-text {
-  width: 66%;
   float: left;
-  text-align: left;
-  font-size: 9pt;
-  margin-top: 9%;
+  font-style: italic;
+  padding: 8px;
+  padding-top: 10px;
 }
 
 .previewButton {
@@ -118,6 +126,11 @@
 }
 
 #preview-header .previewButton {
+  margin-top: 4px;
+  margin-right: 8px;
+}
+
+#preview-confirm-container .previewButton {
   margin-top: 4px;
   margin-right: 8px;
 }

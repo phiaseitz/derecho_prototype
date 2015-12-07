@@ -1,5 +1,6 @@
 var React = require('react');
 var Select = require('react-select');
+var ReactSlider = require('react-slider');
 
 TagsList = React.createClass({
   onTagSlide: function(tagLabel, tagValue){
@@ -12,41 +13,79 @@ TagsList = React.createClass({
     }, this);
   },
 
-  render: function() {
-    var tagNodes = this.props.pin.tags.map(function (tag) {
+   render: function() {
+    var tagNodes = this.props.pin.tags.map(function(tag){
+      var comparing = this.props.comparing;
+      if(comparing){
+        console.log(comparing)
+        comparing.tags.forEach(function (testTag){
+          if(testTag.label === tag.label){
+            comparing = testTag;
+          }
+        }, this);
+      }
       return (<TagCard
         tag={tag}
+        comparing={comparing}
         onTagSlide={this.onTagSlide}
         key={tag.label}
       />)
     }.bind(this));
     return (
       <div className="tags-list">
+        <h2 className="tagsListLabel"><strong>Tags</strong></h2>
+        <div className="tagScale">
+          <svg id="tagLabelSVG" width="100" height="30">
+            <line x1 ={"5%"} x2 ={"5%"} y1 = {"50%"} y2 = {"100%"} stroke = "black" strokeWidth = {2}/>
+            <line x1 ={"27.5%"} x2 ={"27.5%"} y1 = {"75%"} y2 = {"100%"} stroke = "black" strokeWidth = {1}/>
+            <line x1 ={"50%"} x2 ={"50%"} y1 = {"85%"} y2 = {"100%"} stroke = "black" strokeWidth = {1}/>
+            <line x1 ={"72.5%"} x2 ={"72.5%"} y1 = {"75%"} y2 = {"100%"} stroke = "black" strokeWidth = {1}/>
+            <line x1 ={"95%"} x2 ={"95%"} y1 = {"50%"} y2 = {"100%"} stroke = "black" strokeWidth = {2}/>
+            <text x = {"4%"} y = {10}>{"Must Avoid"}</text>
+            <text x = {"96%"} y = {10} textAnchor="end">{"Must Have"}</text>   
+          </svg>
+        </div>
         {tagNodes}
       </div>
     );
   }
-
 })
 
 TagCard = React.createClass({
-  handleChange: function(event){
-    this.props.onTagSlide(this.props.tag.label, event.target.value)
+  handleChange: function(value){
+    this.props.onTagSlide(this.props.tag.label, value);
   },
 
   render: function () {
+    if(this.props.comparing){
+      var comparisonSlider =
+        <ReactSlider
+          className="comparisonSlider"
+          min={0}
+          max={4}
+          step={1}
+          value={parseFloat(this.props.comparing.value)}
+          disabled={true}
+          handleClassName="staticHandle"
+        />
+    } else{
+      var comparisonSlider = null;
+      value = parseFloat(this.props.tag.value);
+    }
     return (
       <div className="tag">
         <div className="tagText"> {this.props.tag.label} </div>
-        <input className="tagSlider"
-          type="range"
-          name={this.props.tag.label}
+        <ReactSlider
+          className="tagSlider"
+          min={0}
+          max={4}
+          step={1}
+          defaultValue={parseFloat(this.props.tag.value)}
           onChange={this.handleChange}
-          value={this.props.tag.value}
-          min="0"
-          max="4"
-          step="1"
+          handleClassName="moveableHandle"
+          withBars
         />
+        {comparisonSlider}
       </div>
     )
   }
@@ -104,6 +143,7 @@ PinTab = React.createClass({
         <TagsList
           pin={this.props.pin}
           onPinUpdate={this.props.onPinUpdate}
+          comparing={this.props.comparing}
         />
       </div>
     )
