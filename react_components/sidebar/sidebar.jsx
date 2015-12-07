@@ -7,7 +7,7 @@ var MenuBar = require('./menuBar.jsx')
 Sidebar = React.createClass({
     getInitialState: function() {
         return {
-            selectedTab: "dashboard",
+                selectedTab: "dashboard",
         };
     },
 
@@ -32,6 +32,7 @@ Sidebar = React.createClass({
                              />
         } else {
             var currentTab = <SettingsTab
+                                
                              />
         }
 
