@@ -95,11 +95,9 @@ var Main = React.createClass({
                         onTagAdd= {this.onTagAdd}
                     />
                     <DormMap
-                      width={700}
-                      height={700}
                       dorm = {this.state.currentFloor >= 4? "EH" : "WH"}
                       floor = {(this.state.currentFloor % 4) + 1}
-                      margin = {100}
+                      margin = {15}
                       pinData = {allUserPinData}
                       currentUserPinData = {this.state.userPin}
                       setPreviewPin = {this.setPreviewPin}
