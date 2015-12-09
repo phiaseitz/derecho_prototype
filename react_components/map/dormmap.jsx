@@ -89,8 +89,8 @@ var DormMap = React.createClass({
           <HeatMapLegend
             xpos = {props.dorm === "EH" ? props.margin + scaling*1145 - 20:  
               props.margin + scaling*1100 - 20}
-            ypos = {props.dorm === "EH" ? scaling*1090 - scaling*200 - 10:  
-             50+ scaling*960 - scaling*200 - 10}
+            ypos = {props.dorm === "EH" ? props.margin + scaling*1090 - scaling*200:  
+             props.margin + 50+ scaling*960 - scaling*200}
             legendWidth = {4*scaling}
             legendLen = {100*scaling}
             agreeColor = {agreeColor}

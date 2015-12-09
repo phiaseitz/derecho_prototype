@@ -97,7 +97,7 @@ var Main = React.createClass({
                     <DormMap
                       dorm = {this.state.currentFloor >= 4? "EH" : "WH"}
                       floor = {(this.state.currentFloor % 4) + 1}
-                      margin = {15}
+                      margin = {75}
                       pinData = {allUserPinData}
                       currentUserPinData = {this.state.userPin}
                       setPreviewPin = {this.setPreviewPin}
