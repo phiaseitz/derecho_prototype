@@ -20,11 +20,14 @@ MessageCard = React.createClass({
   render: function () {
     return (
       <div className="message">
-        <div className="messageSubject"><strong>{this.props.message.subject}</strong></div>
-        <div className="messageFrom"><strong>From: </strong>{this.props.message.from}</div>
-        <div className="messageTo"><strong> To:</strong> {this.props.message.to.join(", ")} </div>
+        <div className="messageSubjectright">{this.props.message.subjectright}</div>
+        <div className="messageSubjectleft">{this.props.message.subjectleft}</div>
+        <br></br>
+        <hr></hr>
         <div className="messageBody"> {this.props.message.body} </div>
+         <br></br>
       </div>
+     
     )
   }
 })
@@ -33,9 +36,11 @@ NotificationsTab = React.createClass({
   render: function(){
     return (
       <div className="tab">
+        <div><h2><strong> NOTIFICATIONS</strong></h2></div>
+        <br></br>
         <MessageList
           messages={this.props.messages}
-        />
+        />        
       </div>
     )
   }

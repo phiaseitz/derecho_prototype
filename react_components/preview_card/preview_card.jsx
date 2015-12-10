@@ -22,6 +22,14 @@ var PreviewCard = React.createClass({
     });
   },
 
+  setCompare: function(previewPin) {
+    if(this.props.isPreviewing){
+      this.props.updateCompare(previewPin);
+    } else {
+      this.props.updateCompare(null);
+    }
+  },
+
   setPin: function() {
     this.setConfirmationInProgress();
   },
@@ -45,7 +53,6 @@ var PreviewCard = React.createClass({
   },
 
   render: function() {
-    console.log(this.state.contactInfoShown);
     if (!this.props.isPreviewing) {
       this.state.confirmationInProgress = false;
     }
@@ -63,18 +70,18 @@ var PreviewCard = React.createClass({
         var occupantInfo = [];
         for (j = 0; j < this.props.previewPin[i].occupants.length; j++) {
           occupantInfo.push(
-              <div className="occupantName"> 
+              <div className="occupantName">
               {this.props.previewPin[i].occupants[j].firstName +
               ' ' + this.props.previewPin[i].occupants[j].lastName}</div>
               );
           if (this.state.contactInfoShown) {
             for (k = 0; k < this.props.previewPin[i].occupants[j].contactMethods.length; k++) {
               occupantInfo.push(
-                  <div className="occupantContactMethod preview-contact-block"> 
+                  <div className="occupantContactMethod preview-contact-block">
                   {this.props.previewPin[i].occupants[j].contactMethods[k]}</div>
                   );
               occupantInfo.push(
-                  <div className="occupantContactValue preview-contact-block"> 
+                  <div className="occupantContactValue preview-contact-block">
                   {this.props.previewPin[i].occupants[j].contactValues[k]}</div>
                   );
             }
@@ -84,14 +91,14 @@ var PreviewCard = React.createClass({
               <PreviewCardButton
                   title="Compare tags"
                   icon="thumbs_up_down"
-                  clickFunction={this.props.setCompare}
+                  clickFunction={this.setCompare.bind(this, this.props.previewPin[i])}
               />
               <div id="preview-group">
                 {'Group ' + this.props.previewPin[i].group}
               </div>
               {occupantInfo}
             </div>);
-      }      
+      }
     }
     return (
       <div id="preview-card">
