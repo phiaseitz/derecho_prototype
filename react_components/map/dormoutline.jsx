@@ -111,7 +111,12 @@ var DormOutline = React.createClass({
 
     var lineFunction = d3.svg.line()
       .x(function(d) {return props.margin + props.scaling*d.x;})
-      .y(function(d) {return props.margin + props.scaling*d.y;})
+      .y(function(d) {
+        if(props.dorm === 'EH'){
+          return props.margin + props.scaling*d.y;
+        } else{
+          return  50 + props.margin + props.scaling*d.y;
+        }})
       .interpolate("linear");
 
     return (

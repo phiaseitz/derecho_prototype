@@ -1,5 +1,5 @@
 .sidebar {
-  width: 25vw;
+  width: 24vw;
   float: left;
   min-height: 80vh;
   margin-top: 25px;
@@ -7,7 +7,7 @@
   margin-bottom: 25px;
   padding-bottom: 40px;
   background: #FFFFFF;
- box-shadow: 0 2px 5px rgba(0,0,0,0.26);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.26);
   border-buttom-left-radius: 2px;
   border-buttom-right-radius: 2px;
   font-family: 'Open Sans';
@@ -182,7 +182,7 @@
 }
 
 .checkboxes {
-    width: 300px;
+    width: calc(100% - 50px);
     border: 0px;
     margin: 10px;
     font-family: 'Open Sans';
@@ -225,7 +225,7 @@
 }
 
 .email{
-  width: 350px;
+  width: calc(95%);
   height: 30px;
     font-family: 'Open Sans';
     font-size: 100%;
@@ -245,7 +245,7 @@
 }
 
 .phone1{
-  width: 50px;
+  width: calc(25%);
   height: 30px;
   text-align: center; 
   font-size: 100%;
@@ -262,7 +262,7 @@
 }
 
 .phone2{
-  width: 70px;
+  width:  calc(30%);
   height: 30px;
   text-align: center; 
   font-size: 100%;
@@ -271,7 +271,7 @@
 }
 
 .contact{
-  width: 350px;
+  width: calc(95%);
   height: 100px;
   font-size: 100%;
   font-family: 'Open Sans'
@@ -280,18 +280,17 @@
 
 .save-button {
   float: center;
-  width: 102px;
+  width: 100px;
   padding: 6px;
   font-weight: bold;;
-  /*color: #333333;*/
   background-color: #E0E0E0;
   border-radius: 2px;
   cursor: pointer;
   text-align: center;
   font-family: 'Open Sans';
   position:relative;
-   position: relative;
-   left: 130px;
+  font-size: 100%;
+  left: calc(50% - 50px);
 }
 
 button:hover {
