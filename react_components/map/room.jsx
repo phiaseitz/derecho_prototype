@@ -37,7 +37,12 @@ var Room = React.createClass({
     var props = this.props;
     var lineFunction = d3.svg.line()
       .x(function(d) {return props.margin + props.scaling*d.x;})
-      .y(function(d) {return props.margin + props.scaling*d.y;})
+      .y(function(d) {
+        if(props.roominfo.dorm === 'EH'){
+          return props.margin + props.scaling*d.y;
+        } else{
+          return  50 + props.margin + props.scaling*d.y;
+        }})
       .interpolate("linear");
 
     var roomlabel = props.floor + props.roominfo.room;
@@ -62,8 +67,11 @@ var Room = React.createClass({
       if(pinData.occupants.length > 0){
         return (
         <circle
+            key = {props.roominfo.dorm + roomlabel + i} 
             cx= {props.margin + props.scaling*props.roominfo.labelx - 12 + i*5}
-            cy={props.margin + props.scaling*props.roominfo.labely - 12}
+            cy={props.roominfo.dorm === "EH" ? 
+              props.margin + props.scaling*props.roominfo.labely - 12 
+              : 50+ props.margin + props.scaling*props.roominfo.labely - 12}
             r="2"
             fill="#404040"/>
         )
@@ -84,7 +92,9 @@ var Room = React.createClass({
 
           <text
             x = {props.margin + props.scaling*props.roominfo.labelx}
-            y = {props.margin + props.scaling*props.roominfo.labely + 2}
+            y = {props.roominfo.dorm === "EH" ? 
+              props.margin + props.scaling*props.roominfo.labely + 2 
+              : 50+ props.margin + props.scaling*props.roominfo.labely + 2}
             fill ="black">{roomlabel}</text>
           <g className = "occupancyCircles">{occupancyCircles}</g>
         </g>
@@ -96,7 +106,9 @@ var Room = React.createClass({
           group = {props.roomPinData[0].group}
           roommates = {roommates}
           xval = {props.margin + props.scaling*props.roominfo.labelx}
-          yval = {props.margin + props.scaling*props.roominfo.labely - 20}/>
+          yval = {props.roominfo.dorm === "EH" ? 
+            props.margin + props.scaling*props.roominfo.labely - 20*props.scaling
+            : 50 + props.margin + props.scaling*props.roominfo.labely - 20*props.scaling}/>
       </g>
     );
   }
