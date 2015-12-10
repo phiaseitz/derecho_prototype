@@ -33778,7 +33778,7 @@ TagCard = React.createClass({displayName: "TagCard",
         React.createElement("div", {className: "tagRemoveBtn", 
           onClick: this.handleRemove
         }, 
-          React.createElement("i", {className: "material-icons"}, "remove_circle_outline")
+          React.createElement("i", {className: "material-icons"}, "cancel")
         )
       )
     )
