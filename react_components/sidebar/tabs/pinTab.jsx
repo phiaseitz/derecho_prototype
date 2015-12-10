@@ -105,7 +105,7 @@ TagCard = React.createClass({
         <div className="tagRemoveBtn"
           onClick={this.handleRemove}
         >
-          <i className="material-icons">remove_circle_outline</i>
+          <i className="material-icons">cancel</i>
         </div>
       </div>
     )
