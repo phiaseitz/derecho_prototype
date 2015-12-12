@@ -31,6 +31,47 @@ module.exports = function (){
             })
         },
 
+        getTags: function(req, res){
+            Tags.find({}, function(err, tags){
+                if(err){
+                    console.log(err)
+                } else{
+                    res.json(tags);
+                }
+            })
+        },
+
+        updateTag: function(req, res){
+            Tags.findbyId(req.body.id, function (err, tag){
+            if(err){
+                console.log(err)
+            } else {
+                tag.value++;
+                tag.save(function (err){
+                    if(err){
+                    console.log(err)
+                    } else{
+                    res.json(tag);
+                    }
+                })
+            }
+            })
+        },
+
+        addTag: function(req, res){
+            var tag = new Tag();
+
+            tag.value = res.body.value;
+            tag.label = res.body.label;
+            tag.save(function (err){
+                if(err){
+                    console.log(err)
+                } else{
+                    res.json(tag);
+                }
+            })
+        },
+
         postUser: function(req, res){
             console.log(req.body)
             Users.create(req.body, function(err){
